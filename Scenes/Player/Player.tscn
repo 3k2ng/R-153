@@ -32,3 +32,9 @@ enabled = true
 [node name="Up" type="RayCast2D" parent="Raycasts"]
 enabled = true
 cast_to = Vector2( 0, -50 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 0, -95 )
+current = true
+smoothing_enabled = true
+smoothing_speed = 7.0

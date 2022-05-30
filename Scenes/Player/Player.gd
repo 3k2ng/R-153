@@ -6,10 +6,14 @@ onready var ray_right = $Raycasts/Right
 onready var ray_up = $Raycasts/Up
 onready var ray_down = $Raycasts/Down
 onready var sprite = $Sprite
+onready var camera = $Camera2D
 
 export (int) var speed = 400
 export (int) var gravity_strength = 30
 export (int) var roll_animation_speed = 10
+export (float) var zoom_speed = 0.05
+export (float) var min_zoom = 0.5
+export (float) var max_zoom = 4.0;
 
 
 var velocity = Vector2.ZERO
@@ -100,6 +104,14 @@ func _process_input() -> void:
 				_set_state(State.FLOOR)
 			if _ray_up():
 				_set_state(State.CEILING)
+	
+	# Camera Zooming
+	if Input.is_action_just_released("ZoomIn") or Input.is_action_pressed("ZoomIn"):
+		camera.zoom.x = clamp(camera.zoom.x - zoom_speed, min_zoom, max_zoom)
+		camera.zoom.y = clamp(camera.zoom.y - zoom_speed, min_zoom, max_zoom)
+	if Input.is_action_just_released("ZoomOut") or Input.is_action_pressed("ZoomOut"):
+		camera.zoom.x = clamp(camera.zoom.x + zoom_speed, min_zoom, max_zoom)
+		camera.zoom.y = clamp(camera.zoom.y + zoom_speed, min_zoom, max_zoom)
 	
 
 func _process_gravity():
