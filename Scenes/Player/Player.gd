@@ -97,13 +97,17 @@ func _process_input() -> void:
 		if Input.is_action_pressed("Right") and state == State.WALL_LEFT:
 			if _ray_down():
 				_set_state(State.FLOOR)
-			if _ray_up():
+			elif _ray_up():
 				_set_state(State.CEILING)
+			else:
+				_set_state(State.FALLING)
 		if Input.is_action_pressed("Left") and state == State.WALL_RIGHT:
 			if _ray_down():
 				_set_state(State.FLOOR)
-			if _ray_up():
+			elif _ray_up():
 				_set_state(State.CEILING)
+			else:
+				_set_state(State.FALLING)
 	
 	# Camera Zooming
 	if Input.is_action_just_released("ZoomIn") or Input.is_action_pressed("ZoomIn"):
@@ -137,11 +141,11 @@ func _update_state():
 		if ray_down.is_colliding():
 			state = State.FLOOR
 			falling_from_ceiling = false
-		if ray_up.is_colliding():
+		if _ray_up():
 			state = State.CEILING
-		if ray_left.is_colliding():
+		if _ray_left() and Input.is_action_pressed("Left"):
 			state = State.WALL_LEFT
-		if ray_right.is_colliding():
+		if _ray_right() and Input.is_action_pressed("Right"):
 			state = State.WALL_RIGHT
 
 func _update_animation():
