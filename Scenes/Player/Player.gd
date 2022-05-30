@@ -17,6 +17,8 @@ var gravity = Vector2.ZERO
 
 var action = Action.IDLE
 var state = State.FALLING
+var prev_state = State.FALLING
+var falling_from_ceiling = false
 
 enum State {
 	FLOOR,
@@ -43,7 +45,6 @@ func _physics_process(delta: float) -> void:
 	_process_gravity()
 	velocity += gravity
 	velocity = move_and_slide(velocity, Vector2.UP)
-	print(str(state))
 	_update_state()
 	_update_animation()
 	
@@ -75,6 +76,7 @@ func _process_input() -> void:
 				_set_state(State.WALL_LEFT)
 			else:
 				_set_state(State.FALLING)
+				falling_from_ceiling = true
 	
 	# Player moves on y axis
 	if state == State.WALL_LEFT or state == State.WALL_RIGHT:
@@ -112,16 +114,17 @@ func _process_gravity():
 		gravity = Vector2(0, gravity_strength)
 
 func _update_state():
-	if !ray_left.is_colliding() \
-		and !ray_right.is_colliding() \
-		and !ray_up.is_colliding() \
-		and !ray_down.is_colliding() \
+	if !_ray_left() \
+		and !_ray_right() \
+		and !_ray_up() \
+		and !_ray_down() \
 		and !state == State.FALLING:
-			state = State.FALLING
+			_set_state(State.FALLING)
 	
 	if state == State.FALLING:
 		if ray_down.is_colliding():
 			state = State.FLOOR
+			falling_from_ceiling = false
 		if ray_up.is_colliding():
 			state = State.CEILING
 		if ray_left.is_colliding():
@@ -157,9 +160,15 @@ func _update_animation():
 	# TODO: Fix by using previous state
 	if state == State.FALLING:
 		if velocity.x > 0:
-			sprite.rotate(deg2rad(roll_animation_speed))
+			if falling_from_ceiling:
+				sprite.rotate(deg2rad(-roll_animation_speed))
+			else:
+				sprite.rotate(deg2rad(roll_animation_speed))
 		if velocity.x < 0:
-			sprite.rotate(deg2rad(-roll_animation_speed))
+			if falling_from_ceiling:
+				sprite.rotate(deg2rad(roll_animation_speed))
+			else:
+				sprite.rotate(deg2rad(-roll_animation_speed))				
 
 #	if velocity.x > 0 and !_ray_right():
 #		if state == State.CEILING:
@@ -187,6 +196,7 @@ func _ray_down() -> bool:
 	return ray_down.is_colliding()
 		
 func _set_state(state):
+	prev_state = state
 	self.state = state
 
 func _set_action(action):
