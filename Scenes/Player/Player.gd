@@ -7,9 +7,13 @@ onready var ray_up = $Raycasts/Up
 onready var ray_down = $Raycasts/Down
 onready var sprite = $AnimatedSprite
 onready var camera = $Camera2D
+onready var audio_player = $AudioStreamPlayer2D
+onready var particle_system = $ParticleSystem
+onready var animation_player = $AnimationPlayer
 
 export (int) var speed = 400
 export (int) var gravity_strength = 30
+export (int) var jump_strength = 500
 export (float) var roll_animation_speed = 5
 export (float) var zoom_speed = 0.05
 export (float) var min_zoom = 0.5
@@ -23,6 +27,8 @@ var action = Action.IDLE
 var state = State.FALLING
 var prev_state = State.FALLING
 var falling_from_ceiling = false
+var jumped = false
+var sticked = false
 
 enum State {
 	FLOOR,
@@ -54,14 +60,14 @@ func _physics_process(delta: float) -> void:
 	velocity = move_and_slide(velocity, Vector2.UP)
 	_update_state()
 	_update_animation()
-#	print(Action.keys()[action])
-	
+	_update_sounds()
 	
 func _process_input() -> void:
 	
 	# Player moves on x axis
 	if state != State.HACKING:
 		if state == State.FLOOR or state == State.CEILING or state == State.FALLING:
+			jumped = false
 			if state != State.FALLING:
 				velocity.x = 0
 	#		velocity.x = (Input.get_action_strength("Right") - Input.get_action_strength("Left")) * speed
@@ -89,6 +95,7 @@ func _process_input() -> void:
 		
 		# Player moves on y axis
 		if state == State.WALL_LEFT or state == State.WALL_RIGHT:
+			jumped = false
 	#		velocity.y = (Input.get_action_strength("Down") - Input.get_action_strength("Up")) * speed
 			velocity.y = 0
 			if Input.get_action_strength("Down"):
@@ -106,6 +113,7 @@ func _process_input() -> void:
 					_set_state(State.CEILING)
 				else:
 					_set_state(State.FALLING)
+					jumped = true
 			if Input.is_action_pressed("Left") and state == State.WALL_RIGHT:
 				if _ray_down():
 					_set_state(State.FLOOR)
@@ -113,8 +121,14 @@ func _process_input() -> void:
 					_set_state(State.CEILING)
 				else:
 					_set_state(State.FALLING)
+					jumped = true
 	else:
 		velocity.x = 0
+		
+	# Jump
+	if Input.is_action_pressed("Up") and state == State.FLOOR:
+		velocity.y = -jump_strength
+		jumped = true
 	
 	# Camera Zooming
 	if Input.is_action_just_released("ZoomIn") or Input.is_action_pressed("ZoomIn"):
@@ -131,6 +145,12 @@ func _process_input() -> void:
 	if Input.is_action_just_pressed("Exit") and state == State.HACKING:
 		action = Action.TRANSFORM_BALL
 #		state = State.FLOOR
+	
+	if Input.is_action_just_pressed("Die"):
+		particle_system.emitting = true
+		animation_player.play("fade_out")
+		yield(get_tree().create_timer(1.5), "timeout")
+		queue_free()
 	
 
 func _process_gravity():
@@ -152,16 +172,18 @@ func _update_state():
 		and !state == State.FALLING:
 			_set_state(State.FALLING)
 	
-	if state == State.FALLING:
+	if state == State.FALLING:	
 		if ray_down.is_colliding():
-			state = State.FLOOR
+			_set_state(State.FLOOR)
 			falling_from_ceiling = false
 		if _ray_up():
-			state = State.CEILING
+			_set_state(State.CEILING)
 		if _ray_left() and Input.is_action_pressed("Left"):
-			state = State.WALL_LEFT
+			_set_state(State.WALL_LEFT)
 		if _ray_right() and Input.is_action_pressed("Right"):
-			state = State.WALL_RIGHT
+			_set_state(State.WALL_RIGHT)
+	else:
+		jumped = false
 
 func _update_animation():
 	
@@ -253,7 +275,15 @@ func _update_animation():
 #		else:
 #			sprite.play("roll", true)
 	
-	
+
+func _update_sounds():
+	if jumped:
+		if not audio_player.playing:
+			audio_player.play()
+#	if sticked:
+#		audio_player.play()
+			
+		
 
 func _ray_right() -> bool:
 	return ray_right.is_colliding()
@@ -268,8 +298,19 @@ func _ray_down() -> bool:
 	return ray_down.is_colliding()
 		
 func _set_state(state):
-	prev_state = state
+	print("previous state: ", State.keys()[self.state])
+	print("state: ", State.keys()[state])	
+	print("--------------")
+	prev_state = self.state
 	self.state = state
+	
+	if prev_state == State.FALLING and state != State.FALLING:
+		print("sticked!")
+		sticked = true
+	else:
+		sticked = false
+	
+	
 
 func _set_action(action):
 	self.action = action

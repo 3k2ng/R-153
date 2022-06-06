@@ -1,5 +1,6 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=24 format=2]
 
+[ext_resource path="res://Audio/Player/jump.wav" type="AudioStream" id=1]
 [ext_resource path="res://Scenes/Player/Player.gd" type="Script" id=2]
 [ext_resource path="res://Sprites/robot.png" type="Texture" id=3]
 
@@ -83,6 +84,25 @@ animations = [ {
 [sub_resource type="CircleShape2D" id=1]
 radius = 47.0106
 
+[sub_resource type="Gradient" id=28]
+offsets = PoolRealArray( 0.171271, 0.707182, 1 )
+colors = PoolColorArray( 0.137255, 0.286275, 0.364706, 1, 0.584314, 0.878431, 0.8, 0.901961, 0.137255, 0.286275, 0.364706, 0.854902 )
+
+[sub_resource type="Animation" id=29]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
@@ -117,3 +137,41 @@ position = Vector2( 0, -95 )
 current = true
 smoothing_enabled = true
 smoothing_speed = 7.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 1 )
+volume_db = -15.0
+
+[node name="ParticleSystem" type="CPUParticles2D" parent="."]
+position = Vector2( -1, 0 )
+emitting = false
+amount = 400
+lifetime = 2.0
+one_shot = true
+speed_scale = 1.5
+explosiveness = 1.0
+randomness = 1.0
+local_coords = false
+emission_shape = 1
+emission_sphere_radius = 60.0
+direction = Vector2( 0, 0 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 150.0
+initial_velocity_random = 0.5
+angular_velocity = 50.0
+angular_velocity_random = 1.0
+linear_accel_random = 1.0
+radial_accel = 18.35
+radial_accel_random = 0.5
+damping = 100.0
+damping_random = 0.63
+scale_amount = 16.0
+scale_amount_random = 0.5
+color = Color( 0.584314, 0.878431, 0.8, 1 )
+color_ramp = SubResource( 28 )
+hue_variation = 0.04
+hue_variation_random = 1.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/fade_out = SubResource( 29 )
