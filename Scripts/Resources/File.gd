@@ -7,6 +7,8 @@ enum FileType {
 	EXECUTABLE
 }
 
-export(FileType) var fileType
+export(FileType) var file_type
 
-export var location: String
+export(String) var file_name: String
+export(String) var location: String
+export(String, MULTILINE) var content: String
