@@ -2,5 +2,5 @@
 
 [ext_resource path="res://Scenes/Ternimal/FileSystem.gd" type="Script" id=1]
 
-[node name="FileSystem" type="Node"]
+[node name="FileSystem" type="Node" groups=["file_system"]]
 script = ExtResource( 1 )

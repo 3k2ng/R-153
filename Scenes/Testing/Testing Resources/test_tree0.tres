@@ -1,0 +1,50 @@
+[gd_resource type="Resource" load_steps=10 format=2]
+
+[ext_resource path="res://Scripts/Resources/FileTree.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Resources/File.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Testing/Testing Resources/test_user1.tres" type="Resource" id=3]
+[ext_resource path="res://Scenes/Testing/Testing Resources/test_user0.tres" type="Resource" id=4]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 2 )
+file_type = 0
+file_name = "HOMEWORK"
+file_owner = ExtResource( 4 )
+location = "~"
+content = ""
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 2 )
+file_type = 0
+file_name = "PICTURES"
+file_owner = ExtResource( 4 )
+location = "~"
+content = ""
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 2 )
+file_type = 1
+file_name = "EP01"
+file_owner = ExtResource( 4 )
+location = "~/HOMEWORK"
+content = ""
+
+[sub_resource type="Resource" id=4]
+script = ExtResource( 2 )
+file_type = 1
+file_name = "README"
+file_owner = ExtResource( 4 )
+location = "~"
+content = ""
+
+[sub_resource type="Resource" id=5]
+script = ExtResource( 2 )
+file_type = 0
+file_name = "PRIVATE"
+file_owner = ExtResource( 3 )
+location = "~/PICTURE"
+content = ""
+
+[resource]
+script = ExtResource( 1 )
+files = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ]

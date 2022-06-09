@@ -2,28 +2,10 @@
 
 [ext_resource path="res://Scenes/Ternimal/Terminal.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Ternimal/FileSystem.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scripts/Resources/File.gd" type="Script" id=3]
-
-[sub_resource type="Resource" id=1]
-script = ExtResource( 3 )
-file_type = 0
-file_name = "HOMEWORK"
-location = "~"
-content = ""
-
-[sub_resource type="Resource" id=2]
-script = ExtResource( 3 )
-file_type = 1
-file_name = "SUS"
-location = "~/HOMEWORK"
-content = "amogus"
-
-[sub_resource type="Resource" id=3]
-script = ExtResource( 3 )
-file_type = 0
-file_name = "PICTURES"
-location = "~"
-content = ""
+[ext_resource path="res://Scenes/Testing/Testing Resources/test_user1.tres" type="Resource" id=3]
+[ext_resource path="res://Scenes/Ternimal/NetworkManager.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Testing/Testing Resources/test_user0.tres" type="Resource" id=5]
+[ext_resource path="res://Scenes/Testing/Testing Resources/test_tree0.tres" type="Resource" id=6]
 
 [node name="Demo" type="Node"]
 
@@ -31,4 +13,7 @@ content = ""
 
 [node name="FileSystem" parent="." instance=ExtResource( 2 )]
 system_name = "test0"
-files = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ]
+tree = ExtResource( 6 )
+users = [ ExtResource( 5 ), ExtResource( 3 ) ]
+
+[node name="NetworkManager" parent="." instance=ExtResource( 4 )]
