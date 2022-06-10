@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Ternimal/Terminal.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Ternimal/FileSystem.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenes/Ternimal/NetworkManager.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Testing/Testing Resources/test_user0.tres" type="Resource" id=5]
 [ext_resource path="res://Scenes/Testing/Testing Resources/test_tree0.tres" type="Resource" id=6]
+[ext_resource path="res://Scenes/Testing/Testing Resources/test_tree1.tres" type="Resource" id=7]
 
 [node name="Demo" type="Node"]
 
@@ -16,4 +17,10 @@ system_name = "test0"
 tree = ExtResource( 6 )
 users = [ ExtResource( 5 ), ExtResource( 3 ) ]
 
+[node name="FileSystem2" parent="." instance=ExtResource( 2 )]
+system_name = "test1"
+tree = ExtResource( 7 )
+users = [ ExtResource( 5 ), ExtResource( 3 ) ]
+
 [node name="NetworkManager" parent="." instance=ExtResource( 4 )]
+networks = [ [ "test0", "test1" ] ]

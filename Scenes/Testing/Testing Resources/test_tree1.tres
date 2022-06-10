@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=10 format=2]
+[gd_resource type="Resource" load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Resources/FileTree.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Resources/File.gd" type="Script" id=2]
@@ -8,48 +8,30 @@
 [sub_resource type="Resource" id=1]
 script = ExtResource( 2 )
 file_type = 0
-file_name = "homework"
-file_owner = ExtResource( 4 )
+file_name = "not_amogus"
+file_owner = ExtResource( 3 )
 is_private = false
 location = "~"
 content = ""
 
 [sub_resource type="Resource" id=2]
 script = ExtResource( 2 )
-file_type = 0
-file_name = "pictures"
+file_type = 1
+file_name = "amogus"
 file_owner = ExtResource( 4 )
 is_private = false
-location = "~"
-content = ""
+location = "~/not_amogus"
+content = "amogus"
 
 [sub_resource type="Resource" id=3]
 script = ExtResource( 2 )
-file_type = 1
-file_name = "ep01"
-file_owner = ExtResource( 4 )
-is_private = false
-location = "~/homework"
-content = "haha"
-
-[sub_resource type="Resource" id=4]
-script = ExtResource( 2 )
-file_type = 1
+file_type = 0
 file_name = "readme"
 file_owner = ExtResource( 4 )
 is_private = true
 location = "~"
-content = "sus amogus"
-
-[sub_resource type="Resource" id=5]
-script = ExtResource( 2 )
-file_type = 0
-file_name = "private"
-file_owner = ExtResource( 3 )
-is_private = true
-location = "~/pictures"
-content = ""
+content = "amogus"
 
 [resource]
 script = ExtResource( 1 )
-files = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ]
+files = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ]
