@@ -122,37 +122,31 @@ func _process_input() -> void:
 				else:
 					_set_state(State.FALLING)
 					jumped = true
-	else:
-		velocity.x = 0
 		
-	# Jump
-	if Input.is_action_pressed("Up") and state == State.FLOOR:
-		velocity.y = -jump_strength
-		jumped = true
-	
-	# Camera Zooming
-	if Input.is_action_just_released("ZoomIn") or Input.is_action_pressed("ZoomIn"):
-		camera.zoom.x = clamp(camera.zoom.x - zoom_speed, min_zoom, max_zoom)
-		camera.zoom.y = clamp(camera.zoom.y - zoom_speed, min_zoom, max_zoom)
-		camera.position.y = -200 * camera.zoom.y
-	if Input.is_action_just_released("ZoomOut") or Input.is_action_pressed("ZoomOut"):
-		camera.zoom.x = clamp(camera.zoom.x + zoom_speed, min_zoom, max_zoom)
-		camera.zoom.y = clamp(camera.zoom.y + zoom_speed, min_zoom, max_zoom)
-		camera.position.y = -200 * camera.zoom.y
-	
-	if Input.is_action_just_pressed("Hack") and state == State.FLOOR:
-		action = Action.TRANSFORM_ROBOT
-		state = State.HACKING
-	
-	if Input.is_action_just_pressed("Exit") and state == State.HACKING:
-		action = Action.TRANSFORM_BALL
-#		state = State.FLOOR
-	
-	if Input.is_action_just_pressed("Die"):
-		particle_system.emitting = true
-		animation_player.play("fade_out")
-		yield(get_tree().create_timer(1.5), "timeout")
-		queue_free()
+			# Jump
+		if Input.is_action_pressed("Up") and state == State.FLOOR:
+			velocity.y = -jump_strength
+			jumped = true
+		
+		# Camera Zooming
+		if Input.is_action_just_released("ZoomIn") or Input.is_action_pressed("ZoomIn"):
+			camera.zoom.x = clamp(camera.zoom.x - zoom_speed, min_zoom, max_zoom)
+			camera.zoom.y = clamp(camera.zoom.y - zoom_speed, min_zoom, max_zoom)
+			camera.position.y = -200 * camera.zoom.y
+		if Input.is_action_just_released("ZoomOut") or Input.is_action_pressed("ZoomOut"):
+			camera.zoom.x = clamp(camera.zoom.x + zoom_speed, min_zoom, max_zoom)
+			camera.zoom.y = clamp(camera.zoom.y + zoom_speed, min_zoom, max_zoom)
+			camera.position.y = -200 * camera.zoom.y
+		
+		if Input.is_action_just_pressed("Hack") and state == State.FLOOR:
+			action = Action.TRANSFORM_ROBOT
+			state = State.HACKING
+	else:
+		if Input.is_action_just_pressed("Exit"):
+			action = Action.TRANSFORM_BALL
+#
+#	if Input.is_action_just_pressed("Die"):
+		
 	
 
 func _process_gravity():
@@ -300,14 +294,14 @@ func _ray_down() -> bool:
 	return ray_down.is_colliding()
 		
 func _set_state(state):
-	print("previous state: ", State.keys()[self.state])
-	print("state: ", State.keys()[state])	
-	print("--------------")
+#	print("previous state: ", State.keys()[self.state])
+#	print("state: ", State.keys()[state])	
+#	print("--------------")
 	prev_state = self.state
 	self.state = state
 	
 	if prev_state == State.FALLING and state != State.FALLING:
-		print("sticked!")
+#		print("sticked!")
 		sticked = true
 	else:
 		sticked = false
@@ -317,9 +311,15 @@ func _set_state(state):
 func _set_action(action):
 	self.action = action
 	
-func normalize_num(value) -> int:
-	if value > 0: return 1
-	elif value < 0: return -1
-	else: return 0
+#func normalize_num(value) -> int:
+#	if value > 0: return 1
+#	elif value < 0: return -1
+#	else: return 0
+
+func die() -> void:
+	particle_system.emitting = true
+	animation_player.play("fade_out")
+	yield(get_tree().create_timer(1.5), "timeout")
+	queue_free()
 	
 
