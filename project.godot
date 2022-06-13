@@ -63,6 +63,7 @@ _global_script_class_icons={
 [application]
 
 config/name="r153"
+run/main_scene="res://Scenes/Testing/NikolaiTest.tscn"
 config/icon="res://icon.png"
 
 [display]
@@ -148,6 +149,22 @@ Die={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":82,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
+
+[layer_names]
+
+2d_render/layer_1="Environment"
+2d_render/layer_2="Player"
+2d_render/layer_3="NPC"
+2d_render/layer_4="Detection"
+2d_render/layer_5="Zone Patrolling"
+2d_render/layer_6="Computer"
+2d_physics/layer_1="Environment"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="NPC"
+2d_physics/layer_4="Detection"
+2d_physics/layer_5="Zone Patrolling"
+2d_physics/layer_6="Computer"
+2d_physics/layer_7="Computer use radius"
 
 [physics]
 
