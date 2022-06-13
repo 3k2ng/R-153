@@ -1,23 +1,19 @@
-extends KinematicBody2D
+extends Area2D
 
-var body_detected = []
-export var access_level = clamp(0, 0, 3)
+export(String) var system_name
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
+onready var player_access = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-func _on_Area2D_body_entered(body):
-	body_detected = body
-	if body.name == "NPC":
-		print("NPC detected: ", body_detected)
-	elif body.name == "Player":
-		print("Player detected: ", body_detected)
+func _on_Computer_body_entered(body):
+	if body.is_in_group("player"):
+		player_access = true
 
-func _on_Area2D_body_exited(body):
-	if body.name == "NPC":
-		print("NPC exited: ", body_detected)
-	elif body.name == "Player":
-		print("Player exited: ", body_detected)
+func _on_Computer_body_exited(body):
+	if body.is_in_group("player"):
+		player_access = false
+
+func _input(event):
+	if event.is_action_released("Hack") and player_access:
+		var file_system = get_tree().get_nodes_in_group("network_manager")[0].get_system(system_name)
+		if file_system:
+			get_tree().get_nodes_in_group("terminal")[0].hack_system(file_system)

@@ -11,6 +11,14 @@
 atlas = ExtResource( 3 )
 region = Rect2( 96, 0, 16, 16 )
 
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 3 )
+region = Rect2( 16, 0, 16, 16 )
+
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 3 )
 region = Rect2( 32, 0, 16, 16 )
@@ -27,14 +35,6 @@ region = Rect2( 64, 0, 16, 16 )
 atlas = ExtResource( 3 )
 region = Rect2( 80, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=9]
-atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=10]
-atlas = ExtResource( 3 )
-region = Rect2( 16, 0, 16, 16 )
-
 [sub_resource type="SpriteFrames" id=8]
 animations = [ {
 "frames": [ SubResource( 15 ) ],
@@ -42,38 +42,38 @@ animations = [ {
 "name": "Computing",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
-"loop": true,
-"name": "Move",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 9 ), SubResource( 10 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 2.0
+}, {
+"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
+"loop": true,
+"name": "Move",
+"speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=16]
 animations = [ {
-"frames": [ ExtResource( 5 ) ],
-"loop": false,
-"name": "Caution",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 4 ), null ],
 "loop": false,
 "name": "Alert",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "NotAware",
+"frames": [ ExtResource( 5 ) ],
+"loop": false,
+"name": "Caution",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "Question",
 "speed": 1.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "NotAware",
+"speed": 5.0
 } ]
 
 [node name="NPC" type="KinematicBody2D"]
@@ -85,7 +85,6 @@ script = ExtResource( 2 )
 position = Vector2( 0, -78 )
 scale = Vector2( 9.5, 9.75 )
 frames = SubResource( 8 )
-animation = "Aware"
 
 [node name="NPCcollisionBox" type="CollisionPolygon2D" parent="."]
 position = Vector2( -352, -168 )

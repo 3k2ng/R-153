@@ -16,6 +16,11 @@ func get_system(system_name):
 		if system.system_name == system_name:
 			return system
 
+func get_computer(system_name):
+	for computer in get_tree().get_nodes_in_group("computer"):
+		if computer.system_name == system_name:
+			return computer
+
 func list_user(system_name):
 	var system = get_system(system_name)
 	var users = []

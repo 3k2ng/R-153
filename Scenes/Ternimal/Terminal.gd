@@ -8,8 +8,8 @@ enum TerminalState {
 	ENABLED
 }
 
-const MAX_LINES = 10
-const MAX_CHARS = 93
+const MAX_LINES = 9
+const MAX_CHARS = 90
 
 var current_system: FileSystem
 var current_user: User
@@ -18,17 +18,14 @@ var current_directory: String
 var target_system: FileSystem
 var target_user: User
 
-onready var input = $"Input"
-onready var output = $"Output"
+onready var input = $"TerminalUI/Input"
+onready var output = $"TerminalUI/Output"
 
 onready var output_queue = []
 
 onready var current_state = TerminalState.DISABLED
 
 onready var password_tries = 0
-
-func _ready():
-	hack_system($"../FileSystem")
 
 func _on_text_input(input_text):
 	input.text = ""
