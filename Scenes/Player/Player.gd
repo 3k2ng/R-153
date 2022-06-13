@@ -11,13 +11,13 @@ onready var audio_player = $AudioStreamPlayer2D
 onready var particle_system = $ParticleSystem
 onready var animation_player = $AnimationPlayer
 
-export (int) var speed = 400
-export (int) var gravity_strength = 30
-export (int) var jump_strength = 500
+export (float) var speed = 50
+export (float) var gravity_strength = 7.5
+export (float) var jump_strength = 100
 export (float) var roll_animation_speed = 5
-export (float) var zoom_speed = 0.05
-export (float) var min_zoom = 0.5
-export (float) var max_zoom = 4.0;
+export (float) var zoom_speed = 0.01
+export (float) var min_zoom = 0.1
+export (float) var max_zoom = 0.5;
 
 
 var velocity = Vector2.ZERO
@@ -134,9 +134,11 @@ func _process_input() -> void:
 	if Input.is_action_just_released("ZoomIn") or Input.is_action_pressed("ZoomIn"):
 		camera.zoom.x = clamp(camera.zoom.x - zoom_speed, min_zoom, max_zoom)
 		camera.zoom.y = clamp(camera.zoom.y - zoom_speed, min_zoom, max_zoom)
+		camera.position.y = -200 * camera.zoom.y
 	if Input.is_action_just_released("ZoomOut") or Input.is_action_pressed("ZoomOut"):
 		camera.zoom.x = clamp(camera.zoom.x + zoom_speed, min_zoom, max_zoom)
 		camera.zoom.y = clamp(camera.zoom.y + zoom_speed, min_zoom, max_zoom)
+		camera.position.y = -200 * camera.zoom.y
 	
 	if Input.is_action_just_pressed("Hack") and state == State.FLOOR:
 		action = Action.TRANSFORM_ROBOT
@@ -172,7 +174,7 @@ func _update_state():
 		and !state == State.FALLING:
 			_set_state(State.FALLING)
 	
-	if state == State.FALLING:	
+	if state == State.FALLING:
 		if ray_down.is_colliding():
 			_set_state(State.FLOOR)
 			falling_from_ceiling = false
