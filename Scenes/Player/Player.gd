@@ -142,9 +142,9 @@ func _process_input() -> void:
 			camera.zoom.x = clamp(camera.zoom.x + zoom_speed, min_zoom, max_zoom)
 			camera.zoom.y = clamp(camera.zoom.y + zoom_speed, min_zoom, max_zoom)
 			camera.position.y = -200 * camera.zoom.y
-	else:
-		if Input.is_action_just_pressed("Exit"):
-			action = Action.TRANSFORM_BALL	
+#	else:
+#		if Input.is_action_just_pressed("Exit"):
+#			action = Action.TRANSFORM_BALL	
 
 func _process_gravity():
 	if state == State.WALL_RIGHT:
@@ -180,7 +180,6 @@ func _update_state():
 
 func _update_animation():
 	
-	
 	if action == Action.TRANSFORM_ROBOT:
 		sprite.play("transform")
 	elif action == Action.TRANSFORM_BALL:
@@ -190,7 +189,7 @@ func _update_animation():
 		if sprite.frame == 1:
 			sprite.frame = 0
 			action = Action.IDLE
-			state = State.FLOOR
+			state = State.FLOOR		
 	else:
 		if velocity.x > 0:			
 			if state == State.CEILING or falling_from_ceiling:
@@ -214,60 +213,6 @@ func _update_animation():
 				sprite.play("roll")
 		else:
 			sprite.stop()
-	
-	
-#	if action == Action.IDLE:
-#		sprite.stop()
-#
-#	if action == Action.MOVE_LEFT and !_ray_left():
-#		if state == State.FLOOR:
-#			sprite.play("roll", true)
-#		if state == State.CEILING:
-#			sprite.play("roll")
-#	else:
-#		sprite.stop()
-#
-#	if action == Action.MOVE_RIGHT and !_ray_right():
-#		if state == State.FLOOR:
-#			sprite.play("roll")
-#		if state == State.CEILING:
-#			sprite.play("roll", true)
-#
-#	elif action == Action.MOVE_UP and !_ray_up():
-#		if state == State.WALL_LEFT:
-#			sprite.play("roll", true)
-#		if state == State.WALL_RIGHT:
-#			sprite.play("roll")
-#
-#	elif action == Action.MOVE_DOWN and !_ray_down():
-#		if state == State.WALL_LEFT:
-#			sprite.play("roll")
-#		if state == State.WALL_RIGHT:
-#			sprite.play("roll", true)
-#
-#	if state == State.FALLING:
-#		if velocity.x > 0:
-#			if falling_from_ceiling:
-#				sprite.play("roll", true)
-#			else:
-#				sprite.play("roll")
-#		if velocity.x < 0:
-#			if falling_from_ceiling:
-#				sprite.play("roll")
-#			else:
-#				sprite.play("roll", true)				
-#
-#	if velocity.x > 0 and !_ray_right():
-#		if state == State.CEILING:
-#			sprite.play("roll", true)
-#		else:
-#			sprite.play("roll")
-#	if velocity.x < 0 and !_ray_left():
-#		if state == State.CEILING:
-#			sprite.play("roll")
-#		else:
-#			sprite.play("roll", true)
-	
 
 func _update_sounds():
 	if jumped:
@@ -318,6 +263,7 @@ func _hack() -> void:
 	action = Action.TRANSFORM_ROBOT	
 
 func _exit_hacking() -> void:
+	print("exit hack")
 	action = Action.TRANSFORM_BALL
 
 func die() -> void:
