@@ -126,6 +126,7 @@ func execute_input(input_phrases):
 				ssh_system(get_tree().get_nodes_in_group("network_manager")[0].get_system(args[0]))
 		"EXPL":
 			print_output("expl")
+			TerminalAutoload.emit_signal("explode", current_system.system_name)
 		"CAT":
 			if len(args) == 0:
 				print_output("cat")
@@ -148,6 +149,7 @@ func execute_input(input_phrases):
 		"EXIT":
 			clear_output()
 			input.release_focus()
+			TerminalAutoload.emit_signal("exit_hacking")
 		_:
 			print_output("unknown command: there's no command called %s, type HELP for list of all commands" % command)
 
@@ -165,6 +167,7 @@ func hack_system(sys):
 		print_output("%d: %s" % [i, sys.users[i].user_name])
 	target_system = sys
 	current_state = TerminalState.HACK
+	TerminalAutoload.emit_signal("hack")
 
 func set_system(sys):
 	current_system = sys

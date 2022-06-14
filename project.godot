@@ -42,6 +42,10 @@ config/name="r153"
 run/main_scene="res://Scenes/Testing/NikolaiTest.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+TerminalAutoload="*res://Scripts/Autoloads/TerminalAutoload.gd"
+
 [display]
 
 window/size/height=576
