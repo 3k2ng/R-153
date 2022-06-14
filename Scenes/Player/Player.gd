@@ -10,6 +10,7 @@ onready var camera = $Camera2D
 onready var audio_player = $AudioStreamPlayer2D
 onready var particle_system = $ParticleSystem
 onready var animation_player = $AnimationPlayer
+onready var terminal = $"/root/TerminalAutoload"
 
 export (float) var speed = 50
 export (float) var gravity_strength = 7.5
@@ -52,6 +53,10 @@ enum Action {
 
 func _ready() -> void:
 	sprite.speed_scale = roll_animation_speed
+	terminal.connect("hack", self, "_hack")
+	terminal.connect("exit_hacking", self, "_exit_hacking")
+	terminal.connect("explode", self, "die")
+	
 	
 func _physics_process(delta: float) -> void:
 	_process_input()
@@ -137,17 +142,9 @@ func _process_input() -> void:
 			camera.zoom.x = clamp(camera.zoom.x + zoom_speed, min_zoom, max_zoom)
 			camera.zoom.y = clamp(camera.zoom.y + zoom_speed, min_zoom, max_zoom)
 			camera.position.y = -200 * camera.zoom.y
-		
-		if Input.is_action_just_pressed("Hack") and state == State.FLOOR:
-			action = Action.TRANSFORM_ROBOT
-			state = State.HACKING
 	else:
 		if Input.is_action_just_pressed("Exit"):
-			action = Action.TRANSFORM_BALL
-#
-#	if Input.is_action_just_pressed("Die"):
-		
-	
+			action = Action.TRANSFORM_BALL	
 
 func _process_gravity():
 	if state == State.WALL_RIGHT:
@@ -316,10 +313,18 @@ func _set_action(action):
 #	elif value < 0: return -1
 #	else: return 0
 
+func _hack() -> void:
+	state = State.HACKING
+	action = Action.TRANSFORM_ROBOT	
+
+func _exit_hacking() -> void:
+	action = Action.TRANSFORM_BALL
+
 func die() -> void:
 	particle_system.emitting = true
 	animation_player.play("fade_out")
 	yield(get_tree().create_timer(1.5), "timeout")
 	queue_free()
+
 	
 
