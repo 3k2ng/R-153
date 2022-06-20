@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://TileSet/autotile.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Scenes/Ternimal/NetworkManager.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Testing/Testing Resources/test_user0.tres" type="Resource" id=9]
 [ext_resource path="res://Scenes/Testing/Testing Resources/test_user1.tres" type="Resource" id=10]
+[ext_resource path="res://Scenes/Util/SceneTransitionRect.tscn" type="PackedScene" id=11]
 
 [node name="Demo" type="Node"]
 
@@ -52,3 +53,5 @@ users = [ ExtResource( 9 ), ExtResource( 10 ) ]
 
 [node name="NetworkManager" parent="Systems" instance=ExtResource( 8 )]
 networks = [ [ "test0", "test1" ] ]
+
+[node name="SceneTransitionRect" parent="." instance=ExtResource( 11 )]

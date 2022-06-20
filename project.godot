@@ -39,7 +39,7 @@ _global_script_class_icons={
 [application]
 
 config/name="r153"
-run/main_scene="res://Scenes/Testing/NikolaiTest.tscn"
+run/main_scene="res://Scenes/Start Screen/StartScreen.tscn"
 config/icon="res://icon.png"
 
 [autoload]
