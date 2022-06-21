@@ -94,7 +94,9 @@ func execute_input(input_phrases):
 	var args = input_phrases
 	match command:
 		"HELP":
-			print_output("help") # todo: print every command and specify the use of one when mentioned
+			if len(args) == 0:
+				print_output("Available commands:")
+				print_output("LS, CD, SSH-LS, SSH, EXPL, CAT, WHO, CLR, EXIT")
 		"LS":
 			for file in current_system.get_files(current_directory):
 				print_output("[%s, %s, %s] %s" % [file.file_owner.user_name, "dir" if file.file_type == 0 else ("tex" if file.file_type == 1 else "exe"), "private" if file.is_private else "public", file.file_name])
@@ -105,7 +107,7 @@ func execute_input(input_phrases):
 				var dir = transform_directory(current_directory + "/" + args[0])
 				var accessed_file = current_system.get_file(dir)
 				if accessed_file != null:
-					if accessed_file.file_type == 0:
+					if accessed_file.file_type == 0 and not accessed_file.is_private:
 						current_directory = accessed_file.location + "/" + accessed_file.file_name
 				elif dir == "~":
 					current_directory = "~"
@@ -136,7 +138,7 @@ func execute_input(input_phrases):
 				if accessed_file != null:
 					if accessed_file.file_type == 0:
 						print_output(accessed_file.location + "/" + accessed_file.file_name)
-					else:
+					elif not accessed_file.is_private:
 						print_output(accessed_file.content)
 				elif dir == "~":
 					print_output("~")

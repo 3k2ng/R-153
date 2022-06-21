@@ -41,6 +41,7 @@ margin_top = 16.0
 margin_right = 1008.0
 margin_bottom = 256.0
 custom_fonts/font = SubResource( 2 )
+valign = 2
 autowrap = true
 
 [node name="Input" type="LineEdit" parent="TerminalUI"]
