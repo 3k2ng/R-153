@@ -18,6 +18,8 @@ var current_directory: String
 var target_system: FileSystem
 var target_user: User
 
+onready var animation_player = $"AnimationPlayer"
+
 onready var input = $"TerminalUI/Input"
 onready var output = $"TerminalUI/Output"
 
@@ -150,6 +152,7 @@ func execute_input(input_phrases):
 			clear_output()
 		"EXIT":
 			clear_output()
+			animation_player.play("disable")
 			input.release_focus()
 			TerminalAutoload.emit_signal("exit_hacking")
 		_:
@@ -163,6 +166,7 @@ func ssh_system(sys):
 	current_state = TerminalState.SSH
 
 func hack_system(sys):
+	animation_player.play("enable")
 	input.grab_focus()
 	print_output("successfully gain access to the system, please choose an user:")
 	for i in len(sys.users):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Fonts/Ubuntu Mono/UbuntuMono-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scenes/Ternimal/Terminal.gd" type="Script" id=2]
@@ -18,12 +18,45 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="StyleBoxEmpty" id=5]
 
+[sub_resource type="Animation" id=6]
+resource_name = "disable"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("TerminalUI:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -308 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "enable"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("TerminalUI:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -308 ), Vector2( 0, 0 ) ]
+}
+
 [node name="Terminal" type="CanvasLayer" groups=["terminal"]]
 script = ExtResource( 2 )
 
 [node name="TerminalUI" type="Control" parent="."]
+margin_top = -308.0
 margin_right = 40.0
-margin_bottom = 40.0
+margin_bottom = -268.0
 
 [node name="Background" type="NinePatchRect" parent="TerminalUI"]
 margin_right = 256.0
@@ -57,5 +90,9 @@ custom_styles/normal = SubResource( 5 )
 max_length = 128
 caret_blink = true
 caret_blink_speed = 0.5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/disable = SubResource( 6 )
+anims/enable = SubResource( 7 )
 
 [connection signal="text_entered" from="TerminalUI/Input" to="." method="_on_text_input"]
