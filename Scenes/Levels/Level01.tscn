@@ -1,0 +1,88 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://TileSet/autotile.tres" type="TileSet" id=1]
+[ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://testlight.png" type="Texture" id=3]
+[ext_resource path="res://testspot.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Computer/Computer.tscn" type="PackedScene" id=5]
+[ext_resource path="res://testbackground.png" type="Texture" id=6]
+
+[node name="Level 1" type="Node2D"]
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 129, 85 )
+scale = Vector2( 11.9531, 6.42082 )
+texture = ExtResource( 6 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.27451, 0.27451, 0.27451, 1 )
+
+[node name="LevelTileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 65522, 0, 1, 65523, 0, 196610, 65524, 0, 196610, 65525, 0, 196610, 65526, 0, 196610, 65527, 0, 196610, 65528, 0, 196610, 65529, 0, 196610, 65530, 0, 196610, 65531, 0, 196610, 65532, 0, 196610, 65533, 0, 196610, 65534, 0, 196610, 65535, 0, 196610, 0, 0, 196610, 1, 0, 196610, 2, 0, 196610, 3, 0, 196610, 4, 0, 196610, 5, 0, 196610, 6, 0, 196610, 7, 0, 196610, 8, 0, 196610, 9, 0, 196610, 10, 0, 196610, 11, 0, 196610, 12, 0, 196610, 13, 0, 196610, 14, 0, 196610, 15, 0, 196610, 16, 0, 196610, 17, 0, 196610, 18, 0, 196610, 19, 0, 196610, 20, 0, 196610, 21, 0, 196610, 22, 0, 3, 131058, 0, 65536, 65558, 0, 65536, 196594, 0, 65536, 131094, 0, 65536, 262130, 0, 65536, 196630, 0, 65536, 327666, 0, 65536, 327677, 0, 0, 262156, 0, 0, 262166, 0, 65536, 393202, 0, 65536, 393213, 0, 65536, 327692, 0, 65536, 327702, 0, 65536, 458738, 0, 65536, 458749, 0, 65536, 393228, 0, 65536, 393238, 0, 65536, 524274, 0, 131073, 524275, 0, 196610, 524276, 0, 196610, 524277, 0, 196610, 524278, 0, 196610, 524279, 0, 196610, 524280, 0, 196610, 524281, 0, 196610, 524282, 0, 196610, 524283, 0, 196610, 524284, 0, 196610, 524285, 0, 131074, 524286, 0, 196610, 524287, 0, 196610, 458752, 0, 196610, 458753, 0, 196610, 458754, 0, 196610, 458755, 0, 196610, 458756, 0, 196610, 458757, 0, 196610, 458758, 0, 196610, 458759, 0, 3, 458762, 0, 196609, 458763, 0, 196610, 458764, 0, 131074, 458765, 0, 196610, 458766, 0, 196610, 458767, 0, 196610, 458768, 0, 196610, 458769, 0, 196610, 458770, 0, 196610, 458771, 0, 196610, 458772, 0, 196610, 458773, 0, 196610, 458774, 0, 65539, 524295, 0, 65536, 524310, 0, 65536, 589831, 0, 65536, 589846, 0, 65536, 655367, 0, 65536, 655382, 0, 65536, 720903, 0, 65536, 720908, 0, 0, 720918, 0, 65536, 786439, 0, 65536, 786444, 0, 65536, 786454, 0, 65536, 851975, 0, 65536, 851980, 0, 65536, 851990, 0, 65536, 917511, 0, 131073, 917512, 0, 196610, 917513, 0, 196610, 917514, 0, 196610, 917515, 0, 196610, 917516, 0, 131074, 917517, 0, 196610, 917518, 0, 196610, 917519, 0, 196610, 917520, 0, 196610, 917521, 0, 196610, 917522, 0, 196610, 917523, 0, 196610, 917524, 0, 196610, 917525, 0, 196610, 917526, 0, 131075 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( -204, 18 )
+texture = ExtResource( 3 )
+texture_scale = 0.5
+shadow_enabled = true
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Light2D"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="Light2D4" type="Light2D" parent="."]
+position = Vector2( 71, 18 )
+texture = ExtResource( 3 )
+texture_scale = 0.5
+shadow_enabled = true
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Light2D4"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="Light2D3" type="Light2D" parent="."]
+position = Vector2( 250, 129 )
+texture = ExtResource( 3 )
+texture_scale = 0.5
+shadow_enabled = true
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Light2D3"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="Light2D2" type="Light2D" parent="."]
+position = Vector2( 347, 20 )
+texture = ExtResource( 3 )
+texture_scale = 0.5
+shadow_enabled = true
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Light2D2"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="Computer" parent="." instance=ExtResource( 5 )]
+position = Vector2( -81, 112 )
+
+[node name="Computer2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 312, 112 )
+
+[node name="Computer3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 313, 224 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 39, 86 )
