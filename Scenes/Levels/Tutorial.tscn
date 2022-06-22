@@ -2,17 +2,17 @@
 
 [ext_resource path="res://TileSet/autotile.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://testlight.png" type="Texture" id=3]
-[ext_resource path="res://testspot.png" type="Texture" id=4]
-[ext_resource path="res://testbackground.png" type="Texture" id=6]
-[ext_resource path="res://Scenes/Computer/Computer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Computer/Computer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://testbackground.png" type="Texture" id=4]
+[ext_resource path="res://testlight.png" type="Texture" id=5]
+[ext_resource path="res://testspot.png" type="Texture" id=6]
 
 [node name="Tutorial" type="Node2D"]
 
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 311, 89.0677 )
 scale = Vector2( 15.8594, 7.14339 )
-texture = ExtResource( 6 )
+texture = ExtResource( 4 )
 
 [node name="LevelTileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -25,7 +25,7 @@ color = Color( 0.27451, 0.27451, 0.27451, 1 )
 
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 125, 130 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 texture_scale = 0.5
 shadow_enabled = true
 __meta__ = {
@@ -34,11 +34,11 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="Light2D"]
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 4 )
+texture = ExtResource( 6 )
 
 [node name="Light2D2" type="Light2D" parent="."]
 position = Vector2( 350, 20 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 texture_scale = 0.5
 shadow_enabled = true
 __meta__ = {
@@ -47,11 +47,11 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="Light2D2"]
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 4 )
+texture = ExtResource( 6 )
 
 [node name="Light2D3" type="Light2D" parent="."]
 position = Vector2( 425, 130 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 texture_scale = 0.5
 shadow_enabled = true
 __meta__ = {
@@ -60,12 +60,12 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="Light2D3"]
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 4 )
+texture = ExtResource( 6 )
 
-[node name="Computer" parent="." instance=ExtResource( 7 )]
+[node name="Computer" parent="." instance=ExtResource( 3 )]
 position = Vector2( 415, 112 )
 
-[node name="Computer2" parent="." instance=ExtResource( 7 )]
+[node name="Computer2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 414, 224 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
