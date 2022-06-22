@@ -1,18 +1,15 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://TileSet/autotile.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Ternimal/Terminal.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Computer/Computer.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Testing/Testing Resources/test_tree0.tres" type="Resource" id=5]
-[ext_resource path="res://Scenes/Testing/Testing Resources/test_tree1.tres" type="Resource" id=6]
+[ext_resource path="res://Scenes/Ternimal/ResourceGen.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/Ternimal/FileSystem.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Ternimal/NetworkManager.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/Testing/Testing Resources/test_user0.tres" type="Resource" id=9]
-[ext_resource path="res://Scenes/Testing/Testing Resources/test_user1.tres" type="Resource" id=10]
 [ext_resource path="res://Scenes/Util/SceneTransitionRect.tscn" type="PackedScene" id=11]
 
-[node name="Demo" type="Node"]
+[node name="Demo2" type="Node"]
 
 [node name="SceneTransitionRect" parent="." instance=ExtResource( 11 )]
 anchor_left = -0.652344
@@ -28,7 +25,7 @@ margin_bottom = 62.0
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 0, 0, 1, 1, 0, 196610, 2, 0, 196610, 3, 0, 2, 4, 0, 196610, 5, 0, 196610, 6, 0, 196610, 7, 0, 196610, 8, 0, 196610, 9, 0, 196610, 10, 0, 196610, 11, 0, 196610, 12, 0, 196610, 13, 0, 196610, 14, 0, 196610, 15, 0, 196610, 16, 0, 196610, 17, 0, 3, 65536, 0, 65536, 65539, 0, 65536, 65553, 0, 65536, 131072, 0, 65536, 131075, 0, 65536, 131079, 0, 0, 131089, 0, 65536, 196608, 0, 65536, 196611, 0, 65536, 196614, 0, 196609, 196615, 0, 131074, 196616, 0, 196610, 196617, 0, 196611, 196625, 0, 65536, 262144, 0, 65536, 262147, 0, 65536, 262161, 0, 65536, 327680, 0, 65536, 327683, 0, 65536, 327697, 0, 65536, 393216, 0, 65536, 393219, 0, 65536, 393233, 0, 65536, 458752, 0, 65536, 458755, 0, 65536, 458769, 0, 65536, 524288, 0, 65536, 524291, 0, 65536, 524295, 0, 0, 524305, 0, 65536, 589824, 0, 65536, 589827, 0, 131072, 589830, 0, 196609, 589831, 0, 131074, 589832, 0, 196610, 589833, 0, 196611, 589841, 0, 65536, 655360, 0, 65536, 655377, 0, 65536, 720896, 0, 65536, 720913, 0, 65536, 786432, 0, 131073, 786433, 0, 196610, 786434, 0, 196610, 786435, 0, 196610, 786436, 0, 196610, 786437, 0, 196610, 786438, 0, 196610, 786439, 0, 196610, 786440, 0, 196610, 786441, 0, 196610, 786442, 0, 196610, 786443, 0, 196610, 786444, 0, 196610, 786445, 0, 196610, 786446, 0, 196610, 786447, 0, 196610, 786448, 0, 196610, 786449, 0, 131075 )
+tile_data = PoolIntArray( 0, 0, 1, 1, 0, 196610, 2, 0, 196610, 3, 0, 196610, 4, 0, 196610, 5, 0, 196610, 6, 0, 196610, 7, 0, 196610, 8, 0, 196610, 9, 0, 196610, 10, 0, 196610, 11, 0, 196610, 12, 0, 196610, 13, 0, 196610, 14, 0, 196610, 15, 0, 196610, 16, 0, 196610, 17, 0, 3, 65536, 0, 65536, 65553, 0, 65536, 131072, 0, 65536, 131079, 0, 0, 131089, 0, 65536, 196608, 0, 65537, 196609, 0, 196610, 196610, 0, 196610, 196611, 0, 2, 196612, 0, 196610, 196613, 0, 196610, 196614, 0, 196610, 196615, 0, 131074, 196616, 0, 196610, 196617, 0, 196611, 196625, 0, 65536, 262144, 0, 65536, 262147, 0, 65536, 262161, 0, 65536, 327680, 0, 65536, 327683, 0, 65536, 327697, 0, 65536, 393216, 0, 65536, 393219, 0, 65536, 393233, 0, 65536, 458752, 0, 65536, 458755, 0, 65536, 458769, 0, 65536, 524288, 0, 65536, 524291, 0, 65536, 524295, 0, 0, 524305, 0, 65536, 589824, 0, 65536, 589827, 0, 131072, 589830, 0, 196609, 589831, 0, 131074, 589832, 0, 196610, 589833, 0, 196611, 589841, 0, 65536, 655360, 0, 65536, 655377, 0, 65536, 720896, 0, 65536, 720913, 0, 65536, 786432, 0, 131073, 786433, 0, 196610, 786434, 0, 196610, 786435, 0, 196610, 786436, 0, 196610, 786437, 0, 196610, 786438, 0, 196610, 786439, 0, 196610, 786440, 0, 196610, 786441, 0, 196610, 786442, 0, 196610, 786443, 0, 196610, 786444, 0, 196610, 786445, 0, 196610, 786446, 0, 196610, 786447, 0, 196610, 786448, 0, 196610, 786449, 0, 131075 )
 
 [node name="Player" parent="World" instance=ExtResource( 2 )]
 position = Vector2( 32, 32 )
@@ -49,15 +46,8 @@ margin_bottom = 40.0
 
 [node name="Systems" type="Node" parent="."]
 
-[node name="FileSystem" parent="Systems" instance=ExtResource( 7 )]
-system_name = "test0"
-tree = ExtResource( 5 )
-users = [ ExtResource( 9 ), ExtResource( 10 ) ]
-
-[node name="FileSystem2" parent="Systems" instance=ExtResource( 7 )]
-system_name = "test1"
-tree = ExtResource( 6 )
-users = [ ExtResource( 9 ), ExtResource( 10 ) ]
-
-[node name="NetworkManager" parent="Systems" instance=ExtResource( 8 )]
-networks = [ [ "test0", "test1" ] ]
+[node name="ResGen" type="Node" parent="Systems"]
+script = ExtResource( 5 )
+data_path = "res://Scenes/Testing/Testing Resources/test_lv.json"
+system_prefab = ExtResource( 7 )
+network_manager_prefab = ExtResource( 8 )

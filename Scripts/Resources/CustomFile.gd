@@ -1,5 +1,5 @@
 extends Resource
-class_name File
+class_name CustomFile
 
 enum FileType {
 	DIRECTORY,
@@ -7,10 +7,10 @@ enum FileType {
 	EXECUTABLE
 }
 
-export(FileType) var file_type
+export(FileType) var file_type: int
 
-export(String) var file_name
-export(Resource) var file_owner # User that own this file, must use User
+export(String) var file_name: String
+export(String) var file_owner # User that own this file, use name
 
 export(bool) var is_private # Can non-owner open the file
 
