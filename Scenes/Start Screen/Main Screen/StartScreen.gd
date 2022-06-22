@@ -17,7 +17,7 @@ func _input(event: InputEvent) -> void:
 			
 
 func _on_Start_Game_pressed() -> void:
-	_transition_rect.transition_to()
+	_transition_rect.transition()
 
 func _on_Quit_pressed() -> void:
 	get_tree().quit()

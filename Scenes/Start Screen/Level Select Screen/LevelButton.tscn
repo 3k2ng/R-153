@@ -1,0 +1,106 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scenes/Start Screen/font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scenes/Start Screen/Level Select Screen/locked button texture.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Start Screen/Level Select Screen/LevelButton.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 300, 300 )
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.223529, 0.439216, 0.478431, 1 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 0.137255, 0.286275, 0.364706, 1 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color( 0.0823529, 0.211765, 0.282353, 1 )
+shadow_size = 4
+shadow_offset = Vector2( 3, 3 )
+
+[sub_resource type="Theme" id=2]
+default_font = ExtResource( 1 )
+Button/colors/font_color = Color( 0.160784, 0.27451, 0.364706, 1 )
+Button/colors/font_color_disabled = Color( 0.160784, 0.27451, 0.364706, 1 )
+Button/colors/font_color_focus = Color( 0.584314, 0.878431, 0.8, 1 )
+Button/colors/font_color_hover = Color( 0.584314, 0.878431, 0.8, 1 )
+Button/colors/font_color_pressed = Color( 0.584314, 0.878431, 0.8, 1 )
+Button/styles/disabled = SubResource( 3 )
+Button/styles/hover = SubResource( 1 )
+Button/styles/normal = SubResource( 1 )
+Button/styles/pressed = SubResource( 1 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "bubble"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Button:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 2.73208, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 0.9, 0.9 ), Vector2( 1.05, 1.05 ), Vector2( 0.95, 0.95 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "shake"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Button:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 2.46229, 3.13834, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -10, 0 ), Vector2( 10, 0 ), Vector2( -5, 0 ), Vector2( 5, 0 ), Vector2( 0, 0 ) ]
+}
+
+[node name="Level Button" type="Control"]
+anchor_left = 0.098
+anchor_top = 0.174
+anchor_right = 0.098
+anchor_bottom = 0.174
+margin_left = -100.352
+margin_top = -100.224
+margin_right = 79.648
+margin_bottom = 79.776
+rect_pivot_offset = Vector2( 3, 4 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 100.0 ],
+"_edit_vertical_guides_": [ 100.0 ]
+}
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -89.9998
+margin_top = -90.0
+margin_right = 89.9998
+margin_bottom = 90.0
+rect_pivot_offset = Vector2( 100, 100 )
+focus_mode = 0
+theme = SubResource( 2 )
+enabled_focus_mode = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/bubble = SubResource( 5 )
+anims/shake = SubResource( 4 )
+
+[connection signal="gui_input" from="Button" to="." method="_on_Button_gui_input"]
+[connection signal="mouse_entered" from="Button" to="." method="_on_Button_mouse_entered"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

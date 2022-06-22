@@ -2,7 +2,6 @@
 
 [ext_resource path="res://Scenes/Start Screen/Background.jpg" type="Texture" id=1]
 [ext_resource path="res://Scenes/Start Screen/menu button group.tres" type="ButtonGroup" id=2]
-[ext_resource path="res://Scenes/Start Screen/StartScreen.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Start Screen/font.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Scenes/Util/SceneTransitionRect.tscn" type="PackedScene" id=5]
 
@@ -29,11 +28,37 @@ Button/styles/normal = SubResource( 3 )
 Button/styles/pressed = SubResource( 4 )
 CheckBox/styles/normal = SubResource( 7 )
 
+[sub_resource type="GDScript" id=9]
+script/source = "extends Control
+
+onready var _start_game = $\"Menu/Start Game\"
+onready var _quit = $\"Menu/Quit\"
+onready var _transition_rect = $SceneTransitionRect
+
+var _focused := false
+
+func _input(event: InputEvent) -> void:
+	if not _focused:
+		if event.is_action_pressed(\"Down\"):
+			_quit.grab_focus()
+			_focused = true
+		elif event.is_action_pressed(\"Up\") or event.is_action_pressed(\"Left\") or event.is_action_pressed(\"Right\"):
+			_start_game.grab_focus()
+			_focused = true
+			
+
+func _on_Start_Game_pressed() -> void:
+	_transition_rect.transition()
+
+func _on_Quit_pressed() -> void:
+	get_tree().quit()
+"
+
 [node name="Start Screen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = SubResource( 6 )
-script = ExtResource( 3 )
+script = SubResource( 9 )
 __meta__ = {
 "_edit_vertical_guides_": [ 513.0 ]
 }
@@ -59,7 +84,7 @@ alignment = 1
 margin_right = 223.0
 margin_bottom = 42.0
 group = ExtResource( 2 )
-text = "Start Game"
+text = "Levels"
 
 [node name="Settings" type="Button" parent="Menu"]
 margin_top = 52.0
@@ -76,7 +101,7 @@ group = ExtResource( 2 )
 text = "Quit"
 
 [node name="SceneTransitionRect" parent="." instance=ExtResource( 5 )]
-next_scene_path = "res://Scenes/Testing/_demo.tscn"
+next_scene_path = "res://Scenes/Start Screen/Level Select Screen/LevelSelectScreen.tscn"
 
 [connection signal="pressed" from="Menu/Start Game" to="." method="_on_Start_Game_pressed"]
 [connection signal="pressed" from="Menu/Quit" to="." method="_on_Quit_pressed"]

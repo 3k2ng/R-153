@@ -137,11 +137,11 @@ func _process_input() -> void:
 		if Input.is_action_just_released("ZoomIn") or Input.is_action_pressed("ZoomIn"):
 			camera.zoom.x = clamp(camera.zoom.x - zoom_speed, min_zoom, max_zoom)
 			camera.zoom.y = clamp(camera.zoom.y - zoom_speed, min_zoom, max_zoom)
-			camera.position.y = -200 * camera.zoom.y
+#			camera.position.y = -200 * camera.zoom.y
 		if Input.is_action_just_released("ZoomOut") or Input.is_action_pressed("ZoomOut"):
 			camera.zoom.x = clamp(camera.zoom.x + zoom_speed, min_zoom, max_zoom)
 			camera.zoom.y = clamp(camera.zoom.y + zoom_speed, min_zoom, max_zoom)
-			camera.position.y = -200 * camera.zoom.y
+#			camera.position.y = -200 * camera.zoom.y
 #	else:
 #		if Input.is_action_just_pressed("Exit"):
 #			action = Action.TRANSFORM_BALL	
