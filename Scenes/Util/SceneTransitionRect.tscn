@@ -18,15 +18,19 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[node name="SceneTransitionRect" type="ColorRect"]
+[node name="SceneTransitionRect" type="CanvasLayer"]
+layer = -1
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
-script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../ColorRect")
 anims/fade = SubResource( 1 )

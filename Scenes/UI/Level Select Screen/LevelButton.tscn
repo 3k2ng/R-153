@@ -1,8 +1,8 @@
 [gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://Scenes/Start Screen/font.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Scenes/Start Screen/Level Select Screen/locked button texture.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/Start Screen/Level Select Screen/LevelButton.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/UI/font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scenes/UI/Level Select Screen/locked button texture.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/UI/Level Select Screen/LevelButton.gd" type="Script" id=3]
 [ext_resource path="res://Audio/UI/hover_over.wav" type="AudioStream" id=4]
 [ext_resource path="res://Audio/UI/level_select.wav" type="AudioStream" id=5]
 [ext_resource path="res://Audio/UI/next_screen.wav" type="AudioStream" id=6]
