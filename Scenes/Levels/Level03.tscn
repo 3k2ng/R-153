@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://TileSet/autotile.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://testbackground.png" type="Texture" id=3]
-[ext_resource path="res://testlight.png" type="Texture" id=4]
-[ext_resource path="res://testspot.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Objects/Lighting.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Computer/Computer.tscn" type="PackedScene" id=6]
 
 [node name="Level 3" type="Node2D"]
@@ -22,148 +21,35 @@ tile_data = PoolIntArray( -655367, 0, 1, -655366, 0, 196610, -655365, 0, 196610,
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.27451, 0.27451, 0.27451, 1 )
 
-[node name="Light2D" type="Light2D" parent="."]
-position = Vector2( 0, 1 )
-texture = ExtResource( 4 )
-texture_scale = 0.5
-shadow_enabled = true
-__meta__ = {
-"_edit_group_": true
-}
+[node name="Light2D" parent="." instance=ExtResource( 4 )]
+position = Vector2( 104, 11 )
 
-[node name="Sprite" type="Sprite" parent="Light2D"]
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 5 )
+[node name="Light2D2" parent="." instance=ExtResource( 4 )]
+position = Vector2( -104, 11 )
 
-[node name="Light2D2" type="Light2D" parent="."]
-position = Vector2( 0, 113 )
-texture = ExtResource( 4 )
-texture_scale = 0.5
-shadow_enabled = true
-__meta__ = {
-"_edit_group_": true
-}
+[node name="Light2D3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 0, -149 )
 
-[node name="Sprite" type="Sprite" parent="Light2D2"]
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 5 )
+[node name="Light2D4" parent="." instance=ExtResource( 4 )]
+position = Vector2( -388, -132 )
 
-[node name="Light2D3" type="Light2D" parent="."]
-position = Vector2( 255, 1 )
-texture = ExtResource( 4 )
-texture_scale = 0.5
-shadow_enabled = true
-__meta__ = {
-"_edit_group_": true
-}
+[node name="Light2D5" parent="." instance=ExtResource( 4 )]
+position = Vector2( -390, 59 )
 
-[node name="Sprite" type="Sprite" parent="Light2D3"]
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 5 )
+[node name="Light2D6" parent="." instance=ExtResource( 4 )]
+position = Vector2( 0, 123 )
 
-[node name="Light2D4" type="Light2D" parent="."]
-position = Vector2( -255, 1 )
-texture = ExtResource( 4 )
-texture_scale = 0.5
-shadow_enabled = true
-__meta__ = {
-"_edit_group_": true
-}
+[node name="Light2D7" parent="." instance=ExtResource( 4 )]
+position = Vector2( 225, 124 )
 
-[node name="Sprite" type="Sprite" parent="Light2D4"]
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 5 )
+[node name="Light2D8" parent="." instance=ExtResource( 4 )]
+position = Vector2( 227, -100 )
 
-[node name="Light2D5" type="Light2D" parent="."]
-position = Vector2( -463, 49 )
-texture = ExtResource( 4 )
-texture_scale = 0.5
-shadow_enabled = true
-__meta__ = {
-"_edit_group_": true
-}
+[node name="Light2D9" parent="." instance=ExtResource( 4 )]
+position = Vector2( -192, -37 )
 
-[node name="Sprite" type="Sprite" parent="Light2D5"]
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 5 )
-
-[node name="Light2D6" type="Light2D" parent="."]
-position = Vector2( 273, 113 )
-texture = ExtResource( 4 )
-texture_scale = 0.5
-shadow_enabled = true
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Light2D6"]
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 5 )
-
-[node name="Light2D7" type="Light2D" parent="."]
-position = Vector2( -463, -143 )
-texture = ExtResource( 4 )
-texture_scale = 0.5
-shadow_enabled = true
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Light2D7"]
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 5 )
-
-[node name="Light2D8" type="Light2D" parent="."]
-position = Vector2( 0, -158 )
-texture = ExtResource( 4 )
-texture_scale = 0.5
-shadow_enabled = true
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Light2D8"]
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 5 )
-
-[node name="Light2D9" type="Light2D" parent="."]
-position = Vector2( 213, -111 )
-texture = ExtResource( 4 )
-texture_scale = 0.5
-shadow_enabled = true
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Light2D9"]
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 5 )
-
-[node name="Light2D10" type="Light2D" parent="."]
-position = Vector2( -113, 113 )
-texture = ExtResource( 4 )
-texture_scale = 0.5
-shadow_enabled = true
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Light2D10"]
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 5 )
-
-[node name="Light2D11" type="Light2D" parent="."]
-position = Vector2( -273, -47 )
-texture = ExtResource( 4 )
-texture_scale = 0.5
-shadow_enabled = true
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Light2D11"]
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 5 )
+[node name="Light2D10" parent="." instance=ExtResource( 4 )]
+position = Vector2( -143, 124 )
 
 [node name="Computer" parent="." instance=ExtResource( 6 )]
 position = Vector2( 219, 96 )

@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://TileSet/autotile.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Computer/Computer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://testbackground.png" type="Texture" id=4]
-[ext_resource path="res://testlight.png" type="Texture" id=5]
-[ext_resource path="res://testspot.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/Objects/Lighting.tscn" type="PackedScene" id=5]
 
 [node name="Tutorial" type="Node2D"]
 
@@ -23,44 +22,14 @@ tile_data = PoolIntArray( 12, 0, 1, 13, 0, 196610, 14, 0, 196610, 15, 0, 196610,
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.27451, 0.27451, 0.27451, 1 )
 
-[node name="Light2D" type="Light2D" parent="."]
-position = Vector2( 125, 130 )
-texture = ExtResource( 5 )
-texture_scale = 0.5
-shadow_enabled = true
-__meta__ = {
-"_edit_group_": true
-}
+[node name="Light2D" parent="." instance=ExtResource( 5 )]
+position = Vector2( 121, 139 )
 
-[node name="Sprite" type="Sprite" parent="Light2D"]
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 6 )
+[node name="Light2D2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 412, 139 )
 
-[node name="Light2D2" type="Light2D" parent="."]
-position = Vector2( 350, 20 )
-texture = ExtResource( 5 )
-texture_scale = 0.5
-shadow_enabled = true
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Light2D2"]
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 6 )
-
-[node name="Light2D3" type="Light2D" parent="."]
-position = Vector2( 425, 130 )
-texture = ExtResource( 5 )
-texture_scale = 0.5
-shadow_enabled = true
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Light2D3"]
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 6 )
+[node name="Light2D3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 384, 27 )
 
 [node name="Computer" parent="." instance=ExtResource( 3 )]
 position = Vector2( 415, 112 )

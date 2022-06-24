@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/testlight.png-22bd11b686125fe200ce1c2384791379.stex"
+path="res://.import/lightspot.png-3cbf0073009643cba48f3073052ba181.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://testlight.png"
-dest_files=[ "res://.import/testlight.png-22bd11b686125fe200ce1c2384791379.stex" ]
+source_file="res://Scenes/Objects/lightspot.png"
+dest_files=[ "res://.import/lightspot.png-3cbf0073009643cba48f3073052ba181.stex" ]
 
 [params]
 
