@@ -83,5 +83,5 @@ func _on_Exit_pressed() -> void:
 	yield(_next_screen, "finished")
 	_menu.visible = false	
 	_focused = false
-	_transition_rect.transition_to("res://Scenes/UI/Main Screen/StartScreen.tscn")
+	_transition_rect.transition_to("res://Scenes/Start Screen/Main Screen/StartScreen.tscn")
 	get_tree().paused = false

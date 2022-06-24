@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Test commit.jpg-589bf9a5b1cbc00dfa599dd14c4cf14b.stex"
+path="res://.import/Background.jpg-26021b46f99e091b2a0ba84d7433f959.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Test commit.jpg"
-dest_files=[ "res://.import/Test commit.jpg-589bf9a5b1cbc00dfa599dd14c4cf14b.stex" ]
+source_file="res://Scenes/Start Screen/Level Select Screen/Background.jpg"
+dest_files=[ "res://.import/Background.jpg-26021b46f99e091b2a0ba84d7433f959.stex" ]
 
 [params]
 
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

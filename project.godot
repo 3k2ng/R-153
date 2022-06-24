@@ -45,7 +45,7 @@ _global_script_class_icons={
 [application]
 
 config/name="r153"
-run/main_scene="res://Scenes/UI/Main Screen/StartScreen.tscn"
+run/main_scene="res://Scenes/Start Screen/Main Screen/StartScreen.tscn"
 config/icon="res://icon.png"
 
 [autoload]

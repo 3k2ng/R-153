@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scenes/NPC/Test images/Aware.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/NPC/NPC.gd" type="Script" id=2]
@@ -7,51 +7,54 @@
 [ext_resource path="res://Scenes/NPC/Test images/Caution.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/NPC/Test images/Clear.png" type="Texture" id=6]
 
-[sub_resource type="AtlasTexture" id=15]
+[sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 3 )
 region = Rect2( 96, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=9]
+[sub_resource type="AtlasTexture" id=18]
 atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=10]
+[sub_resource type="AtlasTexture" id=19]
 atlas = ExtResource( 3 )
 region = Rect2( 16, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=11]
+[sub_resource type="AtlasTexture" id=20]
 atlas = ExtResource( 3 )
 region = Rect2( 32, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=12]
+[sub_resource type="AtlasTexture" id=21]
 atlas = ExtResource( 3 )
 region = Rect2( 48, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=13]
+[sub_resource type="AtlasTexture" id=22]
 atlas = ExtResource( 3 )
 region = Rect2( 64, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=14]
+[sub_resource type="AtlasTexture" id=23]
 atlas = ExtResource( 3 )
 region = Rect2( 80, 0, 16, 16 )
 
 [sub_resource type="SpriteFrames" id=8]
 animations = [ {
-"frames": [ SubResource( 15 ) ],
-"loop": true,
+"frames": [ SubResource( 17 ) ],
+"loop": false,
 "name": "Computing",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 9 ), SubResource( 10 ) ],
+"frames": [ SubResource( 18 ), SubResource( 19 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 2.0
 }, {
-"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
+"frames": [ SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ) ],
 "loop": true,
 "name": "Move",
 "speed": 5.0
 } ]
+
+[sub_resource type="RectangleShape2D" id=24]
+extents = Vector2( 38.4001, 45.7685 )
 
 [sub_resource type="SpriteFrames" id=16]
 animations = [ {
@@ -66,7 +69,7 @@ animations = [ {
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 1 ) ],
-"loop": true,
+"loop": false,
 "name": "Question",
 "speed": 1.0
 }, {
@@ -78,46 +81,42 @@ animations = [ {
 
 [node name="NPC" type="KinematicBody2D"]
 collision_layer = 4
-collision_mask = 3
+collision_mask = 35
 script = ExtResource( 2 )
 
 [node name="NPCsprite" type="AnimatedSprite" parent="."]
-position = Vector2( 0, -78 )
-scale = Vector2( 9.5, 9.75 )
+position = Vector2( 0, -12 )
+scale = Vector2( 1.6875, 1.5 )
 frames = SubResource( 8 )
+animation = "Computing"
+playing = true
 
-[node name="NPCcollisionBox" type="CollisionPolygon2D" parent="."]
-position = Vector2( -352, -168 )
-polygon = PoolVector2Array( 304, 48, 304, 168, 400, 168, 400, 48 )
-
-[node name="DetectionBoxes" type="Area2D" parent="."]
-modulate = Color( 0.596078, 0.0941176, 0.0941176, 1 )
-self_modulate = Color( 0.176471, 0.0862745, 0.403922, 1 )
-collision_layer = 8
-collision_mask = 2
-
-[node name="LineOfSight" type="CollisionPolygon2D" parent="DetectionBoxes"]
-position = Vector2( 400, 104 )
-rotation = -1.85771
-polygon = PoolVector2Array( -78.138, 236.557, 199, -310, 329.803, -269.693, 282.775, 342.004 )
-
-[node name="Proximity" type="CollisionPolygon2D" parent="DetectionBoxes"]
-position = Vector2( -224, -96 )
-polygon = PoolVector2Array( 80, 104, 360, 104, 344, -24, 216, -96, 120, -32 )
+[node name="NPCcollisionBox" type="CollisionShape2D" parent="."]
+position = Vector2( 2.38419e-07, -9 )
+scale = Vector2( 0.208333, 0.196642 )
+shape = SubResource( 24 )
 
 [node name="AlertState" type="AnimatedSprite" parent="."]
-position = Vector2( 0, -160 )
-scale = Vector2( 0.121681, 0.105432 )
+position = Vector2( 9.53674e-07, -24 )
+scale = Vector2( 0.044243, 0.0383349 )
 frames = SubResource( 16 )
 animation = "Question"
+playing = true
 
-[node name="SpottedTimer" type="Timer" parent="."]
-one_shot = true
+[node name="DetectionLines" type="Node2D" parent="."]
+
+[node name="DetectionLine" type="RayCast2D" parent="DetectionLines"]
+modulate = Color( 0.596078, 0.0941176, 0.0941176, 1 )
+self_modulate = Color( 0.176471, 0.0862745, 0.403922, 1 )
+position = Vector2( 0, -12 )
+scale = Vector2( 1, 10 )
+enabled = true
+cast_to = Vector2( 1000, 0 )
+collision_mask = 35
+
+[node name="FloorLine" type="RayCast2D" parent="DetectionLines"]
+enabled = true
+cast_to = Vector2( 0, 20 )
 
 [node name="De_agroTimer" type="Timer" parent="."]
-process_mode = 0
-wait_time = 2.0
-one_shot = true
-
-[connection signal="body_entered" from="DetectionBoxes" to="." method="_on_DetectionBoxes_body_entered"]
-[connection signal="body_exited" from="DetectionBoxes" to="." method="_on_DetectionBoxes_body_exited"]
+wait_time = 3.37
