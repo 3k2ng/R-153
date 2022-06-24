@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scripts/Resources/FileTree.gd"
 }, {
+"base": "ColorRect",
+"class": "SceneTransitionRect",
+"language": "GDScript",
+"path": "res://Scenes/Util/SceneTransitionRect.gd"
+}, {
 "base": "Resource",
 "class": "User",
 "language": "GDScript",
@@ -33,6 +38,7 @@ _global_script_class_icons={
 "CustomFile": "",
 "FileSystem": "",
 "FileTree": "",
+"SceneTransitionRect": "",
 "User": ""
 }
 
