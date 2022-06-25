@@ -14,7 +14,7 @@ scale = Vector2( 24.4687, 14.9934 )
 texture = ExtResource( 2 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color( 0.27451, 0.27451, 0.27451, 1 )
+color = Color( 0.109804, 0.14902, 0.219608, 1 )
 
 [node name="LevelTileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
