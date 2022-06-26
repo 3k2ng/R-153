@@ -2,20 +2,13 @@
 
 [ext_resource path="res://TileSet/autotile.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Computer/Computer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Objects/Desk and Chair.tscn" type="PackedScene" id=3]
 [ext_resource path="res://testbackground.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Objects/Lighting.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/NPC/NPC.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Objects/Plant.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Objects/Desk.tscn" type="PackedScene" id=8]
 
 [node name="Tutorial" type="Node2D"]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-visible = false
-margin_right = 40.0
-margin_bottom = 40.0
 
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 311, 89.0677 )
@@ -40,26 +33,23 @@ position = Vector2( 412, 139 )
 [node name="Light2D3" parent="." instance=ExtResource( 5 )]
 position = Vector2( 384, 27 )
 
-[node name="Computer" parent="." instance=ExtResource( 3 )]
-position = Vector2( 407, 83 )
-
-[node name="Computer2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 407, 195 )
-
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 121, 205 )
 
-[node name="Desk" parent="." instance=ExtResource( 8 )]
-position = Vector2( 407, 200 )
-
-[node name="Desk2" parent="." instance=ExtResource( 8 )]
-position = Vector2( 407, 88 )
-
 [node name="Plant" parent="." instance=ExtResource( 7 )]
-position = Vector2( 522, 208 )
+position = Vector2( 516, 207 )
 
 [node name="Plant2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 49, 208 )
+position = Vector2( 45, 208 )
 
 [node name="Plant3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 275, 208 )
+position = Vector2( 279, 207 )
+
+[node name="Desk and Chair" parent="." instance=ExtResource( 3 )]
+position = Vector2( 387, 80 )
+
+[node name="Desk and Chair2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 398, 192 )
+
+[node name="NPC" parent="." instance=ExtResource( 6 )]
+position = Vector2( 470, 224 )
