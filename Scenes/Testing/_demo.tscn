@@ -1,23 +1,16 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://TileSet/autotile.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Ternimal/Terminal.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Computer/Computer.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Ternimal/ResourceGen.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/Start Screen/Pause Menu/PauseMenu.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Ternimal/FileSystem.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Ternimal/NetworkManager.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Util/SceneTransitionRect.tscn" type="PackedScene" id=11]
 
 [node name="Demo2" type="Node"]
-
-[node name="SceneTransitionRect" parent="." instance=ExtResource( 11 )]
-anchor_left = -0.652344
-anchor_top = -0.652778
-margin_left = 226.0
-margin_top = 62.0
-margin_right = 226.0
-margin_bottom = 62.0
 
 [node name="World" type="Node2D" parent="."]
 
@@ -51,3 +44,8 @@ script = ExtResource( 5 )
 data_path = "res://Scenes/Testing/Testing Resources/test_lv.json"
 system_prefab = ExtResource( 7 )
 network_manager_prefab = ExtResource( 8 )
+
+[node name="SceneTransitionRect" parent="." instance=ExtResource( 11 )]
+
+[node name="PauseMenu" parent="." instance=ExtResource( 6 )]
+transition_rect_path = NodePath("../SceneTransitionRect")
