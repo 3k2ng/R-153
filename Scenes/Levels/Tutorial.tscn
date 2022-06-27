@@ -33,9 +33,6 @@ position = Vector2( 412, 139 )
 [node name="Light2D3" parent="." instance=ExtResource( 5 )]
 position = Vector2( 384, 27 )
 
-[node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 121, 205 )
-
 [node name="Plant" parent="." instance=ExtResource( 7 )]
 position = Vector2( 516, 207 )
 
@@ -50,6 +47,9 @@ position = Vector2( 387, 80 )
 
 [node name="Desk and Chair2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 398, 192 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 121, 205 )
 
 [node name="NPC" parent="." instance=ExtResource( 6 )]
 position = Vector2( 470, 224 )
