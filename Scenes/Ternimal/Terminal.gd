@@ -1,22 +1,7 @@
 extends CanvasLayer
 
-enum TerminalState {
-	DISABLED,
-	HACK,
-	SSH,
-	PASSWORD,
-	ENABLED
-}
-
 const MAX_LINES = 9
 const MAX_CHARS = 90
-
-var current_system: FileSystem
-var current_user: User
-var current_directory: String
-
-var target_system: FileSystem
-var target_user: User
 
 onready var animation_player = $"AnimationPlayer"
 
@@ -25,45 +10,15 @@ onready var output = $"TerminalUI/Output"
 
 onready var output_queue = []
 
-onready var current_state = TerminalState.DISABLED
-
-onready var password_tries = 0
+func _ready():
+	TerminalAutoload.connect("print_console", self, "print_output")
+	TerminalAutoload.connect("clear_console", self, "clear_output")
+	TerminalAutoload.connect("hack", self, "enter_hacking")
+	TerminalAutoload.connect("exit_hacking", self, "exit_hacking")
 
 func _on_text_input(input_text):
 	input.text = ""
-	match current_state:
-		TerminalState.PASSWORD:
-			if input_text == target_user.user_password:
-				current_user = target_user
-				set_system(target_system)
-				current_state = TerminalState.ENABLED
-			elif password_tries > 0:
-				print_output("wrong password, you have %d tries left" % password_tries)
-				password_tries -= 1
-			else:
-				clear_output()
-				current_state = TerminalState.ENABLED
-				print_output("fail to access user")
-		TerminalState.SSH:
-			var selection = input_text.to_int()
-			if selection >= 0 and selection < len(target_system.users):
-				target_user = target_system.users[selection]
-				current_state = TerminalState.PASSWORD
-				password_tries = 3
-				clear_output()
-				print_output("please enter the password for %s" % target_user.user_name)
-		TerminalState.HACK:
-			var selection = input_text.to_int()
-			if selection >= 0 and selection < len(target_system.users):
-				current_user = target_system.users[selection]
-				set_system(target_system)
-				current_state = TerminalState.ENABLED
-		TerminalState.ENABLED:
-			print_output(current_directory + "> " + input_text)
-			var phrases = Array(input_text.split(" "))
-			while "" in phrases:
-				phrases.erase("")
-			execute_input(phrases)
+	TerminalAutoload.parse_input(input_text)
 
 func print_output(output_text):
 	output_text = output_text
@@ -81,107 +36,10 @@ func clear_output():
 	output.text = ""
 	output_queue = []
 
-func transform_directory(original_dir):
-	var path = original_dir.split("/")
-	var ret = []
-	for stuff in path:
-		if stuff == "..":
-			ret.pop_back()
-		elif stuff != ".":
-			ret.append(stuff)
-	return PoolStringArray(ret).join("/")
-
-func execute_input(input_phrases):
-	var command = input_phrases.pop_front().to_upper()
-	var args = input_phrases
-	match command:
-		"HELP":
-			if len(args) == 0:
-				print_output("Available commands:")
-				print_output("LS, CD, SSH-LS, SSH, EXPL, CAT, WHO, CLR, EXIT")
-		"LS":
-			for file in current_system.get_files(current_directory):
-				print_output("[%s, %s, %s] %s" % [file.file_owner, "dir" if file.file_type == 0 else ("tex" if file.file_type == 1 else "exe"), "private" if file.is_private else "public", file.file_name])
-		"CD":
-			if len(args) == 0:
-				print_output("cd")
-			else:
-				var dir = transform_directory(current_directory + "/" + args[0])
-				var accessed_file = current_system.get_file(dir)
-				if accessed_file != null:
-					if accessed_file.file_type == 0 and file_accessible(accessed_file):
-						current_directory = accessed_file.location + "/" + accessed_file.file_name
-				elif dir == "~":
-					current_directory = "~"
-				else:
-					print_output(">:(")
-		"SSH-LS":
-			if len(args) == 0:
-				for sys in get_tree().get_nodes_in_group("network_manager")[0].list_ssh(current_system.system_name):
-					print_output(sys)
-			else:
-				for user in get_tree().get_nodes_in_group("network_manager")[0].list_user(args[0]):
-					print_output(user)
-		"SSH":
-			if len(args) == 0:
-				pass
-			else:
-				clear_output()
-				ssh_system(get_tree().get_nodes_in_group("network_manager")[0].get_system(args[0]))
-		"EXPL":
-			print_output("expl")
-			TerminalAutoload.emit_signal("explode", current_system.system_name)
-		"CAT":
-			if len(args) == 0:
-				print_output("cat")
-			else:
-				var dir = transform_directory(current_directory + "/" + args[0])
-				var accessed_file = current_system.get_file(dir)
-				if accessed_file != null:
-					if accessed_file.file_type == 0:
-						print_output(accessed_file.location + "/" + accessed_file.file_name)
-					elif file_accessible(accessed_file):
-						print_output(accessed_file.content)
-				elif dir == "~":
-					print_output("~")
-				else:
-					print_output(">:(")
-		"WHO":
-			print_output("%s: %s" % [current_system.system_name, current_user.user_name])
-		"CLR":
-			clear_output()
-		"EXIT":
-			clear_output()
-			animation_player.play("disable")
-			input.release_focus()
-			TerminalAutoload.emit_signal("exit_hacking")
-		_:
-			print_output("unknown command: there's no command called %s, type HELP for list of all commands" % command)
-
-func ssh_system(sys):
-	print_output("successfully connected to the system, please log in to an user:")
-	for i in len(sys.users):
-		print_output("%d: %s" % [i, sys.users[i].user_name])
-	target_system = sys
-	current_state = TerminalState.SSH
-
-func hack_system(sys):
-	animation_player.play("enable")
+func enter_hacking():
 	input.grab_focus()
-	print_output("successfully gain access to the system, please choose an user:")
-	for i in len(sys.users):
-		print_output("%d: %s" % [i, sys.users[i].user_name])
-	target_system = sys
-	current_state = TerminalState.HACK
-	TerminalAutoload.emit_signal("hack")
+	animation_player.play("enable")
 
-func set_system(sys):
-	current_system = sys
-	current_directory = "~"
-	clear_output()
-	print_output("you are now %s: %s" % [current_system.system_name, current_user.user_name])
-
-func file_accessible(file):
-	if file.is_private and file.file_owner != current_user.user_name:
-		return false
-	return true
+func exit_hacking():
+	input.release_focus()
+	animation_player.play("disable")

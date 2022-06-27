@@ -4,62 +4,54 @@
 			"name": "test0",
 			"files": [
 				{
-					"type": 0,
 					"name": "homework",
 					"owner": "2ng",
 					"private": true,
+					"directory": true,
 					"location": "~"
 				},
 				{
-					"type": 0,
 					"name": "pictures",
 					"owner": "2ng",
 					"private": false,
+					"directory": true,
 					"location": "~"
 				},
 				{
-					"type": 1,
 					"name": "readme",
 					"owner": "2ng",
 					"private": false,
+					"directory": false,
 					"location": "~",
 					"content": "sus amogus"
 				}
-			],
-			"users": [
-				"2ng",
-				"nik"
 			]
 		},
 		{
 			"name": "test1",
 			"files": [
 				{
-					"type": 0,
 					"name": "not amogus",
 					"owner": "2ng",
 					"private": true,
+					"directory": true,
 					"location": "~"
 				},
 				{
-					"type": 0,
 					"name": "amogus",
 					"owner": "2ng",
-					"private": false,
+					"private": true,
+					"directory": true,
 					"location": "~/not amogus"
 				},
 				{
-					"type": 1,
 					"name": "readme",
 					"owner": "2ng",
 					"private": true,
+					"directory": false,
 					"location": "~",
 					"content": "sus amogus"
 				}
-			],
-			"users": [
-				"2ng",
-				"nik"
 			]
 		}
 		

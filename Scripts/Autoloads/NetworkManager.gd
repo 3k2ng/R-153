@@ -1,6 +1,7 @@
 extends Node
 
 export(Array, Array, String) var networks
+export(Array, Resource) var users
 
 func list_ssh(system_name):
 	var systems = []
@@ -21,9 +22,7 @@ func get_computer(system_name):
 		if computer.system_name == system_name:
 			return computer
 
-func list_user(system_name):
-	var system = get_system(system_name)
-	var users = []
-	for user in system.users:
-		users.append(user.user_name)
-	return users
+func get_user(user_name):
+	for user in users:
+		if user.user_name == user_name:
+			return user

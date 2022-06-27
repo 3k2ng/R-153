@@ -19,9 +19,8 @@ func _on_Computer_body_exited(body):
 
 func _input(event):
 	if event.is_action_released("Hack") and player_access and not player_hacking:
-		var file_system = get_tree().get_nodes_in_group("network_manager")[0].get_system(system_name)
-		if file_system:
-			get_tree().get_nodes_in_group("terminal")[0].hack_system(file_system)
+		var hacking = TerminalAutoload.hack_system(system_name)
+		if hacking:
 			player_hacking = true
 
 func exit_hacking():
