@@ -4,13 +4,14 @@ extends KinematicBody2D
 var velocity = Vector2()
 # Determines the npc's starting direction
 export (int) var  direction = 1
+onready var particle_system = $ParticleSystem
 var nearby_bodies = null
 var computers = null
 var new_direction = null
 var detected = null
 var hit_pos = null
 var detection = null
-var state = State.Patrolling
+var state = State.Idle
 var alert = Alert.Normal
 
 enum Alert {
@@ -134,9 +135,7 @@ func _animation():
 		$NPCsprite.play("Move")
 	# Plays when the NPC dies
 	elif state == State.Dead:
-		$NPCsprite.play("Death")
-		yield(get_tree().create_timer(1.5), "timeout")
-		queue_free()
+		die()
 	
 	# Normal phase
 	if alert == Alert.Normal || state == State.Dead:
@@ -181,7 +180,12 @@ func find_computer():
 
 func die():
 	state = State.Dead
-	
+	particle_system.emitting = true
+	$AnimationPlayer.play("fade_out")
+	yield(get_tree().create_timer(1.5), "timeout")
+	queue_free()
+
+
 func _on_Detection_Radius_body_entered(body):
 	nearby_bodies = body
 
