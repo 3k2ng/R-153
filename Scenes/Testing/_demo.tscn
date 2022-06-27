@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://TileSet/autotile.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://Scenes/Ternimal/ResourceGen.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/Start Screen/Pause Menu/PauseMenu.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Ternimal/FileSystem.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Ternimal/NetworkManager.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Util/SceneTransitionRect.tscn" type="PackedScene" id=11]
 
 [node name="Demo2" type="Node"]
@@ -43,7 +42,6 @@ margin_bottom = 40.0
 script = ExtResource( 5 )
 data_path = "res://Scenes/Testing/Testing Resources/test_lv.json"
 system_prefab = ExtResource( 7 )
-network_manager_prefab = ExtResource( 8 )
 
 [node name="SceneTransitionRect" parent="." instance=ExtResource( 11 )]
 

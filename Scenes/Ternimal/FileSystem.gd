@@ -4,7 +4,6 @@ class_name FileSystem
 export(String) var system_name
 
 export(Array, Resource) var files
-export(Array, Resource) var users
 
 func get_file(dir):
 	for file in files:

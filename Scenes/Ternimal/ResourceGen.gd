@@ -5,8 +5,6 @@ export(String, FILE, "*.json") var data_path
 
 export(PackedScene) var system_prefab
 
-export(PackedScene) var network_manager_prefab
-
 func _process(_delta):
 	var data_file = File.new()
 	if data_file.open(data_path, File.READ) != OK:
@@ -31,26 +29,24 @@ func _process(_delta):
 		var files = []
 		for file_data in system.files:
 			var new_file = CustomFile.new()
-			new_file.file_type = file_data.type
 			new_file.file_name = file_data.name
 			new_file.file_owner = file_data.owner
 			new_file.is_private = file_data.private
+			new_file.is_directory = file_data.directory
 			new_file.location = file_data.location
-			if file_data.type == 1:
+			if not file_data.directory:
 				new_file.content = file_data.content
 			files.append(new_file)
 		get_parent().add_child(new_system)
 		new_system.files = files
-		new_system.users = users
 	
-	var network_manager = network_manager_prefab.instance()
 	var networks = []
 	for network in data.networks:
 		var new_network = []
 		for system in network.systems:
 			new_network.append(system)
 		networks.append(new_network)
-	network_manager.networks = networks
-	get_parent().add_child(network_manager)
+	NetworkManager.networks = networks
+	NetworkManager.users = users
 	queue_free()
 
