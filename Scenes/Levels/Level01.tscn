@@ -32,7 +32,9 @@ position = Vector2( 39, 86 )
 [node name="Lights" type="Node" parent="."]
 
 [node name="Light2D" parent="Lights" instance=ExtResource( 3 )]
+modulate = Color( 1, 0, 0, 1 )
 position = Vector2( -80, 27 )
+color = Color( 0.74902, 0.286275, 0.286275, 1 )
 
 [node name="Light2D3" parent="Lights" instance=ExtResource( 3 )]
 position = Vector2( 236, 27 )
