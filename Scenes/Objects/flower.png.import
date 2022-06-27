@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/chair.png-d44e21de4eb62947cde27b4009bff1da.stex"
+path="res://.import/flower.png-65ec8475d4e1e08f91b298468183bac7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Objects/chair.png"
-dest_files=[ "res://.import/chair.png-d44e21de4eb62947cde27b4009bff1da.stex" ]
+source_file="res://Scenes/Objects/flower.png"
+dest_files=[ "res://.import/flower.png-65ec8475d4e1e08f91b298468183bac7.stex" ]
 
 [params]
 
