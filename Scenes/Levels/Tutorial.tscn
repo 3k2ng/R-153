@@ -33,7 +33,7 @@ tile_data = PoolIntArray( 10, 0, 1, 11, 0, 196610, 12, 0, 196610, 13, 0, 196610,
 color = Color( 0.109804, 0.14902, 0.219608, 1 )
 
 [node name="Player" parent="." groups=["pause_menu"] instance=ExtResource( 2 )]
-position = Vector2( 91, 171 )
+position = Vector2( 100, 175 )
 
 [node name="NPC" parent="." instance=ExtResource( 6 )]
 position = Vector2( 370, 191 )
