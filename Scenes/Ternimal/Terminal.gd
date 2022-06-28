@@ -23,10 +23,13 @@ func _on_text_input(input_text):
 func print_output(output_text):
 	output_text = output_text
 	while len(output_text) > MAX_CHARS:
-		output_queue.append(output_text.substr(0, MAX_CHARS))
+		var current_line = output_text.substr(0, MAX_CHARS)
+		var last_space = current_line.find_last(" ")
+		output_text = output_text.substr(last_space).trim_prefix(" ")
+		current_line = current_line.substr(0, last_space)
+		output_queue.append(current_line)
 		if len(output_queue) > MAX_LINES:
 			output_queue.pop_front()
-		output_text = output_text.substr(MAX_CHARS).trim_prefix(" ")
 	output_queue.append(output_text)
 	if len(output_queue) > MAX_LINES:
 		output_queue.pop_front()
