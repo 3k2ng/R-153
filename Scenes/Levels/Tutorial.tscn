@@ -39,15 +39,15 @@ position = Vector2( 370, 191 )
 
 [node name="Light2D" parent="Lights" instance=ExtResource( 5 )]
 position = Vector2( 100, 123 )
-color = Color( 1, 0.490196, 0.490196, 1 )
+color = Color( 1, 0.745098, 0.745098, 1 )
 
 [node name="Light2D2" parent="Lights" instance=ExtResource( 5 )]
 position = Vector2( 351, 123 )
-color = Color( 1, 0.490196, 0.490196, 1 )
+color = Color( 1, 0.745098, 0.745098, 1 )
 
 [node name="Light2D3" parent="Lights" instance=ExtResource( 5 )]
 position = Vector2( 313, 28 )
-color = Color( 1, 0.490196, 0.490196, 1 )
+color = Color( 1, 0.745098, 0.745098, 1 )
 
 [node name="Computers" type="Node" parent="."]
 
@@ -55,7 +55,7 @@ color = Color( 1, 0.490196, 0.490196, 1 )
 position = Vector2( 337, 96 )
 
 [node name="Computer2" parent="Computers" instance=ExtResource( 9 )]
-position = Vector2( 325, 192 )
+position = Vector2( 397, 192 )
 
 [node name="Objects" type="Node" parent="."]
 
@@ -66,7 +66,7 @@ position = Vector2( 220, 183 )
 position = Vector2( 39, 183 )
 
 [node name="Cactus" parent="Objects" instance=ExtResource( 11 )]
-position = Vector2( 421, 183 )
+position = Vector2( 425, 183 )
 
 [node name="Chair" parent="Objects" instance=ExtResource( 12 )]
 position = Vector2( 320, 87 )

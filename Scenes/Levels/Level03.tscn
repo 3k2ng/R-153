@@ -150,7 +150,7 @@ position = Vector2( -318, -49 )
 
 [node name="NPC5" parent="NPCs" instance=ExtResource( 7 )]
 visible = false
-position = Vector2( -319, -54 )
+position = Vector2( 156, -18 )
 
 [node name="NPC6" parent="NPCs" instance=ExtResource( 7 )]
 visible = false
