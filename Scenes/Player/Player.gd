@@ -160,11 +160,6 @@ func _process_input() -> void:
 #	else:
 #		if Input.is_action_just_pressed("Exit"):
 #			action = Action.TRANSFORM_BALL	
-	if Input.is_action_just_pressed("Die"):
-		particle_system.emitting = true
-		animation_player.play("fade_out")
-		yield(get_tree().create_timer(1.5), "timeout")
-		queue_free()
 		
 
 func _process_gravity():
