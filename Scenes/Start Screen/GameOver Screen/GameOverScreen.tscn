@@ -1,0 +1,125 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Scenes/Start Screen/FFF Forward.TTF" type="DynamicFontData" id=1]
+[ext_resource path="res://Scenes/Start Screen/font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Scenes/Start Screen/GameOver Screen/GameOverScreen.gd" type="Script" id=3]
+[ext_resource path="res://Audio/UI/next_screen.wav" type="AudioStream" id=4]
+[ext_resource path="res://Audio/UI/hover_over.wav" type="AudioStream" id=5]
+[ext_resource path="res://Audio/UI/level_select.wav" type="AudioStream" id=6]
+
+[sub_resource type="Animation" id=9]
+resource_name = "fade"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0.313726, 0.105882, 0.105882, 0.6 ) ]
+}
+
+[sub_resource type="DynamicFont" id=10]
+size = 64
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxFlat" id=7]
+
+[sub_resource type="Theme" id=11]
+default_font = ExtResource( 2 )
+Button/colors/font_color = Color( 0.223529, 0.439216, 0.478431, 1 )
+Button/colors/font_color_disabled = Color( 0.607843, 0.133333, 0.168627, 1 )
+Button/colors/font_color_focus = Color( 0.584314, 0.878431, 0.8, 1 )
+Button/colors/font_color_hover = Color( 0.584314, 0.878431, 0.8, 1 )
+Button/colors/font_color_pressed = Color( 0.584314, 0.878431, 0.8, 1 )
+Button/styles/focus = SubResource( 8 )
+Button/styles/hover = SubResource( 2 )
+Button/styles/normal = SubResource( 3 )
+Button/styles/pressed = SubResource( 4 )
+CheckBox/styles/normal = SubResource( 7 )
+
+[sub_resource type="ButtonGroup" id=12]
+
+[node name="GameOverScreen" type="CanvasLayer"]
+layer = -1
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/fade = SubResource( 9 )
+
+[node name="Display" type="VBoxContainer" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -154.0
+margin_top = -112.5
+margin_right = 154.0
+margin_bottom = 112.5
+custom_constants/separation = 20
+
+[node name="Game Over Label" type="Label" parent="Display"]
+margin_right = 308.0
+margin_bottom = 179.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = SubResource( 10 )
+text = "GAME
+OVER"
+align = 1
+valign = 1
+
+[node name="Menu" type="HBoxContainer" parent="Display"]
+margin_top = 199.0
+margin_right = 308.0
+margin_bottom = 241.0
+theme = SubResource( 11 )
+custom_constants/separation = 80
+
+[node name="Restart" type="Button" parent="Display/Menu"]
+margin_right = 152.0
+margin_bottom = 42.0
+group = SubResource( 12 )
+text = "Restart"
+
+[node name="Exit" type="Button" parent="Display/Menu"]
+margin_left = 232.0
+margin_right = 308.0
+margin_bottom = 42.0
+group = SubResource( 12 )
+text = "Exit"
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="hover_over" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 5 )
+
+[node name="next_screen" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 4 )
+
+[node name="level_select" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 6 )
+
+[connection signal="mouse_entered" from="Display/Menu/Restart" to="." method="_on_MenuButton_hovered"]
+[connection signal="pressed" from="Display/Menu/Restart" to="." method="_on_Restart_pressed"]
+[connection signal="mouse_entered" from="Display/Menu/Exit" to="." method="_on_MenuButton_hovered"]
+[connection signal="pressed" from="Display/Menu/Exit" to="." method="_on_Exit_pressed"]
