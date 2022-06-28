@@ -2,6 +2,7 @@ extends Node
 
 export(Array, Array, String) var networks
 export(Array, Resource) var users
+var computers = []
 
 func list_ssh(system_name):
 	var systems = []

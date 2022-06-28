@@ -5,6 +5,7 @@ var velocity = Vector2()
 # Determines the npc's starting direction
 export (int) var  direction = 1
 onready var particle_system = $ParticleSystem
+onready var terminal = $"/root/TerminalAutoload"
 var nearby_bodies = null
 var computers = null
 var new_direction = null
@@ -37,22 +38,26 @@ func _ready():
 	# Checks if the sprite needs to be flipped
 	if direction == 1:
 		$NPCsprite.flip_h = true
+	terminal.connect("explode", self, "die")
+	terminal.connect("die", self, "die")
 
 
 # Function that's called every frame. Basically modifies npc behavior in real time
 func _physics_process(_delta):
-	_change_state()
-	# Checks if the npc has hit a wall, facilitating a change in direction for movement
-	chooseDirection()
-	# Determines which animation should be played
-	_animation()
-	# Applies the horizontal movement speed in the intended direction
-	_move_velocity()
-	
-	if $De_agroTimer.time_left < 0.2:
-		$De_agroTimer.stop()
-	if nearby_bodies:
-		detect()
+	if state != State.Dead:
+		_change_state()
+		# Checks if the npc has hit a wall, facilitating a change in direction for movement
+		chooseDirection()
+		# Determines which animation should be played
+		_animation()
+		# Applies the horizontal movement speed in the intended direction
+		_move_velocity()
+		
+		if $De_agroTimer.time_left < 0.2:
+			$De_agroTimer.stop()
+		if nearby_bodies:
+			detect()
+
 
 
 func _change_state():
@@ -62,6 +67,7 @@ func _change_state():
 			yield(get_tree().create_timer(1.0), "timeout")
 			alert = Alert.Alert
 			state = State.Chasing
+
 	if state == State.Patrolling && $De_agroTimer.is_stopped():
 		alert = Alert.Normal
 		if computers != null:
@@ -82,31 +88,35 @@ func chooseDirection():
 
 	# Determines direction when the NPC is chasing the player
 	if state == State.Chasing:
+
+		# If the player is within detection range, sets direction towards the player
+		if nearby_bodies:
+			new_direction = stepify(position.direction_to(nearby_bodies.position).x, 1)
+		if new_direction == 0:
+			$NPCsprite.play("Idle")
+		
+		elif new_direction != direction:
+			_switch_directions()
 		# If the NPC hits wall or ledge when chasing the player, just stops
 		if is_on_wall() || not $FloorLine.is_colliding():
 			$NPCsprite.play("Idle")
-		# If the player is within detection range, sets direction towards the player
-		if detected:
-			new_direction = stepify(position.direction_to(nearby_bodies.position).x, 1)
-			if new_direction == 0:
-				$NPCsprite.play("Idle")
-			elif new_direction != direction:
-				_switch_directions()
 		
 		# If the NPC is still on alert but player leaves detection
 		else:
 			# Waits 2 seconds before NPC becomes confused
 			yield(get_tree().create_timer(2.0), "timeout")
 			# NPC has lost the player, becomes confused
-			alert = Alert.Question
+			if !detected:
+				alert = Alert.Question
 			# Another wait
 			yield(get_tree().create_timer(1.0), "timeout")
-			# Goes on caution
-			alert = Alert.Caution
-			# Goes on Patrolling state
-			state = State.Patrolling
-			# Countdown timer begins. Returns to normal once timer ends.
-			$De_agroTimer.start()
+			if !detected:
+				# Goes on caution
+				alert = Alert.Caution
+				# Goes on Patrolling state
+				state = State.Patrolling
+				# Countdown timer begins. Returns to normal once timer ends.
+				$De_agroTimer.start()
 
 
 
@@ -127,20 +137,17 @@ func _move_velocity():
 # Play animations depending on the state and alertness of NPC
 func _animation():
 	# Plays if the NPC is just hanging out
-	if state == State.Idle:
-		$NPCsprite.play("Idling")
+	if state == State.Idle || state == State.Dead:
+		$NPCsprite.play("Idle")
 	# Plays when the NPC is using a computer
 	elif state == State.Computing:
 		$NPCsprite.play("Computing")
 	# Plays when the NPC is moving
 	elif state == State.Patrolling || state == State.Chasing && !is_on_wall():
 		$NPCsprite.play("Move")
-	# Plays when the NPC dies
-	elif state == State.Dead:
-		die()
-	
+
 	# Normal phase
-	if alert == Alert.Normal || state == State.Dead:
+	if alert == Alert.Normal:
 		$AlertState.play("NotAware")
 	# Sees something or is confused
 	elif alert == Alert.Question:
@@ -171,8 +178,8 @@ func detect():
 		if result.collider.name == "Player":
 			detected = true
 		else:
-			yield(get_tree().create_timer(4), "timeout")
 			detected = false
+
 
 func find_computer():
 	if $SearchComputerRight.is_colliding() && $SearchComputerRight.get_collider().get_name() == "ComputerBody":
@@ -184,12 +191,15 @@ func find_computer():
 		if direction != new_direction:
 			_switch_directions()
 
-func die():
-	state = State.Dead
-	particle_system.emitting = true
-	$AnimationPlayer.play("fade_out")
-	yield(get_tree().create_timer(1.5), "timeout")
-	queue_free()
+func die(target_system):
+	if target_system == self.get_instance_id():
+		state = State.Dead
+		_move_velocity()
+		_animation()
+		particle_system.emitting = true
+		$AnimationPlayer.play("fade_out")
+		yield(get_tree().create_timer(1.5), "timeout")
+		queue_free()
 
 
 func _on_Detection_Radius_body_entered(body):
@@ -200,16 +210,16 @@ func _on_Detection_Radius_body_exited(body):
 	detected = false
 
 
-func _on_Compute_body_entered(body):
-	if body.get_name() == "ComputerBody":
-		computers = body
+func _on_Killzone_body_entered(body):
+	if body.get_name() == "Player":
+		TerminalAutoload.emit_signal("explode", body.get_instance_id())
 		
 
 
-func _on_Compute_body_exited(body):
+func _on_Compute_area_entered(area):
+	if area.get_name() == "ComputerBody":
+		computers = area
+
+
+func _on_Compute_area_exited(area):
 	computers = null
-
-
-func _on_Killzone_body_entered(body):
-	if body.get_name() == "Player":
-		emit_signal("kill")

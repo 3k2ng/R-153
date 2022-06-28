@@ -105,7 +105,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=29]
-extents = Vector2( 14, 9 )
+extents = Vector2( 21, 9 )
 
 [node name="NPC" type="KinematicBody2D"]
 collision_layer = 4
@@ -171,7 +171,7 @@ collision_mask = 33
 
 [node name="Compute" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 32
+collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Compute"]
 position = Vector2( 0, -9 )
@@ -220,6 +220,8 @@ shape = SubResource( 29 )
 
 [connection signal="body_entered" from="Detection_Radius" to="." method="_on_Detection_Radius_body_entered"]
 [connection signal="body_exited" from="Detection_Radius" to="." method="_on_Detection_Radius_body_exited"]
+[connection signal="area_entered" from="Compute" to="." method="_on_Compute_area_entered"]
+[connection signal="area_exited" from="Compute" to="." method="_on_Compute_area_exited"]
 [connection signal="body_entered" from="Compute" to="." method="_on_Compute_body_entered"]
 [connection signal="body_exited" from="Compute" to="." method="_on_Compute_body_exited"]
 [connection signal="body_entered" from="Killzone" to="." method="_on_Killzone_body_entered"]

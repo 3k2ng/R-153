@@ -18,7 +18,7 @@ export (float) var jump_strength = 100
 export (float) var roll_animation_speed = 5
 export (float) var zoom_speed = 0.01
 export (float) var min_zoom = 0.1
-export (float) var max_zoom = 0.5;
+export (float) var max_zoom = 1.0;
 
 
 var velocity = Vector2.ZERO
@@ -53,14 +53,15 @@ enum Action {
 
 
 func _ready() -> void:
-	var enemynode = get_tree().get_root().find_node("NPC", true, false)
-	enemynode.connect("kill", self, "die")
+#	var enemynode = get_tree().get_root().find_node("NPC", true, false)
+#	enemynode.connect("kill", self, "die")
 	sprite.speed_scale = roll_animation_speed
 	terminal.connect("hack", self, "_hack")
 	terminal.connect("exit_hacking", self, "_exit_hacking")
 	terminal.connect("explode", self, "die")
-	
-	
+	terminal.connect("die", self, "die")
+
+
 func _physics_process(delta: float) -> void:
 	_process_input()
 	_process_gravity()
@@ -269,11 +270,12 @@ func _exit_hacking() -> void:
 	print("exit hack")
 	action = Action.TRANSFORM_BALL
 
-func die() -> void:
-	particle_system.emitting = true
-	animation_player.play("fade_out")
-	yield(get_tree().create_timer(1.5), "timeout")
-	queue_free()
+func die(target_system) -> void:
+	if target_system == self.get_instance_id():
+		particle_system.emitting = true
+		animation_player.play("fade_out")
+		yield(get_tree().create_timer(1.5), "timeout")
+		queue_free()
 
 	
 
