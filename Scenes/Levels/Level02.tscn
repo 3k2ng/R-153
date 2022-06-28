@@ -121,7 +121,6 @@ position = Vector2( 268, 375 )
 [node name="NPCs" type="Node" parent="."]
 
 [node name="NPC" parent="NPCs" instance=ExtResource( 7 )]
-visible = false
 position = Vector2( 189, 96 )
 
 [node name="NPC2" parent="NPCs" instance=ExtResource( 7 )]

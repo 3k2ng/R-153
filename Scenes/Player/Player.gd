@@ -24,6 +24,7 @@ export (float) var max_zoom = 0.5;
 var velocity = Vector2.ZERO
 var gravity = Vector2.ZERO
 
+
 var action = Action.IDLE
 var state = State.FALLING
 var prev_state = State.FALLING
@@ -52,6 +53,8 @@ enum Action {
 
 
 func _ready() -> void:
+	var enemynode = get_tree().get_root().find_node("NPC", true, false)
+	enemynode.connect("kill", self, "die")
 	sprite.speed_scale = roll_animation_speed
 	terminal.connect("hack", self, "_hack")
 	terminal.connect("exit_hacking", self, "_exit_hacking")

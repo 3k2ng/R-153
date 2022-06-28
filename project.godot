@@ -51,7 +51,6 @@ config/icon="res://icon.png"
 [autoload]
 
 TerminalAutoload="*res://Scripts/Autoloads/TerminalAutoload.gd"
-NetworkManager="*res://Scripts/Autoloads/NetworkManager.gd"
 
 [display]
 

@@ -20,7 +20,7 @@ var root_system: FileSystem
 
 var remote_system: FileSystem
 var current_user: User
-
+#var NetworkManager = null
 var current_directory: String
 
 func parse_input(input_text):

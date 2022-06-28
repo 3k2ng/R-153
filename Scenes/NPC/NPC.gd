@@ -13,6 +13,7 @@ var hit_pos = null
 var detection = null
 var state = State.Idle
 var alert = Alert.Normal
+signal kill
 
 enum Alert {
 	Normal
@@ -81,19 +82,19 @@ func chooseDirection():
 
 	# Determines direction when the NPC is chasing the player
 	if state == State.Chasing:
+		# If the NPC hits wall or ledge when chasing the player, just stops
+		if is_on_wall() || not $FloorLine.is_colliding():
+			$NPCsprite.play("Idle")
 		# If the player is within detection range, sets direction towards the player
 		if detected:
 			new_direction = stepify(position.direction_to(nearby_bodies.position).x, 1)
 			if new_direction == 0:
-				print("above!")
 				$NPCsprite.play("Idle")
 			elif new_direction != direction:
 				_switch_directions()
-		# If the NPC hits wall or ledge when chasing the player, just stops
-		elif is_on_wall() || not $FloorLine.is_colliding():
-			$NPCsprite.play("Idle")
+		
 		# If the NPC is still on alert but player leaves detection
-		elif alert != Alert.Caution:
+		else:
 			# Waits 2 seconds before NPC becomes confused
 			yield(get_tree().create_timer(2.0), "timeout")
 			# NPC has lost the player, becomes confused
@@ -106,6 +107,7 @@ func chooseDirection():
 			state = State.Patrolling
 			# Countdown timer begins. Returns to normal once timer ends.
 			$De_agroTimer.start()
+
 
 
 # Apply movement to the NPC
@@ -169,13 +171,17 @@ func detect():
 		if result.collider.name == "Player":
 			detected = true
 		else:
+			yield(get_tree().create_timer(4), "timeout")
 			detected = false
 
 func find_computer():
-	if $SearchComputerLeft.is_colliding() && $SearchComputerLeft.get_collider() == "ComputerBody":
-		if direction != -1:
+	if $SearchComputerRight.is_colliding() && $SearchComputerRight.get_collider().get_name() == "ComputerBody":
+		new_direction = stepify(position.direction_to(nearby_bodies.position).x, 1)
+		if direction != new_direction:
 			_switch_directions()
-		elif direction != 1:
+	elif $SearchComputerLeft.is_colliding() && $SearchComputerLeft.get_collider().get_name() == "ComputerBody":
+		new_direction = stepify(position.direction_to(nearby_bodies.position).x, 1)
+		if direction != new_direction:
 			_switch_directions()
 
 func die():
@@ -197,7 +203,13 @@ func _on_Detection_Radius_body_exited(body):
 func _on_Compute_body_entered(body):
 	if body.get_name() == "ComputerBody":
 		computers = body
+		
 
 
 func _on_Compute_body_exited(body):
 	computers = null
+
+
+func _on_Killzone_body_entered(body):
+	if body.get_name() == "Player":
+		emit_signal("kill")
