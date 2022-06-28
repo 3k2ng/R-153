@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://TileSet/autotile.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://Scenes/Objects/Flower.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Objects/Cactus.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Objects/Chair.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Ternimal/Terminal.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Ternimal/ResourceGen.tscn" type="PackedScene" id=14]
 
 [node name="Tutorial" type="Node2D"]
 
@@ -53,9 +55,11 @@ color = Color( 1, 0.745098, 0.745098, 1 )
 
 [node name="Computer" parent="Computers" instance=ExtResource( 9 )]
 position = Vector2( 337, 96 )
+system_name = "alicecomp"
 
 [node name="Computer2" parent="Computers" instance=ExtResource( 9 )]
 position = Vector2( 397, 192 )
+system_name = "bobcomp"
 
 [node name="Objects" type="Node" parent="."]
 
@@ -78,3 +82,8 @@ position = Vector2( 305, 183 )
 transition_rect_path = NodePath("../SceneTransitionRect")
 
 [node name="SceneTransitionRect" parent="." instance=ExtResource( 3 )]
+
+[node name="Terminal" parent="." instance=ExtResource( 13 )]
+
+[node name="ResourceGen" parent="." instance=ExtResource( 14 )]
+data_path = "res://Scenes/Levels/tutorial.json"
