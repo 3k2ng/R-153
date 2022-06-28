@@ -140,5 +140,6 @@ visible = false
 position = Vector2( 313, 384 )
 
 [node name="PauseMenu" parent="." instance=ExtResource( 11 )]
+transition_rect_path = NodePath("../SceneTransitionRect")
 
 [node name="SceneTransitionRect" parent="." instance=ExtResource( 10 )]

@@ -79,7 +79,7 @@ margin_bottom = 180.0
 rect_min_size = Vector2( 180, 180 )
 rect_pivot_offset = Vector2( 0, 0 )
 text = "0"
-next_scene_path = "res://Scenes/Levels/Level01.tscn"
+next_scene_path = "res://Scenes/Levels/Tutorial.tscn"
 transition_rect_path = NodePath("../../../SceneTransitionRect")
 
 [node name="1" parent="Levels/0 - 3" instance=ExtResource( 3 )]
@@ -94,9 +94,8 @@ margin_bottom = 180.0
 rect_min_size = Vector2( 180, 180 )
 rect_pivot_offset = Vector2( 0, 0 )
 text = "1"
-next_scene_path = "res://Scenes/Testing/_demo.tscn"
+next_scene_path = "res://Scenes/Levels/Level01.tscn"
 transition_rect_path = NodePath("../../../SceneTransitionRect")
-locked = true
 
 [node name="2" parent="Levels/0 - 3" instance=ExtResource( 3 )]
 anchor_left = 0.0

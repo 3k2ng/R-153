@@ -75,5 +75,6 @@ position = Vector2( 320, 87 )
 position = Vector2( 305, 183 )
 
 [node name="PauseMenu" parent="." instance=ExtResource( 8 )]
+transition_rect_path = NodePath("../SceneTransitionRect")
 
 [node name="SceneTransitionRect" parent="." instance=ExtResource( 3 )]
