@@ -13,10 +13,17 @@ onready var _next_screen = $Sounds/next_screen
 onready var _level_select = $Sounds/level_select
 
 var _focused := false
-
+var _terminal_input : LineEdit
+var _player
 
 func _ready() -> void:
 	layer = 100
+	for node in get_tree().get_nodes_in_group("pause_menu"):
+		match (node.name):
+			"Player":
+				_player = node
+			"Terminal":
+				_terminal_input = node.get_node("TerminalUI/Input")
 	
 
 func _input(event: InputEvent) -> void:
@@ -53,6 +60,8 @@ func _unpause() -> void:
 	yield(_animation_player, "animation_finished")
 	_menu.visible = false
 	_focused = false
+	if _player.is_hacking():
+		_terminal_input.grab_focus()
 
 func _is_UpDownLeftRight(event: InputEvent) -> bool:
 	return event.is_action_pressed("Up") or event.is_action_pressed("Down") or event.is_action_pressed("Left") or event.is_action_pressed("Right")

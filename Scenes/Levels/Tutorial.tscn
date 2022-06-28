@@ -31,7 +31,7 @@ tile_data = PoolIntArray( 10, 0, 1, 11, 0, 196610, 12, 0, 196610, 13, 0, 196610,
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.109804, 0.14902, 0.219608, 1 )
 
-[node name="Player" parent="." instance=ExtResource( 2 )]
+[node name="Player" parent="." groups=["pause_menu"] instance=ExtResource( 2 )]
 position = Vector2( 91, 171 )
 
 [node name="NPC" parent="." instance=ExtResource( 6 )]
@@ -78,12 +78,12 @@ position = Vector2( 320, 87 )
 [node name="Chair2" parent="Objects" instance=ExtResource( 12 )]
 position = Vector2( 305, 183 )
 
-[node name="PauseMenu" parent="." instance=ExtResource( 8 )]
+[node name="PauseMenu" parent="." groups=["pause_menu"] instance=ExtResource( 8 )]
 transition_rect_path = NodePath("../SceneTransitionRect")
 
 [node name="SceneTransitionRect" parent="." instance=ExtResource( 3 )]
 
-[node name="Terminal" parent="." instance=ExtResource( 13 )]
+[node name="Terminal" parent="." groups=["pause_menu"] instance=ExtResource( 13 )]
 
 [node name="ResourceGen" parent="." instance=ExtResource( 14 )]
 data_path = "res://Scenes/Levels/tutorial.json"

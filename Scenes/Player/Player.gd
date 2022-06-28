@@ -270,6 +270,9 @@ func _exit_hacking() -> void:
 	print("exit hack")
 	action = Action.TRANSFORM_BALL
 
+func is_hacking() -> bool:
+	return state == State.HACKING
+
 func die(target_system) -> void:
 	if target_system == self.get_instance_id():
 		particle_system.emitting = true
