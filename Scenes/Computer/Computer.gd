@@ -1,7 +1,7 @@
 extends Area2D
 
 export(String) var system_name
-
+signal die
 onready var player_access = false
 onready var particle_system = $ParticleSystem
 onready var terminal = $"/root/TerminalAutoload"
@@ -51,7 +51,7 @@ func die(target_system):
 		yield(get_tree().create_timer(1.5), "timeout")
 		queue_free()
 	if nearby_bodies:
-		TerminalAutoload.emit_signal("die", nearby_bodies.get_instance_id())
+		emit_signal("die", nearby_bodies.get_instance_id())
 
 
 func _draw_line():

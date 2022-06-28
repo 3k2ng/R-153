@@ -6,6 +6,7 @@ signal exit_hacking
 signal print_console
 signal clear_console
 signal explode
+signal die
 
 enum AccessState {
 	NONE,

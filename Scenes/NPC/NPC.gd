@@ -1,21 +1,31 @@
 extends KinematicBody2D
 
-# Determines the sprite's gravity and movement velocity
-var velocity = Vector2()
-# Determines the npc's starting direction
-export (int) var  direction = 1
+# Particle node for death animation
 onready var particle_system = $ParticleSystem
+# Linking the Terminal autoloader
 onready var terminal = $"/root/TerminalAutoload"
-var nearby_bodies = null
-var computers = null
+
+# Determines the npc's default starting direction
+export (int) var  direction = 1
+# Empty direction variable for checking for differences in direction
 var new_direction = null
+# Initiate velocity to a 2D vector
+var velocity = Vector2()
+# Empty variable for passing player body information
+var nearby_bodies = null
+# Empty variable for passing computer body information
+var computers = null
+# Empty Boolean for detection status
 var detected = null
-var hit_pos = null
-var detection = null
+# Variable indicating the NPC action state
 var state = State.Idle
+# Variable for indicating the NPC alert state
 var alert = Alert.Normal
+
+# Signal to emit for killing the Player
 signal kill
 
+# Alert states
 enum Alert {
 	Normal
 	Question
@@ -23,6 +33,7 @@ enum Alert {
 	Alert
 }
 
+# Action states
 enum State {
 	Idle
 	Computing
@@ -31,6 +42,7 @@ enum State {
 	Dead
 	}
 
+
 # Runs before the program starts
 func _ready():
 	# Positions the edge detection according to the starting direction
@@ -38,42 +50,52 @@ func _ready():
 	# Checks if the sprite needs to be flipped
 	if direction == 1:
 		$NPCsprite.flip_h = true
+	# Connect emit signals
 	terminal.connect("explode", self, "die")
 	terminal.connect("die", self, "die")
 
 
 # Function that's called every frame. Basically modifies npc behavior in real time
 func _physics_process(_delta):
-	if state != State.Dead:
-		_change_state()
-		# Checks if the npc has hit a wall, facilitating a change in direction for movement
-		chooseDirection()
-		# Determines which animation should be played
-		_animation()
-		# Applies the horizontal movement speed in the intended direction
-		_move_velocity()
-		
-		if $De_agroTimer.time_left < 0.2:
-			$De_agroTimer.stop()
-		if nearby_bodies:
-			detect()
+	# Check for a change in state
+	_change_state()
+	# Checks if the npc has hit a wall, facilitating a change in direction for movement
+	chooseDirection()
+	# Determines which animation should be played
+	_animation()
+	# Applies the horizontal movement in the intended direction
+	_move_velocity()
+	
+	# Stops the de_agro timer if it was running
+	if $De_agroTimer.time_left < 0.2:
+		$De_agroTimer.stop()
+	# If there is a Player in the detection areas, check for detection
+	if nearby_bodies:
+		detect()
 
 
-
+# Change action states
 func _change_state():
+	# For every other state than active chase state
 	if state != State.Chasing:
+		# If the NPC sees the player
 		if detected:
+			# NPC questions what he sees
 			alert = Alert.Question
+			# Wait buffer
 			yield(get_tree().create_timer(1.0), "timeout")
+			# Confirms it's Player
 			alert = Alert.Alert
+			# Chases player
 			state = State.Chasing
-
+	
+	# If was patrolling and the agro cooldown has expired
 	if state == State.Patrolling && $De_agroTimer.is_stopped():
+		# Return to normal alert
 		alert = Alert.Normal
+		# Until returning to a computer
 		if computers != null:
 			state = State.Computing
-		
-		############ HOW TO INTERACT WITH COMPUTER NOW THAT IT IS AN AREA2D?#########
 
 
 # Switches the direction of the NPC
@@ -83,24 +105,24 @@ func chooseDirection():
 		# Changes the direction when the NPC either hits a wall or approaches an edge
 		if is_on_wall() || not $FloorLine.is_colliding():
 			_switch_directions()
+		# Once the NPC is no longer looking for the Player, find and return to computer
 		if $De_agroTimer.is_stopped():
 			find_computer()
-
+	
 	# Determines direction when the NPC is chasing the player
 	if state == State.Chasing:
-
 		# If the player is within detection range, sets direction towards the player
 		if nearby_bodies:
 			new_direction = stepify(position.direction_to(nearby_bodies.position).x, 1)
+		# If player is above the NPC
 		if new_direction == 0:
 			$NPCsprite.play("Idle")
-		
+		# If the NPC detects the player in the opposite direction to which it's facing
 		elif new_direction != direction:
 			_switch_directions()
 		# If the NPC hits wall or ledge when chasing the player, just stops
 		if is_on_wall() || not $FloorLine.is_colliding():
 			$NPCsprite.play("Idle")
-		
 		# If the NPC is still on alert but player leaves detection
 		else:
 			# Waits 2 seconds before NPC becomes confused
@@ -117,7 +139,6 @@ func chooseDirection():
 				state = State.Patrolling
 				# Countdown timer begins. Returns to normal once timer ends.
 				$De_agroTimer.start()
-
 
 
 # Apply movement to the NPC
@@ -170,56 +191,76 @@ func _switch_directions():
 	$FloorLine.position.x = $FloorLine.position.x * -1
 
 
+# Check if the player is within line of sight
 func detect():
 	var space_state = get_world_2d().direct_space_state
+	# Cast a raycast2d towards the body
 	var result = space_state.intersect_ray(position, nearby_bodies.position, [self], collision_mask)
+	# If it makes contact with something
 	if result:
-		hit_pos = result.position
 		if result.collider.name == "Player":
 			detected = true
 		else:
 			detected = false
 
 
+# Uses 2 raycasts to find the computer to return to
 func find_computer():
+	# If the computer is to the right
 	if $SearchComputerRight.is_colliding() && $SearchComputerRight.get_collider().get_name() == "ComputerBody":
+		# Change direction towards it
 		new_direction = stepify(position.direction_to(nearby_bodies.position).x, 1)
 		if direction != new_direction:
 			_switch_directions()
+	# If the computer is to the left
 	elif $SearchComputerLeft.is_colliding() && $SearchComputerLeft.get_collider().get_name() == "ComputerBody":
+		# Change directions towards it
 		new_direction = stepify(position.direction_to(nearby_bodies.position).x, 1)
 		if direction != new_direction:
 			_switch_directions()
 
+
+# Death function
 func die(target_system):
+	# Check if this instance is the intended target
 	if target_system == self.get_instance_id():
+		# NPC is dead, velocity is 0 
 		state = State.Dead
 		_move_velocity()
 		_animation()
+		# Engage particle dispersion effect
 		particle_system.emitting = true
+		# Fade out the sprite
 		$AnimationPlayer.play("fade_out")
+		# Wait
 		yield(get_tree().create_timer(1.5), "timeout")
+		# Delete entity
 		queue_free()
 
 
+# If a player enters the detection radius
 func _on_Detection_Radius_body_entered(body):
 	nearby_bodies = body
 
+# If the player leaves the radius
 func _on_Detection_Radius_body_exited(body):
 	nearby_bodies = null
 	detected = false
 
 
+# If the player falls into the "kill" range of the NPC
 func _on_Killzone_body_entered(body):
 	if body.get_name() == "Player":
+		# Emit the death signal with the Player's corresponding ID
 		TerminalAutoload.emit_signal("explode", body.get_instance_id())
 		
 
 
+# Check for computer being dead center aligned with NPC
 func _on_Compute_area_entered(area):
 	if area.get_name() == "ComputerBody":
 		computers = area
 
-
+# Computer no longer centered on NPC
 func _on_Compute_area_exited(area):
 	computers = null
