@@ -7,6 +7,9 @@
 texture = ExtResource( 2 )
 texture_scale = 0.5
 shadow_enabled = true
+shadow_gradient_length = 20.0
+shadow_filter = 1
+shadow_filter_smooth = 5.0
 __meta__ = {
 "_edit_group_": true
 }
