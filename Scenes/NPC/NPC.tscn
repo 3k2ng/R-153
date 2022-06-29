@@ -7,6 +7,21 @@
 [ext_resource path="res://Scenes/NPC/Test images/Caution.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/NPC/Test images/Clear.png" type="Texture" id=6]
 
+<<<<<<< HEAD
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 3 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 3 )
+region = Rect2( 96, 0, 16, 16 )
+
+=======
+>>>>>>> 4dbbc9ce92d29f6c8b9a263ce79682c257f9f5b6
 [sub_resource type="AtlasTexture" id=20]
 atlas = ExtResource( 3 )
 region = Rect2( 32, 0, 16, 16 )
@@ -41,6 +56,8 @@ region = Rect2( 112, 0, 16, 16 )
 
 [sub_resource type="SpriteFrames" id=8]
 animations = [ {
+<<<<<<< HEAD
+=======
 "frames": [ SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ) ],
 "loop": true,
 "name": "Move",
@@ -51,12 +68,22 @@ animations = [ {
 "name": "Computing",
 "speed": 5.0
 }, {
+>>>>>>> 4dbbc9ce92d29f6c8b9a263ce79682c257f9f5b6
 "frames": [ SubResource( 18 ), SubResource( 19 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 2.0
 }, {
+<<<<<<< HEAD
+"frames": [ SubResource( 17 ) ],
+"loop": false,
+"name": "Computing",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ) ],
+=======
 "frames": [ SubResource( 30 ) ],
+>>>>>>> 4dbbc9ce92d29f6c8b9a263ce79682c257f9f5b6
 "loop": true,
 "name": "Die",
 "speed": 5.0
@@ -67,11 +94,14 @@ extents = Vector2( 38.4001, 45.7685 )
 
 [sub_resource type="SpriteFrames" id=16]
 animations = [ {
+<<<<<<< HEAD
+=======
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "NotAware",
 "speed": 5.0
 }, {
+>>>>>>> 4dbbc9ce92d29f6c8b9a263ce79682c257f9f5b6
 "frames": [ ExtResource( 4 ), null ],
 "loop": false,
 "name": "Alert",
@@ -86,6 +116,14 @@ animations = [ {
 "loop": false,
 "name": "Caution",
 "speed": 5.0
+<<<<<<< HEAD
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "NotAware",
+"speed": 5.0
+=======
+>>>>>>> 4dbbc9ce92d29f6c8b9a263ce79682c257f9f5b6
 } ]
 
 [sub_resource type="CircleShape2D" id=25]
