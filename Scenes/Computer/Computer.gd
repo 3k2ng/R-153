@@ -28,7 +28,7 @@ func _ready():
 func _on_Computer_body_entered(body):
 	if body.is_in_group("player"):
 		player_access = true
-		_draw_line()
+	#	_draw_line()
 
 func _on_Computer_body_exited(body):
 	if body.is_in_group("player"):
@@ -45,7 +45,7 @@ func exit_hacking():
 
 
 func die(target_system):
-	if target_system == self.get_name():
+	if target_system == self.system_name:
 		if nearby_bodies:
 			TerminalAutoload.emit_signal("die", nearby_bodies.get_name())
 		particle_system.emitting = true
