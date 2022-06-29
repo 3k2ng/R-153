@@ -7,28 +7,29 @@ onready var particle_system = $ParticleSystem
 onready var terminal = $"/root/TerminalAutoload"
 onready var player_hacking = false
 var nearby_bodies = null
-var color = Color(256,0,0)
-var origin_x = 0
-var origin_y = 0
-var new_x = 0
-var new_y = 0
-var from = 0
-var to = 0
-var computers = []
+var not_connected = Color(256,0,0)
+var connected = Color(0,0,256)
+var origin
+var new
+var from = Vector2()
+var to = Vector2()
+var computers
 
 func _ready():
 	TerminalAutoload.connect("exit_hacking", self, "exit_hacking")
 	terminal.connect("explode", self, "die")
 	NetworkManager.computers.append(self)
 	computers = NetworkManager.computers
-	origin_x = self.position.x
-	origin_y = self.position.y
 
-	
+func _physics_process(_delta):
+	#print(terminal.root_system)
+	if terminal.root_system != self:
+		update()
+
+
 func _on_Computer_body_entered(body):
 	if body.is_in_group("player"):
 		player_access = true
-	#	_draw_line()
 
 func _on_Computer_body_exited(body):
 	if body.is_in_group("player"):
@@ -39,9 +40,12 @@ func _input(event):
 		var hacking = TerminalAutoload.hack_system(system_name)
 		if hacking:
 			player_hacking = true
+			update()
+		print(NetworkManager.list_ssh(system_name))
 
 func exit_hacking():
 	player_hacking = false
+	update()
 
 
 func die(target_system):
@@ -49,24 +53,28 @@ func die(target_system):
 
 	#	if nearby_bodies:
 	#		TerminalAutoload.emit_signal("die", nearby_bodies.get_name())
-
+		computers.erase(self)
 		TerminalAutoload.emit_signal("die", system_name)
 		particle_system.emitting = true
 		$AnimationPlayer.play("fade_out")
 		yield(get_tree().create_timer(1.5), "timeout")
 		queue_free()
 
-
-
-func _draw_line():
-	for computer in computers:
-		if computer != self:
-			print("Self: ", self, "\tComputer: ", computer)
-			new_x = computer.position.x
-			new_y = computer.position.y
-			from = Vector2(origin_x, origin_y)
-			to = Vector2(new_x, new_y)
-			update()
+func _draw():
+	if player_hacking:
+		origin = to_local(self.global_position)
+		from = Vector2(origin.x, origin.y)
+		computers = NetworkManager.list_ssh(system_name)
+		for computer in computers:
+			if computer != self.system_name:
+				new = to_local(NetworkManager.get_computer(computer).position)
+				to = Vector2(new.x, new.y)
+				if terminal.root_system != NetworkManager.get_computer(computer):
+					draw_line(from, to, not_connected)
+				else:
+					draw_line(from, to, connected)
+	else:
+		draw_line(Vector2(), Vector2(), Color(0,0,0))
 
 func _on_ExplosionRadius_body_entered(body):
 	if body.has_method("set_nearby"):

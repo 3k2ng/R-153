@@ -118,7 +118,6 @@ func chooseDirection():
 		# If the player is within detection range, sets direction towards the player
 		if nearby_bodies:
 			new_direction = stepify(position.direction_to(nearby_bodies.position).x, 1)
-			print(new_direction)
 		# If player is above the NPC
 		if new_direction == 0:
 			$NPCsprite.play("Idle")
@@ -202,7 +201,7 @@ func detect():
 	# Cast a raycast2d towards the body
 	var result = space_state.intersect_ray(position, nearby_bodies.position, [self], collision_mask)
 	# If it makes contact with something
-	print(result)
+	#print(result)
 	if result:
 		if result.collider.name == "Player":
 			detected = true

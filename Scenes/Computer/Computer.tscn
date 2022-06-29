@@ -15,14 +15,6 @@ region = Rect2( 16, 0, 16, 16 )
 atlas = ExtResource( 1 )
 region = Rect2( 32, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 1 )
-region = Rect2( 32, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 16, 16 )
-
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 1 )
 region = Rect2( 32, 0, 16, 16 )
@@ -35,6 +27,14 @@ region = Rect2( 16, 0, 16, 16 )
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 16, 16 )
 
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 0, 16, 16 )
+
 [sub_resource type="SpriteFrames" id=9]
 animations = [ {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ],
@@ -42,9 +42,9 @@ animations = [ {
 "name": "Turn on",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 5 ) ],
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
 "loop": false,
-"name": "On",
+"name": "Turn off",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 4 ) ],
@@ -52,9 +52,9 @@ animations = [ {
 "name": "Off",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
+"frames": [ SubResource( 5 ) ],
 "loop": false,
-"name": "Turn off",
+"name": "On",
 "speed": 5.0
 } ]
 
