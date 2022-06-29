@@ -26,6 +26,7 @@ func _process(_delta):
 	for system in data.systems:
 		var new_system = system_prefab.instance()
 		new_system.system_name = system.name
+		new_system.system_owner = system.owner
 		var files = []
 		for file_data in system.files:
 			var new_file = CustomFile.new()

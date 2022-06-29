@@ -2,6 +2,7 @@
     "systems": [
 		{
 			"name": "test0",
+			"owner": "2ng",
 			"files": [
 				{
 					"name": "homework",
@@ -23,30 +24,31 @@
 					"private": false,
 					"directory": false,
 					"location": "~",
-					"content": "sus amogus"
+					"content": "We need to try to hack into the other computer somehow using the ssh command and blow up the human close to it. But to do so we need to know the machine’s name, and the machine's user and their password. Let's see if this computer has some clues hidden around. Begin by accessing my user account with the ssh command. My password can be found in one of the files here, don’t worry, I didn’t make figuring out the first password too hard!"
 				}
 			]
 		},
 		{
 			"name": "test1",
+			"owner": "nik",
 			"files": [
 				{
 					"name": "not amogus",
-					"owner": "2ng",
+					"owner": "nik",
 					"private": true,
 					"directory": true,
 					"location": "~"
 				},
 				{
 					"name": "amogus",
-					"owner": "2ng",
+					"owner": "nik",
 					"private": true,
 					"directory": true,
 					"location": "~/not amogus"
 				},
 				{
 					"name": "readme",
-					"owner": "2ng",
+					"owner": "nik",
 					"private": true,
 					"directory": false,
 					"location": "~",

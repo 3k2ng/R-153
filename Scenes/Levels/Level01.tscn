@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://TileSet/autotile.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Scenes/Objects/Flower.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Util/SceneTransitionRect.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Start Screen/Pause Menu/PauseMenu.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Start Screen/GameOver Screen/GameOverScreen.tscn" type="PackedScene" id=12]
 
 [node name="Level 1" type="Node2D"]
 
@@ -90,3 +91,6 @@ position = Vector2( 286, 87 )
 [node name="PauseMenu" parent="." instance=ExtResource( 11 )]
 
 [node name="SceneTransitionRect" parent="." instance=ExtResource( 10 )]
+
+[node name="GameOverScreen" parent="." groups=["game_end_screens"] instance=ExtResource( 12 )]
+transition_rect_path = NodePath("../SceneTransitionRect")

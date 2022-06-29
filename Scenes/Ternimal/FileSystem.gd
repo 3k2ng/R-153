@@ -3,6 +3,8 @@ class_name FileSystem
 
 export(String) var system_name
 
+export(String) var system_owner
+
 export(Array, Resource) var files
 
 func get_file(dir):
@@ -18,3 +20,6 @@ func get_files(dir):
 		if file.location == dir:
 			ret.append(file)
 	return ret
+
+func is_owner(user_name):
+	return user_name == system_owner

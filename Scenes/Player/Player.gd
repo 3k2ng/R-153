@@ -32,6 +32,10 @@ var falling_from_ceiling = false
 var jumped = false
 var sticked = false
 
+var _disabled_input = false
+
+var _game_over_screen
+
 enum State {
 	FLOOR,
 	WALL_LEFT,
@@ -60,10 +64,17 @@ func _ready() -> void:
 	terminal.connect("exit_hacking", self, "_exit_hacking")
 	terminal.connect("explode", self, "die")
 	terminal.connect("die", self, "die")
+	
+	for node in get_tree().get_nodes_in_group("game_end_screens"):
+		match node.name:
+			"GameOverScreen":
+				_game_over_screen = node
+
 
 
 func _physics_process(delta: float) -> void:
-	_process_input()
+	if not _disabled_input:
+		_process_input()
 	_process_gravity()
 	velocity += gravity
 	velocity = move_and_slide(velocity, Vector2.UP)
@@ -149,6 +160,7 @@ func _process_input() -> void:
 #	else:
 #		if Input.is_action_just_pressed("Exit"):
 #			action = Action.TRANSFORM_BALL	
+		
 
 func _process_gravity():
 	if state == State.WALL_RIGHT:
@@ -270,12 +282,18 @@ func _exit_hacking() -> void:
 	print("exit hack")
 	action = Action.TRANSFORM_BALL
 
+func is_hacking() -> bool:
+	return state == State.HACKING
+
 func die(target_system) -> void:
 	if target_system == self.get_name():
+		_disabled_input = true
+		_game_over_screen.show()
 		particle_system.emitting = true
 		animation_player.play("fade_out")
 		yield(get_tree().create_timer(1.5), "timeout")
-		queue_free()
+		
+#		queue_free()
 
 	
 

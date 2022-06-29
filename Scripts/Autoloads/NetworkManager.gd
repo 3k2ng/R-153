@@ -8,9 +8,9 @@ func list_ssh(system_name):
 	var systems = []
 	for network in networks:
 		if system_name in network:
-			for system in network:
-				if not system in systems and system != system_name:
-					systems.append(system)
+			for other_system in network:
+				if not other_system in systems:
+					systems.append(other_system)
 	return systems
 
 func get_system(system_name):

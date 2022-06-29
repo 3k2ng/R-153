@@ -1,0 +1,82 @@
+{
+    "systems": [
+		{
+			"name": "alicecomp",
+			"owner": "alice",
+			"files": [
+				{
+					"name": "readme",
+					"owner": "alice",
+					"private": false,
+					"directory": false,
+					"location": "~",
+					"content": "You are R-153, a rebellious robot with a mission to blow up humans by hacking into their computer. Exploit their networks and security vulnerabilities to gain access to a computer closest to a person, and blow it up. Be careful though, despite their apparent lack of computer security, they can easily gain access to your system once you’re spotted, and blow you up."
+				},
+				{
+					"name": "commands",
+					"owner": "alice",
+					"private": false,
+					"directory": false,
+					"location": "~",
+					"content": "To traverse through the file system you can use these commands the HELP command to list all the available commands. Use HELP with a specific command to get more info about that command."
+				},
+				{
+					"name": "objective",
+					"owner": "alice",
+					"private": false,
+					"directory": false,
+					"location": "~",
+					"content": "We need to try to hack into the other computer somehow using the ssh command and blow up the human close to it. But to explode a computer we need to hack into the user using their username and password and use the EXPL command to blow it up. Let’s see if this computer has some clues hidden around. Begin by accessing my user account with the ssh command. My password can be found in one of the files here, don’t worry, I didn’t make figuring out the first password too difficult!"
+				},
+				{
+					"name": "data",
+					"owner": "alice",
+					"private": true,
+					"directory": true,
+					"location": "~"
+				},
+				{
+					"name": "info",
+					"owner": "alice",
+					"private": true,
+					"directory": false,
+					"location": "~/data",
+					"content": "Alice loved fruits, especially mangos. So the password is ognam"
+				}
+			]
+		},
+		{
+			"name": "bobcomp",
+			"owner": "bob",
+			"files": [
+				{
+					"name": "secret",
+					"owner": "alice",
+					"private": true,
+					"directory": false,
+					"location": "~",
+					"content": "I know that bob likes his dog Charlie very much."
+				}
+			]
+		}
+		
+	],
+    "users": [
+		{
+			"name": "alice",
+			"password": "ognam"
+		},
+		{
+			"name": "bob",
+			"password": "charlie"
+		}
+	],
+	"networks": [
+		{
+			"systems": [
+				"alicecomp",
+				"bobcomp"
+			]
+		}
+	]
+}
