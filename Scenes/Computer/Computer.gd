@@ -39,6 +39,8 @@ func exit_hacking():
 func die(target_system):
 	if target_system == self.system_name:
 		$AnimationPlayer.play("explode")
+		if TerminalAutoload.root_system.system_name == target_system:
+			TerminalAutoload.exit_hacking()
 
 func _on_ExplosionRadius_body_entered(body):
 	if body.has_method("set_nearby"):
