@@ -45,9 +45,8 @@ func exit_hacking():
 
 
 func die(target_system):
-	if target_system == self.get_name():
-		if nearby_bodies:
-			TerminalAutoload.emit_signal("die", nearby_bodies.get_name())
+	if target_system == self.system_name:
+		TerminalAutoload.emit_signal("die", system_name)
 		particle_system.emitting = true
 		$AnimationPlayer.play("fade_out")
 		yield(get_tree().create_timer(1.5), "timeout")
@@ -65,16 +64,10 @@ func _draw_line():
 			to = Vector2(new_x, new_y)
 			update()
 
-
-func _draw():
-	draw_line(Vector2(200, 200), Vector2(300, 300), color)
-	draw_line(Vector2(100, 100), Vector2(200, 200), color)
-#	print("From: ", from, "\tTo: ", to)
-
-
 func _on_ExplosionRadius_body_entered(body):
-	nearby_bodies = body
-
+	if body.has_method("set_nearby"):
+		body.set_nearby(system_name)
 
 func _on_ExplosionRadius_body_exited(body):
-	nearby_bodies = null
+	if body.has_method("set_nearby"):
+		body.set_nearby("")
