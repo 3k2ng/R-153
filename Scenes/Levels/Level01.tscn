@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://TileSet/autotile.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://Scenes/Util/SceneTransitionRect.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Start Screen/Pause Menu/PauseMenu.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Start Screen/GameOver Screen/GameOverScreen.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Ternimal/Terminal.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Ternimal/ResourceGen.tscn" type="PackedScene" id=14]
 
 [node name="Level 1" type="Node2D"]
 
@@ -27,7 +29,7 @@ color = Color( 0.109804, 0.14902, 0.219608, 1 )
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 65523, 0, 1, 65524, 0, 196610, 65525, 0, 196610, 65526, 0, 196610, 65527, 0, 196610, 65528, 0, 196610, 65529, 0, 196610, 65530, 0, 196610, 65531, 0, 196610, 65532, 0, 196610, 65533, 0, 196610, 65534, 0, 196610, 65535, 0, 196610, 0, 0, 196610, 1, 0, 196610, 2, 0, 196610, 3, 0, 196610, 4, 0, 196610, 5, 0, 196610, 6, 0, 196610, 7, 0, 196610, 8, 0, 196610, 9, 0, 196610, 10, 0, 196610, 11, 0, 196610, 12, 0, 196610, 13, 0, 196610, 14, 0, 196610, 15, 0, 196610, 16, 0, 196610, 17, 0, 196610, 18, 0, 196610, 19, 0, 3, 131059, 0, 65536, 65555, 0, 65536, 196595, 0, 65536, 131091, 0, 65536, 262131, 0, 65536, 196627, 0, 65536, 327667, 0, 65536, 327677, 0, 0, 262153, 0, 0, 262163, 0, 65536, 393203, 0, 65536, 393213, 0, 65536, 327689, 0, 65536, 327699, 0, 65536, 458739, 0, 131073, 458740, 0, 196610, 458741, 0, 196610, 458742, 0, 196610, 458743, 0, 196610, 458744, 0, 196610, 458745, 0, 196610, 458746, 0, 196610, 458747, 0, 196610, 458748, 0, 196610, 458749, 0, 131074, 458750, 0, 196610, 458751, 0, 196610, 393216, 0, 196610, 393217, 0, 196610, 393218, 0, 196610, 393219, 0, 196610, 393220, 0, 196610, 393221, 0, 196610, 393222, 0, 3, 393224, 0, 196609, 393225, 0, 131074, 393226, 0, 196610, 393227, 0, 196610, 393228, 0, 196610, 393229, 0, 196610, 393230, 0, 196610, 393231, 0, 196610, 393232, 0, 196610, 393233, 0, 196610, 393234, 0, 196610, 393235, 0, 65539, 458758, 0, 65536, 458771, 0, 65536, 524294, 0, 65536, 524307, 0, 65536, 589830, 0, 65536, 589843, 0, 65536, 655366, 0, 65536, 655369, 0, 0, 655379, 0, 65536, 720902, 0, 65536, 720905, 0, 65536, 720915, 0, 65536, 786438, 0, 131073, 786439, 0, 196610, 786440, 0, 196610, 786441, 0, 131074, 786442, 0, 196610, 786443, 0, 196610, 786444, 0, 196610, 786445, 0, 196610, 786446, 0, 196610, 786447, 0, 196610, 786448, 0, 196610, 786449, 0, 196610, 786450, 0, 196610, 786451, 0, 131075 )
+tile_data = PoolIntArray( 65525, 0, 1, 65526, 0, 196610, 65527, 0, 196610, 65528, 0, 196610, 65529, 0, 196610, 65530, 0, 196610, 65531, 0, 196610, 65532, 0, 196610, 65533, 0, 196610, 65534, 0, 196610, 65535, 0, 196610, 0, 0, 196610, 1, 0, 196610, 2, 0, 196610, 3, 0, 196610, 4, 0, 196610, 5, 0, 196610, 6, 0, 196610, 7, 0, 196610, 8, 0, 196610, 9, 0, 196610, 10, 0, 196610, 11, 0, 196610, 12, 0, 196610, 13, 0, 196610, 14, 0, 196610, 15, 0, 196610, 16, 0, 196610, 17, 0, 196610, 18, 0, 196610, 19, 0, 3, 131061, 0, 65536, 65555, 0, 65536, 196597, 0, 65536, 131091, 0, 65536, 262133, 0, 65536, 196627, 0, 65536, 327669, 0, 65536, 262153, 0, 0, 262163, 0, 65536, 393205, 0, 65536, 327689, 0, 65536, 327699, 0, 65536, 458741, 0, 131073, 458742, 0, 196610, 458743, 0, 196610, 458744, 0, 196610, 458745, 0, 196610, 458746, 0, 196610, 458747, 0, 196610, 458748, 0, 196610, 458749, 0, 196610, 458750, 0, 196610, 458751, 0, 196610, 393216, 0, 196610, 393217, 0, 196610, 393218, 0, 196610, 393219, 0, 196610, 393220, 0, 196610, 393221, 0, 196610, 393222, 0, 3, 393224, 0, 196609, 393225, 0, 131074, 393226, 0, 196610, 393227, 0, 196610, 393228, 0, 196610, 393229, 0, 196610, 393230, 0, 196610, 393231, 0, 196610, 393232, 0, 196610, 393233, 0, 196610, 393234, 0, 196610, 393235, 0, 65539, 458758, 0, 65536, 458771, 0, 65536, 524294, 0, 65536, 524307, 0, 65536, 589830, 0, 65536, 589843, 0, 65536, 655366, 0, 65536, 655369, 0, 0, 655379, 0, 65536, 720902, 0, 65536, 720905, 0, 65536, 720915, 0, 65536, 786438, 0, 131073, 786439, 0, 196610, 786440, 0, 196610, 786441, 0, 131074, 786442, 0, 196610, 786443, 0, 196610, 786444, 0, 196610, 786445, 0, 196610, 786446, 0, 196610, 786447, 0, 196610, 786448, 0, 196610, 786449, 0, 196610, 786450, 0, 196610, 786451, 0, 131075 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 39, 86 )
@@ -39,9 +41,6 @@ position = Vector2( 211, 96 )
 
 [node name="NPC2" parent="NPCs" instance=ExtResource( 4 )]
 position = Vector2( 211, 189 )
-
-[node name="NPC3" parent="NPCs" instance=ExtResource( 4 )]
-position = Vector2( -107, 96 )
 
 [node name="Lights" type="Node" parent="."]
 
@@ -60,7 +59,7 @@ color = Color( 1, 0.745098, 0.745098, 1 )
 [node name="Computers" type="Node" parent="."]
 
 [node name="Computer" parent="Computers" instance=ExtResource( 5 )]
-position = Vector2( -100, 96 )
+position = Vector2( -39, 96 )
 
 [node name="Computer2" parent="Computers" instance=ExtResource( 5 )]
 position = Vector2( 212, 96 )
@@ -74,7 +73,7 @@ position = Vector2( 212, 192 )
 position = Vector2( 182, 183 )
 
 [node name="Cactus2" parent="Objects" instance=ExtResource( 7 )]
-position = Vector2( -172, 87 )
+position = Vector2( -140, 87 )
 
 [node name="Flower" parent="Objects" instance=ExtResource( 9 )]
 position = Vector2( 183, 87 )
@@ -83,14 +82,20 @@ position = Vector2( 183, 87 )
 position = Vector2( 286, 183 )
 
 [node name="Green Plant" parent="Objects" instance=ExtResource( 8 )]
-position = Vector2( -72, 87 )
+position = Vector2( 7, 87 )
 
 [node name="Green Plant2" parent="Objects" instance=ExtResource( 8 )]
 position = Vector2( 286, 87 )
 
-[node name="PauseMenu" parent="." instance=ExtResource( 11 )]
-
 [node name="SceneTransitionRect" parent="." instance=ExtResource( 10 )]
+
+[node name="Terminal" parent="." groups=["pause_menu"] instance=ExtResource( 13 )]
+
+[node name="ResourceGen" parent="." instance=ExtResource( 14 )]
+data_path = "res://Scenes/Levels/tutorial.json"
+
+[node name="PauseMenu" parent="." groups=["pause_menu"] instance=ExtResource( 11 )]
+transition_rect_path = NodePath("../SceneTransitionRect")
 
 [node name="GameOverScreen" parent="." groups=["game_end_screens"] instance=ExtResource( 12 )]
 transition_rect_path = NodePath("../SceneTransitionRect")

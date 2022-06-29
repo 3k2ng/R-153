@@ -89,7 +89,8 @@ func execute_input(input_phrases):
 			exit_hacking()
 		_:
 			print_console("unknown command: there's no command called %s, type HELP for list of all commands" % command)
-	prompt()
+	if access != AccessState.PASSWORD:
+		prompt()
 
 func command_help(args):
 	var commands = ["HELP", "LS", "CD", "CAT", "SSH","SSH-LS", "WHO", "CLEAR", "EXIT"]
@@ -214,7 +215,7 @@ func file_accessible(target_file):
 func can_explode():
 	if access == AccessState.ROOT:
 		return true
-	elif access == AccessState.USER and remote_system.is_owner(current_user):
+	elif access == AccessState.USER and remote_system.is_owner(current_user.user_name):
 		return true
 	return false
 

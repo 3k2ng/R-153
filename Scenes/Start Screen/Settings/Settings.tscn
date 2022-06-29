@@ -1,0 +1,117 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Scenes/Start Screen/FFF Forward.TTF" type="DynamicFontData" id=1]
+[ext_resource path="res://Scenes/Start Screen/Settings/grabber.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Start Screen/font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Scenes/Start Screen/Settings/Settings.gd" type="Script" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxFlat" id=7]
+
+[sub_resource type="Theme" id=9]
+default_font = ExtResource( 3 )
+Button/colors/font_color = Color( 0.223529, 0.439216, 0.478431, 1 )
+Button/colors/font_color_disabled = Color( 0.607843, 0.133333, 0.168627, 1 )
+Button/colors/font_color_focus = Color( 0.584314, 0.878431, 0.8, 1 )
+Button/colors/font_color_hover = Color( 0.584314, 0.878431, 0.8, 1 )
+Button/colors/font_color_pressed = Color( 0.584314, 0.878431, 0.8, 1 )
+Button/styles/focus = SubResource( 8 )
+Button/styles/hover = SubResource( 2 )
+Button/styles/normal = SubResource( 3 )
+Button/styles/pressed = SubResource( 4 )
+CheckBox/styles/normal = SubResource( 7 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.584314, 0.878431, 0.8, 1 )
+border_color = Color( 0.584314, 0.878431, 0.8, 1 )
+corner_detail = 10
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.223529, 0.439216, 0.478431, 1 )
+expand_margin_top = 6.0
+expand_margin_bottom = 6.0
+
+[node name="Settings" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 9 )
+script = ExtResource( 4 )
+
+[node name="Settings Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -132.0
+margin_top = 34.0
+margin_right = 132.0
+margin_bottom = 100.0
+custom_colors/font_color = Color( 0.227451, 0.462745, 0.501961, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 4
+custom_constants/shadow_offset_y = 4
+custom_fonts/font = SubResource( 1 )
+text = "Settings"
+
+[node name="Music Volume" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 122.0
+margin_bottom = -388.0
+
+[node name="Music" type="Label" parent="Music Volume"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 117.0
+margin_top = -21.0
+margin_right = 238.0
+margin_bottom = 21.0
+custom_colors/font_color = Color( 0.227451, 0.462745, 0.501961, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Music"
+
+[node name="Slider" type="HSlider" parent="Music Volume"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -250.0
+margin_top = -15.0
+margin_right = 250.0
+margin_bottom = 15.0
+custom_icons/grabber_disabled = ExtResource( 2 )
+custom_icons/grabber_highlight = ExtResource( 2 )
+custom_icons/grabber = ExtResource( 2 )
+custom_styles/slider = SubResource( 6 )
+custom_styles/grabber_area_highlight = SubResource( 5 )
+custom_styles/grabber_area = SubResource( 5 )
+value = 100.0
+rounded = true
+
+[node name="Value" type="Label" parent="Music Volume"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -237.0
+margin_top = -21.0
+margin_right = -131.0
+margin_bottom = 21.0
+custom_colors/font_color = Color( 0.584314, 0.878431, 0.8, 1 )
+text = "100 %"
+
+[connection signal="value_changed" from="Music Volume/Slider" to="." method="_on_MusicSlider_changed"]

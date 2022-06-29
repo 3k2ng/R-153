@@ -17,14 +17,13 @@ var _terminal_input : LineEdit
 var _player
 
 func _ready() -> void:
-	layer = 100
+	layer = 101
 	for node in get_tree().get_nodes_in_group("pause_menu"):
 		match (node.name):
 			"Player":
 				_player = node
 			"Terminal":
 				_terminal_input = node.get_node("TerminalUI/Input")
-	
 
 func _input(event: InputEvent) -> void:
 	

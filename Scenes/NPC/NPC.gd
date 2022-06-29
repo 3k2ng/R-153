@@ -22,6 +22,9 @@ var state = State.Idle
 # Variable for indicating the NPC alert state
 var alert = Alert.Normal
 
+# if this computer emit explode, then die
+var nearby_computer = ""
+
 # Signal to emit for killing the Player
 signal kill
 
@@ -224,9 +227,9 @@ func find_computer():
 
 
 # Death function
-func die(target_system):
+func die(exploded_system):
 	# Check if this is the intended target
-	if target_system == self.get_name():
+	if exploded_system == nearby_computer:
 		# NPC is dead, velocity is 0 
 		state = State.Dead
 		_move_velocity()
@@ -253,17 +256,20 @@ func _on_Detection_Radius_body_exited(body):
 
 # If the player falls into the "kill" range of the NPC
 func _on_Killzone_body_entered(body):
-	if body.get_name() == "Player":
+	if body in get_tree().get_nodes_in_group("player"):
 		# Emit the death signal with the Player's corresponding ID
-		TerminalAutoload.emit_signal("die", body.get_name())
+		TerminalAutoload.emit_signal("explode", "_player")
 		
 
 
 # Check for computer being dead center aligned with NPC
 func _on_Compute_area_entered(area):
-	if area.get_name() == "ComputerBody":
+	if area in get_tree().get_nodes_in_group("computer"):
 		computers = area
 
 # Computer no longer centered on NPC
 func _on_Compute_area_exited(area):
 	computers = null
+
+func set_nearby(system_name):
+	nearby_computer = system_name
