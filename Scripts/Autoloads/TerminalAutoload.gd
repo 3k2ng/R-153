@@ -49,6 +49,8 @@ func explode(target_system):
 	emit_signal("explode", target_system)
 
 func transform_directory(original_dir):
+	if original_dir[-1] == "~":
+		return "~"
 	var path = original_dir.split("/")
 	var ret = []
 	for stuff in path:
@@ -108,7 +110,7 @@ func command_ls():
 
 func command_cd(args):
 	if len(args) == 0:
-		command_cd("~")
+		command_cd(["~"])
 	else:
 		var current_system = root_system if access == 2 else remote_system
 		var dir = transform_directory(current_directory + "/" + args[0])
@@ -123,6 +125,7 @@ func command_cd(args):
 				print_console("cannot change to target directory: file is not directory")
 		elif dir == "~":
 			current_directory = "~"
+			print_console("changed directory to: %s" % current_directory)
 		else:
 			print_console("cannot change to target directory: file is not available")
 
