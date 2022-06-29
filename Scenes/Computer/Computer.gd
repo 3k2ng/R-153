@@ -1,7 +1,9 @@
 extends Area2D
 
 export(String) var system_name
-signal die
+
+export(bool) var destroyed = false
+
 onready var player_access = false
 onready var particle_system = $ParticleSystem
 onready var terminal = $"/root/TerminalAutoload"
@@ -15,11 +17,13 @@ var from = Vector2()
 var to = Vector2()
 var computers
 
+
 func _ready():
 	TerminalAutoload.connect("exit_hacking", self, "exit_hacking")
 	terminal.connect("explode", self, "die")
 	NetworkManager.computers.append(self)
 	computers = NetworkManager.computers
+	$AnimatedSprite.play("Off")
 
 func _physics_process(_delta):
 	#print(terminal.root_system)
@@ -37,28 +41,12 @@ func _on_Computer_body_exited(body):
 
 func _input(event):
 	if event.is_action_released("Hack") and player_access and not player_hacking:
-		var hacking = TerminalAutoload.hack_system(system_name)
-		if hacking:
-			player_hacking = true
-			update()
-		print(NetworkManager.list_ssh(system_name))
-
-func exit_hacking():
-	player_hacking = false
-	update()
-
-
-func die(target_system):
-	if target_system == self.system_name:
-
-	#	if nearby_bodies:
-	#		TerminalAutoload.emit_signal("die", nearby_bodies.get_name())
-		computers.erase(self)
-		TerminalAutoload.emit_signal("die", system_name)
-		particle_system.emitting = true
-		$AnimationPlayer.play("fade_out")
-		yield(get_tree().create_timer(1.5), "timeout")
-		queue_free()
+		if not destroyed:
+			var hacking = TerminalAutoload.hack_system(system_name)
+			if hacking:
+				player_hacking = true
+				$AnimatedSprite.play("On")
+				update()
 
 func _draw():
 	if player_hacking:
@@ -76,6 +64,17 @@ func _draw():
 	else:
 		draw_line(Vector2(), Vector2(), Color(0,0,0))
 
+func exit_hacking():
+	player_hacking = false
+	if not destroyed:
+		$AnimatedSprite.play("Off")
+	update()
+
+func die(target_system):
+	if target_system == self.system_name:
+		$AnimationPlayer.play("explode")
+		computers.erase(self)
+
 func _on_ExplosionRadius_body_entered(body):
 	if body.has_method("set_nearby"):
 		body.set_nearby(system_name)
@@ -83,3 +82,6 @@ func _on_ExplosionRadius_body_entered(body):
 func _on_ExplosionRadius_body_exited(body):
 	if body.has_method("set_nearby"):
 		body.set_nearby("")
+
+func kill():
+	TerminalAutoload.emit_signal("die", system_name)

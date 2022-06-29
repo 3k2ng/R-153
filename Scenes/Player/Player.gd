@@ -64,8 +64,8 @@ func _ready() -> void:
 	sprite.speed_scale = roll_animation_speed
 	terminal.connect("hack", self, "_hack")
 	terminal.connect("exit_hacking", self, "_exit_hacking")
-	terminal.connect("explode", self, "explode")
-	terminal.connect("die", self, "die")
+	terminal.connect("explode", self, "killed")
+	terminal.connect("die", self, "explode")
 	
 	for node in get_tree().get_nodes_in_group("game_end_screens"):
 		match node.name:
@@ -297,9 +297,11 @@ func die() -> void:
 		yield(get_tree().create_timer(1.5), "timeout")
 
 func explode(target_system) -> void:
-	if target_system == "_player":
+	if target_system == nearby_computer:
 		die()
-	elif target_system == nearby_computer:
+
+func killed(target) -> void:
+	if target == "_player":
 		die()
 
 func set_nearby(system_name):
