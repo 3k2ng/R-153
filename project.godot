@@ -158,6 +158,8 @@ ESC={
 2d_render/layer_4="Detection"
 2d_render/layer_5="Zone Patrolling"
 2d_render/layer_6="Computer"
+2d_render/layer_7="Computer Detection"
+2d_render/layer_8="Objects"
 2d_physics/layer_1="Environment"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="NPC"
@@ -165,6 +167,7 @@ ESC={
 2d_physics/layer_5="Zone Patrolling"
 2d_physics/layer_6="Computer"
 2d_physics/layer_7="Computer use radius"
+2d_physics/layer_8="Objects"
 
 [physics]
 

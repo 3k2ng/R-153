@@ -51,7 +51,7 @@ func _ready():
 	if direction == 1:
 		$NPCsprite.flip_h = true
 	# Connect emit signals
-	terminal.connect("explode", self, "die")
+#	terminal.connect("explode", self, "die")
 	terminal.connect("die", self, "die")
 
 
@@ -115,6 +115,7 @@ func chooseDirection():
 		# If the player is within detection range, sets direction towards the player
 		if nearby_bodies:
 			new_direction = stepify(position.direction_to(nearby_bodies.position).x, 1)
+			print(new_direction)
 		# If player is above the NPC
 		if new_direction == 0:
 			$NPCsprite.play("Idle")
@@ -253,7 +254,7 @@ func _on_Detection_Radius_body_exited(body):
 func _on_Killzone_body_entered(body):
 	if body.get_name() == "Player":
 		# Emit the death signal with the Player's corresponding ID
-		TerminalAutoload.emit_signal("explode", body.get_name())
+		TerminalAutoload.emit_signal("die", body.get_name())
 		
 
 

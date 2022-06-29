@@ -62,7 +62,7 @@ func _ready() -> void:
 	sprite.speed_scale = roll_animation_speed
 	terminal.connect("hack", self, "_hack")
 	terminal.connect("exit_hacking", self, "_exit_hacking")
-	terminal.connect("explode", self, "die")
+#	terminal.connect("explode", self, "die")
 	terminal.connect("die", self, "die")
 	
 	for node in get_tree().get_nodes_in_group("game_end_screens"):

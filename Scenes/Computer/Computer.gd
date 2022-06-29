@@ -46,12 +46,13 @@ func exit_hacking():
 
 func die(target_system):
 	if target_system == self.get_name():
+		if nearby_bodies:
+			TerminalAutoload.emit_signal("die", nearby_bodies.get_name())
 		particle_system.emitting = true
 		$AnimationPlayer.play("fade_out")
 		yield(get_tree().create_timer(1.5), "timeout")
 		queue_free()
-	if nearby_bodies:
-		emit_signal("die", nearby_bodies.get_name())
+
 
 
 func _draw_line():
