@@ -21,8 +21,6 @@ var computers
 func _ready():
 	TerminalAutoload.connect("exit_hacking", self, "exit_hacking")
 	terminal.connect("explode", self, "die")
-	NetworkManager.computers.append(self)
-	computers = NetworkManager.computers
 	$AnimatedSprite.play("Off")
 
 func _physics_process(_delta):
@@ -57,10 +55,15 @@ func _draw():
 			if computer != self.system_name:
 				new = to_local(NetworkManager.get_computer(computer).position)
 				to = Vector2(new.x, new.y)
-				if terminal.root_system != NetworkManager.get_computer(computer):
-					draw_line(from, to, not_connected)
+				if terminal.remote_system && NetworkManager.get_system(computer) == terminal.remote_system:
+					if terminal.remote_system.system_name == self.system_name && (terminal.access == terminal.AccessState.USER || terminal.access == terminal.AccessState.ROOT):
+						draw_line(from, to, not_connected)
+					elif terminal.access == terminal.AccessState.USER || terminal.access == terminal.AccessState.ROOT:
+						draw_line(from, to, connected)
+					else:
+						draw_line(from, to, not_connected)
 				else:
-					draw_line(from, to, connected)
+					draw_line(from, to, not_connected)
 	else:
 		draw_line(Vector2(), Vector2(), Color(0,0,0))
 
@@ -73,7 +76,6 @@ func exit_hacking():
 func die(target_system):
 	if target_system == self.system_name:
 		$AnimationPlayer.play("explode")
-		computers.erase(self)
 		if TerminalAutoload.root_system.system_name == target_system:
 			TerminalAutoload.exit_hacking()
 

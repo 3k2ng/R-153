@@ -32,6 +32,7 @@ func parse_input(input_text):
 			access = AccessState.ROOT
 			setup_system()
 			print_console("cannot connect to system: system not available")
+			remote_system = null
 	elif access != AccessState.NONE:
 		print_console("> %s" % input_text)
 		var phrases = Array(input_text.split(" "))
@@ -207,6 +208,8 @@ func get_user_info():
 
 func exit_hacking():
 	emit_signal("exit_hacking")
+	yield(get_tree().create_timer(1.0), "timeout")
+	remote_system = null
 
 func file_accessible(target_file):
 	if access == AccessState.ROOT:
