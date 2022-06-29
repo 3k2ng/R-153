@@ -2,6 +2,7 @@
     "systems": [
 		{
 			"name": "test0",
+			"owner": "2ng",
 			"files": [
 				{
 					"name": "homework",
@@ -29,24 +30,25 @@
 		},
 		{
 			"name": "test1",
+			"owner": "nik",
 			"files": [
 				{
 					"name": "not amogus",
-					"owner": "2ng",
+					"owner": "nik",
 					"private": true,
 					"directory": true,
 					"location": "~"
 				},
 				{
 					"name": "amogus",
-					"owner": "2ng",
+					"owner": "nik",
 					"private": true,
 					"directory": true,
 					"location": "~/not amogus"
 				},
 				{
 					"name": "readme",
-					"owner": "2ng",
+					"owner": "nik",
 					"private": true,
 					"directory": false,
 					"location": "~",

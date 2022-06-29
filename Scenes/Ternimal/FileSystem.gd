@@ -20,3 +20,6 @@ func get_files(dir):
 		if file.location == dir:
 			ret.append(file)
 	return ret
+
+func is_owner(user_name):
+	return user_name == system_owner

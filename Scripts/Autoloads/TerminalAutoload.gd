@@ -78,6 +78,8 @@ func execute_input(input_phrases):
 			command_ssh(args)
 		"SSH-LS":
 			command_sshls()
+		"EXPL":
+			command_expl()
 		"WHO":
 			command_who()
 		"CLEAR":
@@ -171,6 +173,11 @@ func command_sshls():
 	for system_name in current_network:
 		print_console(system_name)
 
+func command_expl():
+	var current_system = root_system if access == 2 else remote_system
+	if can_explode():
+		explode(current_system.system_name)
+
 func command_who():
 	print_console("you're currently %s" % get_user_info())
 
@@ -207,7 +214,7 @@ func file_accessible(target_file):
 func can_explode():
 	if access == AccessState.ROOT:
 		return true
-	elif access == AccessState.USER and remote_system.system_owner == current_user.user_name:
+	elif access == AccessState.USER and remote_system.is_owner(current_user):
 		return true
 	return false
 
@@ -219,6 +226,7 @@ func describe_command(command):
 			print_console("LS: list every files in the current directory")
 		"CD":
 			print_console("CD <directory>: change directory")
+			print_console("CD <directory>: go back to root directory")
 		"CAT":
 			print_console("CAT <file>: get file content")
 		"SSH":
