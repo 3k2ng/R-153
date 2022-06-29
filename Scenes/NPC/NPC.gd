@@ -72,6 +72,7 @@ func _physics_process(_delta):
 	# If there is a Player in the detection areas, check for detection
 	if nearby_bodies:
 		detect()
+	$Detection_Radius/DetectLeft
 
 
 # Change action states
@@ -222,8 +223,8 @@ func find_computer():
 
 # Death function
 func die(target_system):
-	# Check if this instance is the intended target
-	if target_system == self.get_instance_id():
+	# Check if this is the intended target
+	if target_system == self.get_name():
 		# NPC is dead, velocity is 0 
 		state = State.Dead
 		_move_velocity()
@@ -252,7 +253,7 @@ func _on_Detection_Radius_body_exited(body):
 func _on_Killzone_body_entered(body):
 	if body.get_name() == "Player":
 		# Emit the death signal with the Player's corresponding ID
-		TerminalAutoload.emit_signal("explode", body.get_instance_id())
+		TerminalAutoload.emit_signal("explode", body.get_name())
 		
 
 

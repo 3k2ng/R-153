@@ -271,7 +271,7 @@ func _exit_hacking() -> void:
 	action = Action.TRANSFORM_BALL
 
 func die(target_system) -> void:
-	if target_system == self.get_instance_id():
+	if target_system == self.get_name():
 		particle_system.emitting = true
 		animation_player.play("fade_out")
 		yield(get_tree().create_timer(1.5), "timeout")
