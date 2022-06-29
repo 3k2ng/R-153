@@ -247,7 +247,7 @@ func _on_Detection_Radius_body_exited(body):
 
 # If the player falls into the "kill" range of the NPC
 func _on_Killzone_body_entered(body):
-	if body in get_tree().get_nodes_in_group("player"):
+	if body in get_tree().get_nodes_in_group("player") and not dead:
 		# Emit the death signal with the Player's corresponding ID
 		TerminalAutoload.emit_signal("explode", "_player")
 		
