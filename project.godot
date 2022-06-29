@@ -52,8 +52,8 @@ config/icon="res://icon.png"
 
 TerminalAutoload="*res://Scripts/Autoloads/TerminalAutoload.gd"
 NetworkManager="*res://Scripts/Autoloads/NetworkManager.gd"
-Soundtrack="res://Scenes/Util/Soundtrack.tscn"
 BodyCheck="*res://Scripts/Autoloads/BodyCheck.gd"
+Soundtrack="res://Scenes/Util/Soundtrack.tscn"
 
 [display]
 

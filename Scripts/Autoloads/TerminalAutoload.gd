@@ -64,6 +64,7 @@ func transform_directory(original_dir):
 func execute_input(input_phrases):
 	if len(input_phrases) == 0:
 		print_console("")
+		prompt()
 		return
 	var command = input_phrases.pop_front().to_upper()
 	var args = input_phrases
