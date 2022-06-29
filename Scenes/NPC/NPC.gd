@@ -6,7 +6,9 @@ onready var particle_system = $ParticleSystem
 onready var terminal = $"/root/TerminalAutoload"
 
 # Determines the npc's default starting direction
-export (int) var  direction = 1
+export(int) var  direction = 1
+
+export(bool) var dead = false
 # Empty direction variable for checking for differences in direction
 var new_direction = null
 # Initiate velocity to a 2D vector
@@ -24,9 +26,6 @@ var alert = Alert.Normal
 
 # if this computer emit explode, then die
 var nearby_computer = ""
-
-# Signal to emit for killing the Player
-signal kill
 
 # Alert states
 enum Alert {
@@ -54,28 +53,27 @@ func _ready():
 	if direction == 1:
 		$NPCsprite.flip_h = true
 	# Connect emit signals
-#	terminal.connect("explode", self, "die")
 	terminal.connect("die", self, "die")
 
 
 # Function that's called every frame. Basically modifies npc behavior in real time
 func _physics_process(_delta):
-	# Check for a change in state
-	_change_state()
-	# Checks if the npc has hit a wall, facilitating a change in direction for movement
-	chooseDirection()
-	# Determines which animation should be played
-	_animation()
-	# Applies the horizontal movement in the intended direction
-	_move_velocity()
-	
-	# Stops the de_agro timer if it was running
-	if $De_agroTimer.time_left < 0.2:
-		$De_agroTimer.stop()
-	# If there is a Player in the detection areas, check for detection
-	if nearby_bodies:
-		detect()
-	$Detection_Radius/DetectLeft
+	if not dead:
+		# Check for a change in state
+		_change_state()
+		# Checks if the npc has hit a wall, facilitating a change in direction for movement
+		chooseDirection()
+		# Determines which animation should be played
+		_animation()
+		# Applies the horizontal movement in the intended direction
+		_move_velocity()
+		
+		# Stops the de_agro timer if it was running
+		if $De_agroTimer.time_left < 0.2:
+			$De_agroTimer.stop()
+		# If there is a Player in the detection areas, check for detection
+		if nearby_bodies:
+			detect()
 
 
 # Change action states
@@ -233,14 +231,8 @@ func die(exploded_system):
 		state = State.Dead
 		_move_velocity()
 		_animation()
-		# Engage particle dispersion effect
-		particle_system.emitting = true
 		# Fade out the sprite
-		$AnimationPlayer.play("fade_out")
-		# Wait
-		yield(get_tree().create_timer(1.5), "timeout")
-		# Delete entity
-		queue_free()
+		$AnimationPlayer.play("die")
 
 
 # If a player enters the detection radius

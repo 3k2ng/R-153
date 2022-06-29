@@ -65,7 +65,7 @@ func _ready() -> void:
 	terminal.connect("hack", self, "_hack")
 	terminal.connect("exit_hacking", self, "_exit_hacking")
 	terminal.connect("explode", self, "explode")
-	terminal.connect("die", self, "die")
+	terminal.connect("die", self, "explode")
 	
 	for node in get_tree().get_nodes_in_group("game_end_screens"):
 		match node.name:
