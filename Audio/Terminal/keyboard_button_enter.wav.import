@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/keyboard_button_enter.wav-900acd68e3a1e8ac03533d52a8c7aeec.sample"
+
+[deps]
+
+source_file="res://Audio/Terminal/keyboard_button_enter.wav"
+dest_files=[ "res://.import/keyboard_button_enter.wav-900acd68e3a1e8ac03533d52a8c7aeec.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

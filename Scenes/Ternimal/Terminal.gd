@@ -7,6 +7,9 @@ onready var animation_player = $"AnimationPlayer"
 
 onready var input = $"TerminalUI/Input"
 onready var output = $"TerminalUI/Output"
+onready var _keyboard_button = $Sounds/keyboard_button
+onready var _keyboard_button_enter = $Sounds/keyboard_button_enter
+
 
 onready var output_queue = []
 
@@ -17,8 +20,12 @@ func _ready():
 	TerminalAutoload.connect("exit_hacking", self, "exit_hacking")
 
 func _on_text_input(input_text):
+	_keyboard_button_enter.play()
 	input.text = ""
 	TerminalAutoload.parse_input(input_text)
+	
+func _on_Input_text_changed(new_text: String) -> void:
+	_keyboard_button.play()
 
 func print_output(output_text):
 	output_text = output_text
@@ -46,3 +53,6 @@ func enter_hacking():
 func exit_hacking():
 	input.release_focus()
 	animation_player.play("disable")
+
+
+
