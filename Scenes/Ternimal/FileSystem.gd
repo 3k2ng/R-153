@@ -3,6 +3,8 @@ class_name FileSystem
 
 export(String) var system_name
 
+export(String) var system_owner
+
 export(Array, Resource) var files
 
 func get_file(dir):
