@@ -135,7 +135,7 @@ enabled = true
 cast_to = Vector2( 0, -7 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 0, -31 )
+position = Vector2( 0, -37 )
 current = true
 zoom = Vector2( 0.2, 0.2 )
 smoothing_enabled = true

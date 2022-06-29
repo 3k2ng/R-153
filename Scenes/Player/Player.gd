@@ -33,6 +33,7 @@ var jumped = false
 var sticked = false
 
 var _disabled_input = false
+var _dead = false
 
 # if this computer emit explode, then die
 var nearby_computer = ""
@@ -287,11 +288,13 @@ func is_hacking() -> bool:
 	return state == State.HACKING
 
 func die() -> void:
-	_disabled_input = true
-	_game_over_screen.show()
-	particle_system.emitting = true
-	animation_player.play("fade_out")
-	yield(get_tree().create_timer(1.5), "timeout")
+	if not _dead:
+		_dead = true
+		_disabled_input = true
+		_game_over_screen.show()
+		particle_system.emitting = true
+		animation_player.play("fade_out")
+		yield(get_tree().create_timer(1.5), "timeout")
 
 func explode(target_system) -> void:
 	if target_system == "_player":

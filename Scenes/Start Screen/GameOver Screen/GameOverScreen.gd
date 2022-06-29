@@ -9,6 +9,7 @@ onready var _display = $Display
 onready var _hover_over = $Sounds/hover_over
 onready var _next_screen = $Sounds/next_screen
 onready var _level_select = $Sounds/level_select
+onready var _game_over = $Sounds/game_over
 
 var _shown = false
 
@@ -24,7 +25,8 @@ func _on_MenuButton_hovered() -> void:
 func show() -> void:
 	_shown = true
 	_display.visible = true
-	_animation_player.play("fade")	
+	_animation_player.play("fade")
+	_game_over.play()	
 
 
 func _on_Restart_pressed() -> void:
