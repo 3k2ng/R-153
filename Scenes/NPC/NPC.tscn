@@ -280,4 +280,3 @@ shape = SubResource( 29 )
 [connection signal="body_entered" from="Compute" to="." method="_on_Compute_body_entered"]
 [connection signal="body_exited" from="Compute" to="." method="_on_Compute_body_exited"]
 [connection signal="body_entered" from="Killzone" to="." method="_on_Killzone_body_entered"]
-[connection signal="body_exited" from="Killzone" to="." method="_on_Killzone_body_exited"]
