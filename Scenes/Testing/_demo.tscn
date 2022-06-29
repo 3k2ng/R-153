@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://TileSet/autotile.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Scenes/Ternimal/FileSystem.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/NPC/NPC.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Objects/GreenPlant.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Start Screen/GameOver Screen/GameOverScreen.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Util/SceneTransitionRect.tscn" type="PackedScene" id=11]
 
 [node name="Demo2" type="Node"]
@@ -21,7 +22,7 @@ cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 0, 0, 1, 1, 0, 196610, 2, 0, 196610, 3, 0, 196610, 4, 0, 196610, 5, 0, 196610, 6, 0, 196610, 7, 0, 196610, 8, 0, 196610, 9, 0, 196610, 10, 0, 196610, 11, 0, 196610, 12, 0, 196610, 13, 0, 196610, 14, 0, 196610, 15, 0, 196610, 16, 0, 196610, 17, 0, 3, 65536, 0, 65536, 65553, 0, 65536, 131072, 0, 65536, 131079, 0, 0, 131089, 0, 65536, 196608, 0, 65537, 196609, 0, 196610, 196610, 0, 196610, 196611, 0, 2, 196612, 0, 196610, 196613, 0, 196610, 196614, 0, 196610, 196615, 0, 131074, 196616, 0, 196610, 196617, 0, 196611, 196625, 0, 65536, 262144, 0, 65536, 262147, 0, 65536, 262161, 0, 65536, 327680, 0, 65536, 327683, 0, 65536, 327697, 0, 65536, 393216, 0, 65536, 393219, 0, 65536, 393233, 0, 65536, 458752, 0, 65536, 458755, 0, 65536, 458769, 0, 65536, 524288, 0, 65536, 524291, 0, 65536, 524295, 0, 0, 524305, 0, 65536, 589824, 0, 65536, 589827, 0, 131072, 589830, 0, 196609, 589831, 0, 131074, 589832, 0, 196610, 589833, 0, 196611, 589841, 0, 65536, 655360, 0, 65536, 655377, 0, 65536, 720896, 0, 65536, 720913, 0, 65536, 786432, 0, 131073, 786433, 0, 196610, 786434, 0, 196610, 786435, 0, 196610, 786436, 0, 196610, 786437, 0, 196610, 786438, 0, 196610, 786439, 0, 196610, 786440, 0, 196610, 786441, 0, 196610, 786442, 0, 196610, 786443, 0, 196610, 786444, 0, 196610, 786445, 0, 196610, 786446, 0, 196610, 786447, 0, 196610, 786448, 0, 196610, 786449, 0, 131075 )
 
-[node name="Player" parent="World" instance=ExtResource( 2 )]
+[node name="Player" parent="World" groups=["game_end_screens", "pause_menu"] instance=ExtResource( 2 )]
 position = Vector2( 32, 32 )
 
 [node name="Computer" parent="World" instance=ExtResource( 4 )]
@@ -43,7 +44,7 @@ scale = Vector2( 0.6, 0.6 )
 margin_right = 40.0
 margin_bottom = 40.0
 
-[node name="Terminal" parent="UI" instance=ExtResource( 3 )]
+[node name="Terminal" parent="UI" groups=["game_end_screens", "pause_menu"] instance=ExtResource( 3 )]
 
 [node name="Systems" type="Node" parent="."]
 
@@ -54,5 +55,8 @@ system_prefab = ExtResource( 7 )
 
 [node name="SceneTransitionRect" parent="." instance=ExtResource( 11 )]
 
-[node name="PauseMenu" parent="." instance=ExtResource( 6 )]
+[node name="PauseMenu" parent="." groups=["pause_menu"] instance=ExtResource( 6 )]
+transition_rect_path = NodePath("../SceneTransitionRect")
+
+[node name="GameOverScreen" parent="." groups=["game_end_screens"] instance=ExtResource( 10 )]
 transition_rect_path = NodePath("../SceneTransitionRect")
