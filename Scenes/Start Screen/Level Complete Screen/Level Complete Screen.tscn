@@ -4,11 +4,11 @@
 [ext_resource path="res://Scenes/Start Screen/FFF Forward.TTF" type="DynamicFontData" id=2]
 [ext_resource path="res://Scenes/Start Screen/font.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Audio/UI/hover_over.wav" type="AudioStream" id=4]
-[ext_resource path="res://Audio/UI/next_screen.wav" type="AudioStream" id=5]
+[ext_resource path="res://Audio/UI/level_select.wav" type="AudioStream" id=5]
 
 [sub_resource type="Animation" id=9]
 resource_name = "fade"
-length = 0.3
+length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorRect:color")
 tracks/0/interp = 1
@@ -16,7 +16,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3 ),
+"times": PoolRealArray( 0, 0.8 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 0, 0, 0, 0 ), Color( 0.0705882, 0.2, 0.0745098, 0.6 ) ]

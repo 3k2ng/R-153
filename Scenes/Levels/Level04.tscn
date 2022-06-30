@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Ternimal/Terminal.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Scenes/Objects/Lighting.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Objects/Cactus.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/Objects/Flower.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/Start Screen/Level Complete Screen/Level Complete Screen.tscn" type="PackedScene" id=15]
 
 [node name="Level 4" type="Node2D"]
 
@@ -120,3 +121,6 @@ transition_rect_path = NodePath("../SceneTransitionRect")
 [node name="Terminal" parent="." groups=["game_end_screens", "pause_menu"] instance=ExtResource( 2 )]
 
 [node name="ResourceGen" parent="." instance=ExtResource( 5 )]
+
+[node name="Level Complete Screen" parent="." instance=ExtResource( 15 )]
+transition_rect_path = NodePath("../SceneTransitionRect")

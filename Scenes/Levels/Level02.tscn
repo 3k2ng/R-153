@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://TileSet/autotile.tres" type="TileSet" id=1]
 [ext_resource path="res://testbackground.png" type="Texture" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Scenes/Ternimal/ResourceGen.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Start Screen/GameOver Screen/GameOverScreen.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/Ternimal/Terminal.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/Start Screen/Level Complete Screen/Level Complete Screen.tscn" type="PackedScene" id=15]
 
 [node name="Level 2" type="Node2D"]
 
@@ -153,4 +154,7 @@ transition_rect_path = NodePath("../SceneTransitionRect")
 data_path = "res://Scenes/Levels/tutorial.json"
 
 [node name="GameOverScreen" parent="." groups=["game_end_screens"] instance=ExtResource( 13 )]
+transition_rect_path = NodePath("../SceneTransitionRect")
+
+[node name="Level Complete Screen" parent="." instance=ExtResource( 15 )]
 transition_rect_path = NodePath("../SceneTransitionRect")
