@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://TileSet/autotile.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=2]
@@ -14,7 +14,6 @@
 [ext_resource path="res://Scenes/Start Screen/GameOver Screen/GameOverScreen.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Ternimal/Terminal.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/Ternimal/ResourceGen.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Scenes/Ternimal/FileSystem.tscn" type="PackedScene" id=15]
 
 [node name="Level 1" type="Node2D"]
 
@@ -61,12 +60,15 @@ color = Color( 1, 0.745098, 0.745098, 1 )
 
 [node name="Computer" parent="Computers" instance=ExtResource( 5 )]
 position = Vector2( -39, 96 )
+system_name = "momcomp"
 
 [node name="Computer2" parent="Computers" instance=ExtResource( 5 )]
 position = Vector2( 212, 96 )
+system_name = "isaacgaming"
 
 [node name="Computer3" parent="Computers" instance=ExtResource( 5 )]
 position = Vector2( 212, 192 )
+system_name = "oliverpc"
 
 [node name="Objects" type="Node" parent="."]
 
@@ -93,12 +95,10 @@ position = Vector2( 286, 87 )
 [node name="Terminal" parent="." groups=["pause_menu"] instance=ExtResource( 13 )]
 
 [node name="ResourceGen" parent="." instance=ExtResource( 14 )]
-data_path = "res://Scenes/Levels/tutorial.json"
+data_path = "res://Scenes/Levels/level01.json"
 
 [node name="PauseMenu" parent="." groups=["pause_menu"] instance=ExtResource( 11 )]
 transition_rect_path = NodePath("../SceneTransitionRect")
 
 [node name="GameOverScreen" parent="." groups=["game_end_screens"] instance=ExtResource( 12 )]
 transition_rect_path = NodePath("../SceneTransitionRect")
-
-[node name="FileSystem" parent="." instance=ExtResource( 15 )]
