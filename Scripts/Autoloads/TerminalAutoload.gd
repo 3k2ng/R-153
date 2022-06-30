@@ -186,7 +186,11 @@ func command_expl():
 	var current_system = root_system if access == 2 else remote_system
 	if can_explode():
 		explode(current_system.system_name)
-		command_logout()
+		if current_system.system_name == root_system.system_name:
+			clear_console()
+			exit_hacking()
+		else:
+			command_logout()
 	else:
 		print_console("cannot explode the system: this user is not the system owner")
 

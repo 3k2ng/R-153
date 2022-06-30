@@ -1,0 +1,175 @@
+{
+    "systems": [
+		{
+			"name": "alicecomp",
+			"owner": "alice",
+			"files": [
+				{
+					"name": "diaries",
+					"owner": "alice",
+					"private": true,
+					"directory": true,
+					"location": "~"
+				},
+				{
+					"name": "jan1st1992",
+					"owner": "alice",
+					"private": true,
+					"directory": false,
+					"location": "~/diaries",
+					"content": "Finally! I’ve just got hired for this new job, and I get to use one of these fancy computers. I’ve had a little bit of experience with them before so this shouldn’t be too much of a problem"
+				},
+				{
+					"name": "jan23rd1992",
+					"owner": "alice",
+					"private": true,
+					"directory": false,
+					"location": "~/diaries",
+					"content": "My co-worker Robert is a pain in the butt! Why does he always have to chew gum so loudly? It is so irritating working next to him."
+				},
+				{
+					"name": "jan26th1992",
+					"owner": "alice",
+					"private": true,
+					"directory": false,
+					"location": "~/diaries",
+					"content": "I can’t stand this anymore. He is so annoying. I need him to move to a different building."
+				},
+				{
+					"name": "jan27th1992",
+					"owner": "alice",
+					"private": true,
+					"directory": false,
+					"location": "~/diaries",
+					"content": "I’ve got an idea! If I can get into his computer somehow, I can delete some of his files to get him in trouble. But how do I get in? He always has his computer locked on a password… He probably based his password off something personal."
+				},
+				{
+					"name": "feb1st1992",
+					"owner": "alice",
+					"private": true,
+					"directory": false,
+					"location": "~/diaries",
+					"content": "Yesterday me and my other co-workers had a meeting, and Robert wouldn’t stop talking about some weird caesar cipher thing. I can’t stand that guy, he doesn’t even give others the chance to talk!"
+				},
+				{
+					"name": "feb2nd1992",
+					"owner": "alice",
+					"private": true,
+					"directory": false,
+					"location": "~/diaries",
+					"content": "I figured out what Robert was talking about! After doing some research I found that the Caesar Cipher was actually used in ancient cryptography used by Gaius Caesar. It works by replacing each letter of the alphabet with another letter by shifting the whole alphabet a certain number of letters, which would wrap around to the beginning when you reach the end. So for example, if we shifted the alphabet 3 letters back the word HELLO would become EBIIL."
+				}
+			]
+		},
+		{
+			"name": "evelynncomp",
+			"owner": "eve",
+			"files": [
+				{
+					"name": "employees",
+					"owner": "eve",
+					"private": true,
+					"directory": true,
+					"location": "~"
+				},
+				{
+					"name": "robert",
+					"owner": "eve",
+					"private": true,
+					"directory": false,
+					"location": "~/employees",
+					"content": "Name: Robert Moore\nDate of Birth: July 6, 1968\nRole: Cryptographer.\nAdditional info: Robert is in charge of back end security, and setting up everyone's initial password for their job account."
+				},
+				{
+					"name": "alice",
+					"owner": "eve",
+					"private": true,
+					"directory": false,
+					"location": "~/employees",
+					"content": "Name: Alice Smith\nDate of Birth: September 12, 1967\nRole: Web Design\nAdditional info: Alice will have our personalized website ready by this April."
+				},
+				{
+					"name": "olivia",
+					"owner": "eve",
+					"private": true,
+					"directory": false,
+					"location": "~/employees",
+					"content": "Name: Olivia Barlowe\nDate of Birth: December 4, 1962\nRole: Graphic Design\nAdditional info: Olivia will be finishing our advertisement posters by the end of the month."
+				},
+				{
+					"name": "david",
+					"owner": "eve",
+					"private": true,
+					"directory": false,
+					"location": "~/employees",
+					"content": "Name: David Caddel\nDate of Birth: April 9, 1959\nRole: Information Technology\nAdditional info: David will be helping me hire new people for developer positions in late April."
+				},				
+				{
+					"name": "sensitive",
+					"owner": "eve",
+					"private": true,
+					"directory": true,
+					"location": "~"
+				},
+				{
+					"name": "passwords",
+					"owner": "eve",
+					"private": true,
+					"directory": false,
+					"location": "~/sensitive",
+					"content": " - robertcomp: giilyFipymAog\n - alicecomp: ofhwtwqwoz\n - oliviacomp: xahhwpnet\n - davidcomp: jkvzenrp1959"
+				}
+			]
+		},
+		{
+			"name": "robertcomp",
+			"owner": "bob",
+			"files": [
+			]
+		},
+		{
+			"name": "oliviacomp",
+			"owner": "olivia",
+			"files": [
+			]
+		},
+		{
+			"name": "davidcomp",
+			"owner": "david",
+			"files": [
+			]
+		}
+		
+	],
+    "users": [
+		{
+			"name": "alice",
+			"password": "artificial"
+		},
+		{
+			"name": "eve",
+			"password": "admin"
+		},
+		{
+			"name": "bob",
+			"password": "mooreLovesGum"
+		},
+		{
+			"name": "olivia",
+			"password": "bellatrix"
+		},
+		{
+			"name": "david",
+			"password": "steinway1959"
+		}
+	],
+	"networks": [
+		{
+			"systems": [
+				"momcomp",
+				"isaacgaming",
+				"oliverpc"
+			]
+		}
+	]
+}
