@@ -29,6 +29,10 @@ func _on_Input_text_changed(new_text: String) -> void:
 
 func print_output(output_text):
 	output_text = output_text
+	if "\n" in output_text:
+		for line in output_text.split("\n"):
+			print_output(line)
+		return
 	while len(output_text) > MAX_CHARS:
 		var current_line = output_text.substr(0, MAX_CHARS)
 		var last_space = current_line.find_last(" ")
