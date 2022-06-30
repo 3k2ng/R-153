@@ -15,7 +15,7 @@ var _shown = false
 
 func _ready() -> void:
 	_display.visible = false
-	layer = 100
+	layer = 102
 	add_to_group("game_end_screens")
 
 func _on_MenuButton_hovered() -> void:

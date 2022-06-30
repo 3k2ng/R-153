@@ -144,6 +144,7 @@ func command_cat(args):
 			elif file_accessible(accessed_file):
 				print_console(accessed_file.content)
 			else:
+				print_debug(file_accessible(accessed_file))
 				print_console("cannot get file content: access not available")
 		elif dir == "~":
 			print_console("~")
@@ -215,7 +216,9 @@ func exit_hacking():
 func file_accessible(target_file):
 	if access == AccessState.ROOT:
 		return true
-	elif access == AccessState.USER and target_file.file_owner == current_user.user_name:
+	elif not target_file.is_private: 
+		return true
+	elif target_file.file_owner == current_user.user_name:
 		return true
 	return false
 

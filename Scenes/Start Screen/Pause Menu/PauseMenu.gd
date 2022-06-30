@@ -49,10 +49,11 @@ func _input(event: InputEvent) -> void:
 			_focused = true
 
 func _pause() -> void:
-	_next_screen.play()
-	get_tree().paused = true
-	_menu.visible = true
-	_animation_player.play("fade")
+	if not _player.dead:
+		_next_screen.play()
+		get_tree().paused = true
+		_menu.visible = true
+		_animation_player.play("fade")
 	
 func _unpause() -> void:
 	_next_screen.play()

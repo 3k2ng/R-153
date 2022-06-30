@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://TileSet/autotile.tres" type="TileSet" id=1]
 [ext_resource path="res://testbackground.png" type="Texture" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Scenes/Ternimal/ResourceGen.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Start Screen/GameOver Screen/GameOverScreen.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/Ternimal/Terminal.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/Start Screen/Level Complete Screen/Level Complete Screen.tscn" type="PackedScene" id=15]
 
 [node name="Level 2" type="Node2D"]
 
@@ -75,7 +76,7 @@ position = Vector2( 361, 219 )
 position = Vector2( 127, 96 )
 
 [node name="Computer2" parent="Computers" instance=ExtResource( 6 )]
-position = Vector2( 83, 192 )
+position = Vector2( 247, 192 )
 
 [node name="Computer3" parent="Computers" instance=ExtResource( 6 )]
 position = Vector2( 512, 192 )
@@ -124,22 +125,12 @@ position = Vector2( 268, 375 )
 [node name="NPCs" type="Node" parent="."]
 
 [node name="NPC" parent="NPCs" instance=ExtResource( 7 )]
-visible = false
-position = Vector2( 189, 96 )
-
-[node name="NPC2" parent="NPCs" instance=ExtResource( 7 )]
-position = Vector2( 250, 191 )
+position = Vector2( 147, 96 )
 
 [node name="NPC3" parent="NPCs" instance=ExtResource( 7 )]
-visible = false
-position = Vector2( 551, 191 )
-
-[node name="NPC4" parent="NPCs" instance=ExtResource( 7 )]
-visible = false
-position = Vector2( 554, 287 )
+position = Vector2( 542, 191 )
 
 [node name="NPC5" parent="NPCs" instance=ExtResource( 7 )]
-visible = false
 position = Vector2( 313, 384 )
 
 [node name="PauseMenu" parent="." groups=["pause_menu"] instance=ExtResource( 11 )]
@@ -153,4 +144,7 @@ transition_rect_path = NodePath("../SceneTransitionRect")
 data_path = "res://Scenes/Levels/tutorial.json"
 
 [node name="GameOverScreen" parent="." groups=["game_end_screens"] instance=ExtResource( 13 )]
+transition_rect_path = NodePath("../SceneTransitionRect")
+
+[node name="Level Complete Screen" parent="." instance=ExtResource( 15 )]
 transition_rect_path = NodePath("../SceneTransitionRect")

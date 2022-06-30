@@ -31,9 +31,9 @@ var prev_state = State.FALLING
 var falling_from_ceiling = false
 var jumped = false
 var sticked = false
+var dead = false
 
 var _disabled_input = false
-var _dead = false
 
 # if this computer emit explode, then die
 var nearby_computer = ""
@@ -288,8 +288,8 @@ func is_hacking() -> bool:
 	return state == State.HACKING
 
 func die() -> void:
-	if not _dead:
-		_dead = true
+	if not dead:
+		dead = true
 		_disabled_input = true
 		_game_over_screen.show()
 		particle_system.emitting = true
