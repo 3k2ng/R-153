@@ -13,8 +13,8 @@ onready var _next_screen = $Sounds/next_screen
 var _shown := false
 
 func _ready() -> void:
+	layer = 100	
 	_body_check.connect("all_human_dead", self, "show")	
-	layer = 100
 #	add_to_group("game_end_screens")
 #	yield(get_tree().create_timer(2), "timeout")
 #	show()

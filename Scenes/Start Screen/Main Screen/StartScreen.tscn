@@ -91,5 +91,6 @@ next_scene_path = "res://Scenes/Start Screen/Level Select Screen/LevelSelectScre
 [connection signal="mouse_entered" from="Menu/Start Game" to="." method="_on_menu_button_mouse_entered"]
 [connection signal="pressed" from="Menu/Start Game" to="." method="_on_Start_Game_pressed"]
 [connection signal="mouse_entered" from="Menu/Settings" to="." method="_on_menu_button_mouse_entered"]
+[connection signal="pressed" from="Menu/Settings" to="." method="_on_Settings_pressed"]
 [connection signal="mouse_entered" from="Menu/Quit" to="." method="_on_menu_button_mouse_entered"]
 [connection signal="pressed" from="Menu/Quit" to="." method="_on_Quit_pressed"]

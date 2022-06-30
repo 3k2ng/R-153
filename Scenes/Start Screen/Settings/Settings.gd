@@ -1,4 +1,4 @@
-extends Control
+extends VBoxContainer
 
 onready var _soundtrack: AudioStreamPlayer = $"/root/Soundtrack"
 

@@ -7,6 +7,7 @@ onready var _animation_player = $AnimationPlayer
 onready var _menu = $Menu
 onready var _resume = $Menu/Resume
 onready var _exit = $Menu/Exit
+onready var _settings = $Settings
 
 onready var _hover_over = $Sounds/hover_over
 onready var _next_screen = $Sounds/next_screen
@@ -17,7 +18,7 @@ var _terminal_input : LineEdit
 var _player
 
 func _ready() -> void:
-	layer = 101
+	layer = 102
 	for node in get_tree().get_nodes_in_group("pause_menu"):
 		match (node.name):
 			"Player":
@@ -62,6 +63,7 @@ func _unpause() -> void:
 #	yield(_animation_player, "animation_finished")
 	_menu.visible = false
 	_focused = false
+	_settings.visible = false
 	if _player.is_hacking():
 		_terminal_input.grab_focus()
 
@@ -96,3 +98,10 @@ func _on_Exit_pressed() -> void:
 	_focused = false
 	_transition_rect.transition_to("res://Scenes/Start Screen/Main Screen/StartScreen.tscn")
 	get_tree().paused = false
+
+
+func _on_Settings_pressed() -> void:
+	_next_screen.play()
+	_menu.visible = false	
+	_focused = false
+	_settings.visible = true

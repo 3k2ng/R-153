@@ -14,8 +14,9 @@ onready var _game_over = $Sounds/game_over
 var _shown = false
 
 func _ready() -> void:
+	layer = 101	
 	_display.visible = false
-	layer = 102
+
 	add_to_group("game_end_screens")
 
 func _on_MenuButton_hovered() -> void:

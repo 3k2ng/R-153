@@ -216,7 +216,7 @@ next_scene_path = "res://Scenes/Start Screen/Main Screen/StartScreen.tscn"
 
 [node name="Sounds" type="Node" parent="."]
 
-[node name="_next_screen" type="AudioStreamPlayer" parent="Sounds"]
+[node name="next_screen" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 9 )
 
 [node name="hover_over" type="AudioStreamPlayer" parent="Sounds"]

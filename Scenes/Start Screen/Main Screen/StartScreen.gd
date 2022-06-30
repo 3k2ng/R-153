@@ -29,9 +29,14 @@ func _on_Start_Game_pressed() -> void:
 	_next_screen.play()
 	_transition_rect.transition()
 
+func _on_Settings_pressed() -> void:
+	_next_screen.play()
+	_transition_rect.transition_to("res://Scenes/Start Screen/Settings/SettingsScreen.tscn")
+
 func _on_Quit_pressed() -> void:
 	get_tree().quit()
 
 func _on_menu_button_mouse_entered() -> void:
 	_hover_over.play()
+
 

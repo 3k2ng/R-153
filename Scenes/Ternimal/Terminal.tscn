@@ -101,11 +101,9 @@ anims/enable = SubResource( 7 )
 
 [node name="keyboard_button" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 4 )
-volume_db = -10.0
 
 [node name="keyboard_button_enter" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 5 )
-volume_db = -10.0
 
 [connection signal="text_changed" from="TerminalUI/Input" to="." method="_on_Input_text_changed"]
 [connection signal="text_entered" from="TerminalUI/Input" to="." method="_on_text_input"]
