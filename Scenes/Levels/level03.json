@@ -1,0 +1,251 @@
+{
+    "systems": [
+		{
+			"name": "angelcompy",
+			"owner": "angela",
+			"files": [
+				{
+					"name": "emails",
+					"owner": "angela",
+					"private": false,
+					"directory": true,
+					"location": "~"
+				},
+				{
+					"name": "'Kevin'",
+					"owner": "angela",
+					"private": true,
+					"directory": false,
+					"location": "~/emails",
+					"content": "Dear Mrs. Nguyen,\nI’m sending you this message to express concern about your son’s, Isaac, math test result. After the duration of the 2-hour test, all I see on his paper was “zero amogus one sus”, and he failed the test. I would highly suggest letting your son meet a psychiatrist.\nBest Regards\nEllen Cooper"
+				},
+				{
+					"name": "notes",
+					"owner": "mom",
+					"private": false,
+					"directory": true,
+					"location": "~"
+				},
+				{
+					"name": "password",
+					"owner": "mom",
+					"private": true,
+					"directory": false,
+					"location": "~/notes",
+					"content": "password"
+				}
+			]
+		},
+		{
+			"name": "thisiskevin",
+			"owner": "kevin",
+			"files": [
+				{
+					"name": "games",
+					"owner": "isaac",
+					"private": true,
+					"directory": true,
+					"location": "~"
+				},
+				{
+					"name": "homework",
+					"owner": "isaac",
+					"private": false,
+					"directory": false,
+					"location": "~",
+					"content": "amogus sus sus amogus sus amogus sus amogus amogus sus sus amogus amogus sus amogus sus amogus sus sus sus amogus amogus sus amogus amogus sus sus amogus sus sus amogus sus amogus sus sus amogus amogus amogus amogus sus amogus amogus sus sus sus amogus amogus sus amogus amogus sus sus sus amogus amogus amogus amogus amogus sus sus amogus sus amogus sus"
+				}
+			]
+		},
+		{
+			"name": "oscarroxster",
+			"owner": "oscar",
+			"files": [
+				{
+					"name": "diaries",
+					"owner": "oliver",
+					"private": false,
+					"directory": true,
+					"location": "~"
+				},
+				{
+					"name": "Nov20th",
+					"owner": "oliver",
+					"private": false,
+					"directory": false,
+					"location": "~/diaries",
+					"content": "Idk why girls aren’t into me, even when they know my last name. It’s such a great last name, it literally means victory. I guess I just have to spread it around more until there’s a girl who’s into my last name."
+				},
+				{
+					"name": "Nov23th",
+					"owner": "oliver",
+					"private": false,
+					"directory": false,
+					"location": "~/diaries",
+					"content": "Urgh, Wendy avoided me again, even though she said that I has such a cool last name. The Math teacher spelled my last name wrong again, how dare him, I will get back to him later when I get my new Christmas present."
+				}
+			]
+		},
+		{
+			"name": "compserver",
+			"owner": "zuckerburg",
+			"files": [
+				{
+					"name": "documents",
+					"owner": "zuckerburg",
+					"private": false,
+					"directory": true,
+					"location": "~"
+				},
+				{
+					"name": "EmployeeList",
+					"owner": "zuckerburg",
+					"private": true,
+					"directory": false,
+					"location": "~/documents",
+					"content": "FORMAT: Employee name/username/password \nAngela/angela/beetlover\tKevin"
+				},
+				{
+					"name": "Nov23th",
+					"owner": "oliver",
+					"private": false,
+					"directory": false,
+					"location": "~/diaries",
+					"content": "Urgh, Wendy avoided me again, even though she said that I has such a cool last name. The Math teacher spelled my last name wrong again, how dare him, I will get back to him later when I get my new Christmas present."
+				}
+			]
+		},
+		{
+			"name": "comp1",
+			"owner": "john",
+			"files": [
+				{
+					"name": "documents",
+					"owner": "zuckerburg",
+					"private": false,
+					"directory": true,
+					"location": "~"
+				},
+				{
+					"name": "EmployeeList",
+					"owner": "zuckerburg",
+					"private": true,
+					"directory": false,
+					"location": "~/documents",
+					"content": "FORMAT: Employee name/username/password \nAngela/angela/beetlover\tKevin"
+				},
+				{
+					"name": "Nov23th",
+					"owner": "oliver",
+					"private": false,
+					"directory": false,
+					"location": "~/diaries",
+					"content": "Urgh, Wendy avoided me again, even though she said that I has such a cool last name. The Math teacher spelled my last name wrong again, how dare him, I will get back to him later when I get my new Christmas present."
+				}
+			]
+		},
+		{
+			"name": "comp2",
+			"owner": "mark",
+			"files": [
+				{
+					"name": "documents",
+					"owner": "zuckerburg",
+					"private": false,
+					"directory": true,
+					"location": "~"
+				},
+				{
+					"name": "EmployeeList",
+					"owner": "zuckerburg",
+					"private": true,
+					"directory": false,
+					"location": "~/documents",
+					"content": "FORMAT: Employee name/username/password \nAngela/angela/beetlover\tKevin"
+				},
+				{
+					"name": "Nov23th",
+					"owner": "oliver",
+					"private": false,
+					"directory": false,
+					"location": "~/diaries",
+					"content": "Urgh, Wendy avoided me again, even though she said that I has such a cool last name. The Math teacher spelled my last name wrong again, how dare him, I will get back to him later when I get my new Christmas present."
+				}
+			]
+		},
+		{
+			"name": "comp3",
+			"owner": "zoe",
+			"files": [
+				{
+					"name": "documents",
+					"owner": "zuckerburg",
+					"private": false,
+					"directory": true,
+					"location": "~"
+				},
+				{
+					"name": "EmployeeList",
+					"owner": "zuckerburg",
+					"private": true,
+					"directory": false,
+					"location": "~/documents",
+					"content": "FORMAT: Employee name/username/password \nAngela/angela/beetlover\tKevin"
+				},
+				{
+					"name": "Nov23th",
+					"owner": "oliver",
+					"private": false,
+					"directory": false,
+					"location": "~/diaries",
+					"content": "Urgh, Wendy avoided me again, even though she said that I has such a cool last name. The Math teacher spelled my last name wrong again, how dare him, I will get back to him later when I get my new Christmas present."
+				}
+			]
+		}
+		
+	],
+    "users": [
+		{
+			"name": "angela",
+			"password": "beetlover"
+		},
+		{
+			"name": "kevin",
+			"password": "jerma985"
+		},
+		{
+			"name": "oscar",
+			"password": "Nguyen"
+		},
+		{
+			"name": "zuckerberg",
+			"password": "metaverse"
+		},
+		{
+			"name": "john",
+			"password": "metaverse"
+		},
+		{
+			"name": "mark",
+			"password": "metaverse"
+		},
+		{
+			"name": "zoe",
+			"password": "metaverse"
+		}
+	],
+	"networks": [
+		{
+			"systems": [
+				"angelcompy",
+				"thisiskevin",
+				"oscarroxster",
+				"compserver",
+				"comp1",
+				"comp2",
+				"comp3"
+
+			]
+		}
+	]
+}

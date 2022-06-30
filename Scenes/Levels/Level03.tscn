@@ -68,29 +68,6 @@ color = Color( 1, 0.745098, 0.745098, 1 )
 position = Vector2( 176, -84 )
 color = Color( 1, 0.745098, 0.745098, 1 )
 
-[node name="Computers" type="Node" parent="."]
-
-[node name="Computer" parent="Computers" instance=ExtResource( 8 )]
-position = Vector2( 129, 80 )
-
-[node name="Computer2" parent="Computers" instance=ExtResource( 8 )]
-position = Vector2( -128, 80 )
-
-[node name="Computer3" parent="Computers" instance=ExtResource( 8 )]
-position = Vector2( 126, 176 )
-
-[node name="Computer4" parent="Computers" instance=ExtResource( 8 )]
-position = Vector2( 131, -16 )
-
-[node name="Computer5" parent="Computers" instance=ExtResource( 8 )]
-position = Vector2( -54, -48 )
-
-[node name="Computer6" parent="Computers" instance=ExtResource( 8 )]
-position = Vector2( -318, -48 )
-
-[node name="Computer7" parent="Computers" instance=ExtResource( 8 )]
-position = Vector2( -313, 144 )
-
 [node name="Objects" type="Node" parent="."]
 
 [node name="Green Plant" parent="Objects" instance=ExtResource( 5 )]
@@ -107,6 +84,9 @@ position = Vector2( -27, -57 )
 
 [node name="Green Plant5" parent="Objects" instance=ExtResource( 5 )]
 position = Vector2( -397, 136 )
+
+[node name="Green Plant6" parent="Objects" instance=ExtResource( 5 )]
+position = Vector2( 1, 167 )
 
 [node name="Flower" parent="Objects" instance=ExtResource( 11 )]
 position = Vector2( -105, 71 )
@@ -161,6 +141,36 @@ position = Vector2( -54, -51 )
 visible = false
 position = Vector2( 173, 174 )
 
+[node name="Computers" type="Node" parent="."]
+
+[node name="Computer" parent="Computers" instance=ExtResource( 8 )]
+position = Vector2( 129, 80 )
+system_name = "angelcompy"
+
+[node name="Computer2" parent="Computers" instance=ExtResource( 8 )]
+position = Vector2( -128, 80 )
+system_name = "comp1"
+
+[node name="Computer3" parent="Computers" instance=ExtResource( 8 )]
+position = Vector2( 126, 176 )
+system_name = "compserver"
+
+[node name="Computer4" parent="Computers" instance=ExtResource( 8 )]
+position = Vector2( 131, -16 )
+system_name = "thisiskevin"
+
+[node name="Computer5" parent="Computers" instance=ExtResource( 8 )]
+position = Vector2( -54, -48 )
+system_name = "oscarroxster"
+
+[node name="Computer6" parent="Computers" instance=ExtResource( 8 )]
+position = Vector2( -318, -48 )
+system_name = "comp2"
+
+[node name="Computer7" parent="Computers" instance=ExtResource( 8 )]
+position = Vector2( -313, 144 )
+system_name = "comp3"
+
 [node name="PauseMenu" parent="." groups=["pause_menu"] instance=ExtResource( 6 )]
 transition_rect_path = NodePath("../SceneTransitionRect")
 
@@ -169,7 +179,7 @@ transition_rect_path = NodePath("../SceneTransitionRect")
 [node name="Terminal" parent="." groups=["pause_menu"] instance=ExtResource( 14 )]
 
 [node name="ResourceGen" parent="." instance=ExtResource( 13 )]
-data_path = "res://Scenes/Levels/tutorial.json"
+data_path = "res://Scenes/Levels/level03.json"
 
 [node name="GameOverScreen" parent="." groups=["game_end_screens"] instance=ExtResource( 12 )]
 transition_rect_path = NodePath("../SceneTransitionRect")

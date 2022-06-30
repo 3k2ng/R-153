@@ -273,6 +273,9 @@ func die(exploded_system):
 		_animation()
 		# Fade out the sprite
 		$AnimationPlayer.play("die")
+		self.set_collision_layer_bit(2, false)
+		self.set_collision_mask_bit(1, false)
+	#	$NPCcollisionBox.set_disabled(true)
 
 # If a player enters the detection radius
 func _on_Detection_Radius_body_entered(body):

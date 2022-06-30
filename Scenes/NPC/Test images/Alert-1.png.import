@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Caution.png-d8fc9d479f624e0827027a2446c50a7b.stex"
+path="res://.import/Alert-1.png-83182d7cdcfd63631a54fa61ccd6cb87.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/NPC/Test images/Caution.png"
-dest_files=[ "res://.import/Caution.png-d8fc9d479f624e0827027a2446c50a7b.stex" ]
+source_file="res://Scenes/NPC/Test images/Alert-1.png"
+dest_files=[ "res://.import/Alert-1.png-83182d7cdcfd63631a54fa61ccd6cb87.stex" ]
 
 [params]
 

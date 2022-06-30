@@ -1,10 +1,10 @@
 [gd_scene load_steps=24 format=2]
 
-[ext_resource path="res://Scenes/NPC/Test images/Aware.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/NPC/Test images/Caution-1.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/NPC/NPC.gd" type="Script" id=2]
 [ext_resource path="res://Sprites/npc.png" type="Texture" id=3]
-[ext_resource path="res://Scenes/NPC/Test images/Alert.png" type="Texture" id=4]
-[ext_resource path="res://Scenes/NPC/Test images/Caution.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/NPC/Test images/Alert-1.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/NPC/Test images/Aware-1.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/NPC/Test images/Clear.png" type="Texture" id=6]
 
 [sub_resource type="AtlasTexture" id=17]
@@ -67,20 +67,20 @@ extents = Vector2( 38.4001, 45.7685 )
 
 [sub_resource type="SpriteFrames" id=16]
 animations = [ {
-"frames": [ ExtResource( 5 ) ],
-"loop": false,
-"name": "Caution",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 1 ) ],
-"loop": false,
-"name": "Question",
-"speed": 1.0
-}, {
 "frames": [ ExtResource( 4 ), null ],
 "loop": false,
 "name": "Alert",
 "speed": 1.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": false,
+"name": "Question",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": false,
+"name": "Caution",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
