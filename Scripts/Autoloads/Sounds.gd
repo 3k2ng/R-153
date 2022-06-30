@@ -11,6 +11,9 @@ onready var ui_hover_over := $UI/hover_over
 onready var ui_level_select := $UI/level_select
 onready var ui_next_screen := $UI/next_screen
 
+onready var npc_explode := $Explosions/npc_explode
+onready var computer_explode := $Explosions/computer_explode
+
 func get_all_sounds() -> Array:
 	return get_tree().get_nodes_in_group("sounds")
 

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/computer_explode.wav-0e5579ec36d7bbe2a09a59c38045c9f4.sample"
+
+[deps]
+
+source_file="res://Audio/Explosions/computer_explode.wav"
+dest_files=[ "res://.import/computer_explode.wav-0e5579ec36d7bbe2a09a59c38045c9f4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

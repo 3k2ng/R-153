@@ -273,6 +273,7 @@ func die(exploded_system):
 		_animation()
 		# Fade out the sprite
 		$AnimationPlayer.play("die")
+		Sounds.npc_explode.play()
 		yield(get_node("AnimationPlayer"), "animation_finished")
 		$"/root/BodyCheck".check_bodies()
 
