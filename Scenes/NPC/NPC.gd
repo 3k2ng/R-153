@@ -22,10 +22,7 @@ var computers = null
 # Empty Boolean for detection status
 var detected = null
 
-# Variable indicating the NPC action state
-export (String) var state = State.Patrolling
-# Variable for indicating the NPC alert state
-var alert = Alert.Normal
+
 
 # if this computer emit explode, then die
 var nearby_computer = ""
@@ -33,20 +30,24 @@ var rng = RandomNumberGenerator.new()
 
 # Alert states
 enum Alert {
-	Normal
-	Question
-	Caution
-	Alert
+	Normal 		# Index = 0
+	Question	# Index = 1
+	Caution		# Index = 2
+	Alert		# Index = 3
 }
 
 # Action states
 enum State {
-	Idle
-	Computing
-	Patrolling
-	Chasing
-	Dead
+	Idle		# Index = 0
+	Computing	# Index = 1
+	Patrolling	# Index = 2
+	Chasing		# Index = 3
+	Dead		# Index = 4
 	}
+# Variable indicating the NPC action state
+export(State) var state = State.Patrolling
+# Variable for indicating the NPC alert state
+var alert = Alert.Normal
 
 # Runs before the program starts
 func _ready():
