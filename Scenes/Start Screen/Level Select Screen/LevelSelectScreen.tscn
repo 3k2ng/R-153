@@ -62,7 +62,7 @@ custom_constants/separation = 40
 [node name="0 - 3" type="HBoxContainer" parent="Levels"]
 margin_right = 840.0
 margin_bottom = 180.0
-custom_constants/separation = 40
+custom_constants/separation = 80
 alignment = 1
 
 [node name="Tutorial" parent="Levels/0 - 3" instance=ExtResource( 3 )]
@@ -70,9 +70,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 0.0
+margin_left = 70.0
 margin_top = 0.0
-margin_right = 180.0
+margin_right = 250.0
 margin_bottom = 180.0
 rect_min_size = Vector2( 180, 180 )
 rect_pivot_offset = Vector2( 0, 0 )
@@ -85,9 +85,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 220.0
+margin_left = 330.0
 margin_top = 0.0
-margin_right = 400.0
+margin_right = 510.0
 margin_bottom = 180.0
 rect_min_size = Vector2( 180, 180 )
 rect_pivot_offset = Vector2( 0, 0 )
@@ -100,103 +100,52 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 440.0
+margin_left = 590.0
 margin_top = 0.0
-margin_right = 620.0
+margin_right = 770.0
 margin_bottom = 180.0
 rect_min_size = Vector2( 180, 180 )
 rect_pivot_offset = Vector2( 0, 0 )
 text = "2"
-next_scene_path = "res://Scenes/Testing/_demo.tscn"
+next_scene_path = "res://Scenes/Levels/Level02.tscn"
 transition_rect_path = NodePath("../../../SceneTransitionRect")
-locked = true
-
-[node name="3" parent="Levels/0 - 3" instance=ExtResource( 3 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 660.0
-margin_top = 0.0
-margin_right = 840.0
-margin_bottom = 180.0
-rect_min_size = Vector2( 180, 180 )
-rect_pivot_offset = Vector2( 0, 0 )
-text = "3"
-next_scene_path = "res://Scenes/Testing/_demo.tscn"
-transition_rect_path = NodePath("../../../SceneTransitionRect")
-locked = true
 
 [node name="4 - 7" type="HBoxContainer" parent="Levels"]
 margin_top = 220.0
 margin_right = 840.0
 margin_bottom = 400.0
-custom_constants/separation = 40
+custom_constants/separation = 80
 alignment = 1
+
+[node name="3" parent="Levels/4 - 7" instance=ExtResource( 3 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 200.0
+margin_top = 0.0
+margin_right = 380.0
+margin_bottom = 180.0
+rect_min_size = Vector2( 180, 180 )
+rect_pivot_offset = Vector2( 0, 0 )
+text = "3"
+next_scene_path = "res://Scenes/Levels/Level03.tscn"
+transition_rect_path = NodePath("../../../SceneTransitionRect")
 
 [node name="4" parent="Levels/4 - 7" instance=ExtResource( 3 )]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 0.0
+margin_left = 460.0
 margin_top = 0.0
-margin_right = 180.0
+margin_right = 640.0
 margin_bottom = 180.0
 rect_min_size = Vector2( 180, 180 )
 rect_pivot_offset = Vector2( 0, 0 )
 text = "4"
-next_scene_path = "res://Scenes/Testing/_demo.tscn"
+next_scene_path = "res://Scenes/Levels/Level04.tscn"
 transition_rect_path = NodePath("../../../SceneTransitionRect")
-locked = true
-
-[node name="5" parent="Levels/4 - 7" instance=ExtResource( 3 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 220.0
-margin_top = 0.0
-margin_right = 400.0
-margin_bottom = 180.0
-rect_min_size = Vector2( 180, 180 )
-rect_pivot_offset = Vector2( 0, 0 )
-text = "5"
-next_scene_path = "res://Scenes/Testing/_demo.tscn"
-transition_rect_path = NodePath("../../../SceneTransitionRect")
-locked = true
-
-[node name="6" parent="Levels/4 - 7" instance=ExtResource( 3 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 440.0
-margin_top = 0.0
-margin_right = 620.0
-margin_bottom = 180.0
-rect_min_size = Vector2( 180, 180 )
-rect_pivot_offset = Vector2( 0, 0 )
-text = "6"
-next_scene_path = "res://Scenes/Testing/_demo.tscn"
-transition_rect_path = NodePath("../../../SceneTransitionRect")
-locked = true
-
-[node name="7" parent="Levels/4 - 7" instance=ExtResource( 3 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 660.0
-margin_top = 0.0
-margin_right = 840.0
-margin_bottom = 180.0
-rect_min_size = Vector2( 180, 180 )
-rect_pivot_offset = Vector2( 0, 0 )
-text = "7"
-next_scene_path = "res://Scenes/Testing/_demo.tscn"
-transition_rect_path = NodePath("../../../SceneTransitionRect")
-locked = true
 
 [node name="Back Button" type="Button" parent="."]
 margin_left = 15.0
