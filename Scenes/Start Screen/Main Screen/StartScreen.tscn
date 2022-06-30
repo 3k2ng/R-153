@@ -1,11 +1,9 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/Start Screen/Main Screen/StartScreen.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Start Screen/font.tres" type="DynamicFont" id=2]
-[ext_resource path="res://Audio/UI/hover_over.wav" type="AudioStream" id=3]
 [ext_resource path="res://Scenes/Start Screen/Background.jpg" type="Texture" id=4]
 [ext_resource path="res://Scenes/Util/SceneTransitionRect.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Audio/UI/next_screen.wav" type="AudioStream" id=6]
 [ext_resource path="res://Scenes/Start Screen/menu button group.tres" type="ButtonGroup" id=7]
 
 [sub_resource type="StyleBoxEmpty" id=8]
@@ -77,19 +75,12 @@ margin_bottom = 146.0
 group = ExtResource( 7 )
 text = "Quit"
 
-[node name="Sounds" type="Node" parent="."]
-
-[node name="hover_over" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource( 3 )
-
-[node name="next_screen" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource( 6 )
-
 [node name="SceneTransitionRect" parent="." instance=ExtResource( 5 )]
 next_scene_path = "res://Scenes/Start Screen/Level Select Screen/LevelSelectScreen.tscn"
 
 [connection signal="mouse_entered" from="Menu/Start Game" to="." method="_on_menu_button_mouse_entered"]
 [connection signal="pressed" from="Menu/Start Game" to="." method="_on_Start_Game_pressed"]
 [connection signal="mouse_entered" from="Menu/Settings" to="." method="_on_menu_button_mouse_entered"]
+[connection signal="pressed" from="Menu/Settings" to="." method="_on_Settings_pressed"]
 [connection signal="mouse_entered" from="Menu/Quit" to="." method="_on_menu_button_mouse_entered"]
 [connection signal="pressed" from="Menu/Quit" to="." method="_on_Quit_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/Start Screen/Level Select Screen/Background.jpg" type="Texture" id=1]
 [ext_resource path="res://Scenes/Util/SceneTransitionRect.tscn" type="PackedScene" id=2]
@@ -6,8 +6,6 @@
 [ext_resource path="res://Scenes/Start Screen/font.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Scenes/Start Screen/Level Select Screen/locked button texture.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Start Screen/Level Select Screen/LevelSelectScreen.gd" type="Script" id=6]
-[ext_resource path="res://Audio/UI/hover_over.wav" type="AudioStream" id=7]
-[ext_resource path="res://Audio/UI/next_screen.wav" type="AudioStream" id=9]
 
 [sub_resource type="StyleBoxTexture" id=3]
 texture = ExtResource( 5 )
@@ -64,7 +62,7 @@ custom_constants/separation = 40
 [node name="0 - 3" type="HBoxContainer" parent="Levels"]
 margin_right = 840.0
 margin_bottom = 180.0
-custom_constants/separation = 40
+custom_constants/separation = 80
 alignment = 1
 
 [node name="Tutorial" parent="Levels/0 - 3" instance=ExtResource( 3 )]
@@ -72,9 +70,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 0.0
+margin_left = 70.0
 margin_top = 0.0
-margin_right = 180.0
+margin_right = 250.0
 margin_bottom = 180.0
 rect_min_size = Vector2( 180, 180 )
 rect_pivot_offset = Vector2( 0, 0 )
@@ -87,9 +85,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 220.0
+margin_left = 330.0
 margin_top = 0.0
-margin_right = 400.0
+margin_right = 510.0
 margin_bottom = 180.0
 rect_min_size = Vector2( 180, 180 )
 rect_pivot_offset = Vector2( 0, 0 )
@@ -102,103 +100,52 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 440.0
+margin_left = 590.0
 margin_top = 0.0
-margin_right = 620.0
+margin_right = 770.0
 margin_bottom = 180.0
 rect_min_size = Vector2( 180, 180 )
 rect_pivot_offset = Vector2( 0, 0 )
 text = "2"
-next_scene_path = "res://Scenes/Testing/_demo.tscn"
+next_scene_path = "res://Scenes/Levels/Level02.tscn"
 transition_rect_path = NodePath("../../../SceneTransitionRect")
-locked = true
-
-[node name="3" parent="Levels/0 - 3" instance=ExtResource( 3 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 660.0
-margin_top = 0.0
-margin_right = 840.0
-margin_bottom = 180.0
-rect_min_size = Vector2( 180, 180 )
-rect_pivot_offset = Vector2( 0, 0 )
-text = "3"
-next_scene_path = "res://Scenes/Testing/_demo.tscn"
-transition_rect_path = NodePath("../../../SceneTransitionRect")
-locked = true
 
 [node name="4 - 7" type="HBoxContainer" parent="Levels"]
 margin_top = 220.0
 margin_right = 840.0
 margin_bottom = 400.0
-custom_constants/separation = 40
+custom_constants/separation = 80
 alignment = 1
+
+[node name="3" parent="Levels/4 - 7" instance=ExtResource( 3 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 200.0
+margin_top = 0.0
+margin_right = 380.0
+margin_bottom = 180.0
+rect_min_size = Vector2( 180, 180 )
+rect_pivot_offset = Vector2( 0, 0 )
+text = "3"
+next_scene_path = "res://Scenes/Levels/Level03.tscn"
+transition_rect_path = NodePath("../../../SceneTransitionRect")
 
 [node name="4" parent="Levels/4 - 7" instance=ExtResource( 3 )]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 0.0
+margin_left = 460.0
 margin_top = 0.0
-margin_right = 180.0
+margin_right = 640.0
 margin_bottom = 180.0
 rect_min_size = Vector2( 180, 180 )
 rect_pivot_offset = Vector2( 0, 0 )
 text = "4"
-next_scene_path = "res://Scenes/Testing/_demo.tscn"
+next_scene_path = "res://Scenes/Levels/Level04.tscn"
 transition_rect_path = NodePath("../../../SceneTransitionRect")
-locked = true
-
-[node name="5" parent="Levels/4 - 7" instance=ExtResource( 3 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 220.0
-margin_top = 0.0
-margin_right = 400.0
-margin_bottom = 180.0
-rect_min_size = Vector2( 180, 180 )
-rect_pivot_offset = Vector2( 0, 0 )
-text = "5"
-next_scene_path = "res://Scenes/Testing/_demo.tscn"
-transition_rect_path = NodePath("../../../SceneTransitionRect")
-locked = true
-
-[node name="6" parent="Levels/4 - 7" instance=ExtResource( 3 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 440.0
-margin_top = 0.0
-margin_right = 620.0
-margin_bottom = 180.0
-rect_min_size = Vector2( 180, 180 )
-rect_pivot_offset = Vector2( 0, 0 )
-text = "6"
-next_scene_path = "res://Scenes/Testing/_demo.tscn"
-transition_rect_path = NodePath("../../../SceneTransitionRect")
-locked = true
-
-[node name="7" parent="Levels/4 - 7" instance=ExtResource( 3 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 660.0
-margin_top = 0.0
-margin_right = 840.0
-margin_bottom = 180.0
-rect_min_size = Vector2( 180, 180 )
-rect_pivot_offset = Vector2( 0, 0 )
-text = "7"
-next_scene_path = "res://Scenes/Testing/_demo.tscn"
-transition_rect_path = NodePath("../../../SceneTransitionRect")
-locked = true
 
 [node name="Back Button" type="Button" parent="."]
 margin_left = 15.0
@@ -213,14 +160,6 @@ flat = true
 
 [node name="SceneTransitionRect" parent="." instance=ExtResource( 2 )]
 next_scene_path = "res://Scenes/Start Screen/Main Screen/StartScreen.tscn"
-
-[node name="Sounds" type="Node" parent="."]
-
-[node name="_next_screen" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource( 9 )
-
-[node name="hover_over" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource( 7 )
 
 [connection signal="mouse_entered" from="Back Button" to="." method="_on_BackButton_mouse_entered"]
 [connection signal="pressed" from="Back Button" to="." method="_on_BackButton_pressed"]

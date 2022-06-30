@@ -77,6 +77,9 @@ func die(target_system):
 		$AnimationPlayer.play("explode")
 		if TerminalAutoload.root_system.system_name == target_system:
 			TerminalAutoload.exit_hacking()
+		yield(get_node("AnimationPlayer"), "animation_finished")
+		Sounds.computer_explode.play()				
+
 
 func _on_ExplosionRadius_body_entered(body):
 	if body.has_method("set_nearby"):

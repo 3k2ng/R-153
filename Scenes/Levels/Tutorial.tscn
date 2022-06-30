@@ -35,9 +35,19 @@ color = Color( 0.109804, 0.14902, 0.219608, 1 )
 
 [node name="Player" parent="." groups=["game_end_screens", "pause_menu"] instance=ExtResource( 2 )]
 position = Vector2( 100, 175 )
+speed = null
+gravity_strength = null
+jump_strength = null
+roll_animation_speed = null
+zoom_speed = null
+min_zoom = null
+max_zoom = null
 
 [node name="NPC" parent="." instance=ExtResource( 6 )]
 position = Vector2( 370, 191 )
+direction = null
+dead = null
+state = null
 
 [node name="Lights" type="Node" parent="."]
 
@@ -58,10 +68,12 @@ color = Color( 1, 0.745098, 0.745098, 1 )
 [node name="Computer" parent="Computers" instance=ExtResource( 9 )]
 position = Vector2( 337, 96 )
 system_name = "alicecomp"
+destroyed = null
 
 [node name="Computer2" parent="Computers" instance=ExtResource( 9 )]
 position = Vector2( 397, 192 )
 system_name = "bobcomp"
+destroyed = null
 
 [node name="Objects" type="Node" parent="."]
 

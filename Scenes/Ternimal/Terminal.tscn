@@ -1,10 +1,8 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Fonts/Ubuntu Mono/UbuntuMono-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scenes/Ternimal/Terminal.gd" type="Script" id=2]
 [ext_resource path="res://Sprites/console.png" type="Texture" id=3]
-[ext_resource path="res://Audio/Terminal/keyboard_button.wav" type="AudioStream" id=4]
-[ext_resource path="res://Audio/Terminal/keyboard_button_enter.wav" type="AudioStream" id=5]
 
 [sub_resource type="DynamicFont" id=2]
 size = 21
@@ -96,16 +94,6 @@ caret_blink_speed = 0.5
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/disable = SubResource( 6 )
 anims/enable = SubResource( 7 )
-
-[node name="Sounds" type="Node" parent="."]
-
-[node name="keyboard_button" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource( 4 )
-volume_db = -10.0
-
-[node name="keyboard_button_enter" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource( 5 )
-volume_db = -10.0
 
 [connection signal="text_changed" from="TerminalUI/Input" to="." method="_on_Input_text_changed"]
 [connection signal="text_entered" from="TerminalUI/Input" to="." method="_on_text_input"]

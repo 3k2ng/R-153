@@ -275,7 +275,9 @@ func die(exploded_system):
 		$AnimationPlayer.play("die")
 		self.set_collision_layer_bit(2, false)
 		self.set_collision_mask_bit(1, false)
-	#	$NPCcollisionBox.set_disabled(true)
+		Sounds.npc_explode.play()
+		yield(get_node("AnimationPlayer"), "animation_finished")
+		$"/root/BodyCheck".check_bodies()
 
 # If a player enters the detection radius
 func _on_Detection_Radius_body_entered(body):

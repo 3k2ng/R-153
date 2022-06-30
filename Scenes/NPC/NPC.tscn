@@ -165,6 +165,9 @@ extents = Vector2( 13.5, 9 )
 collision_layer = 4
 collision_mask = 3
 script = ExtResource( 2 )
+direction = null
+dead = null
+state = null
 
 [node name="NPCsprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -12 )
