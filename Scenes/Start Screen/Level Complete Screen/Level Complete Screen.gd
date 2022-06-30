@@ -21,6 +21,7 @@ func show() -> void:
 	_animation_player.play("fade")
 	yield(_animation_player, "animation_finished")
 	_display.visible = true
+	Sounds.ui_level_complete.play()
 	
 
 func _on_Exit_hovered() -> void:

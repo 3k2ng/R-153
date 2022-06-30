@@ -10,6 +10,7 @@ onready var ui_game_over := $UI/game_over
 onready var ui_hover_over := $UI/hover_over
 onready var ui_level_select := $UI/level_select
 onready var ui_next_screen := $UI/next_screen
+onready var ui_level_complete := $UI/level_complete
 
 onready var npc_explode := $Explosions/npc_explode
 onready var computer_explode := $Explosions/computer_explode

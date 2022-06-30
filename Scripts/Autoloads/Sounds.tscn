@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Audio/Player/jump.wav" type="AudioStream" id=1]
 [ext_resource path="res://Audio/Terminal/keyboard_button.wav" type="AudioStream" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Scripts/Autoloads/Sounds.gd" type="Script" id=9]
 [ext_resource path="res://Audio/Explosions/npc_explode.wav" type="AudioStream" id=10]
 [ext_resource path="res://Audio/Explosions/computer_explode.wav" type="AudioStream" id=11]
+[ext_resource path="res://Audio/UI/level_complete.wav" type="AudioStream" id=12]
 
 [node name="Sounds" type="Node"]
 pause_mode = 2
@@ -46,6 +47,9 @@ stream = ExtResource( 8 )
 
 [node name="next_screen" type="AudioStreamPlayer" parent="UI" groups=["sounds"]]
 stream = ExtResource( 6 )
+
+[node name="level_complete" type="AudioStreamPlayer" parent="UI" groups=["sounds"]]
+stream = ExtResource( 12 )
 
 [node name="Explosions" type="Node" parent="."]
 
