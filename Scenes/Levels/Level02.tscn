@@ -74,18 +74,23 @@ position = Vector2( 361, 219 )
 
 [node name="Computer" parent="Computers" instance=ExtResource( 6 )]
 position = Vector2( 127, 96 )
+system_name = "oliviacomp"
 
 [node name="Computer2" parent="Computers" instance=ExtResource( 6 )]
 position = Vector2( 247, 192 )
+system_name = "alicecomp"
 
 [node name="Computer3" parent="Computers" instance=ExtResource( 6 )]
 position = Vector2( 512, 192 )
+system_name = "robertcomp"
 
 [node name="Computer4" parent="Computers" instance=ExtResource( 6 )]
 position = Vector2( 526, 288 )
+system_name = "evelynncomp"
 
 [node name="Computer5" parent="Computers" instance=ExtResource( 6 )]
 position = Vector2( 335, 384 )
+system_name = "davidcomp"
 
 [node name="Objects" type="Node" parent="."]
 

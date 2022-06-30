@@ -166,9 +166,11 @@
 	"networks": [
 		{
 			"systems": [
-				"momcomp",
-				"isaacgaming",
-				"oliverpc"
+				"alicecomp",
+				"evelynncomp",
+				"robertcomp",
+				"oliviacomp",
+				"davidcomp"
 			]
 		}
 	]
