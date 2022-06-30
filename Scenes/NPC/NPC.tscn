@@ -67,20 +67,20 @@ extents = Vector2( 38.4001, 45.7685 )
 
 [sub_resource type="SpriteFrames" id=16]
 animations = [ {
-"frames": [ ExtResource( 4 ), null ],
+"frames": [ ExtResource( 5 ) ],
 "loop": false,
-"name": "Alert",
-"speed": 1.0
+"name": "Caution",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 1 ) ],
 "loop": false,
 "name": "Question",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 5 ) ],
+"frames": [ ExtResource( 4 ), null ],
 "loop": false,
-"name": "Caution",
-"speed": 5.0
+"name": "Alert",
+"speed": 1.0
 }, {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
@@ -89,7 +89,7 @@ animations = [ {
 } ]
 
 [sub_resource type="CircleShape2D" id=25]
-radius = 73.0069
+radius = 52.0
 
 [sub_resource type="RectangleShape2D" id=26]
 extents = Vector2( 0.125, 10 )
@@ -186,7 +186,7 @@ animation = "Question"
 playing = true
 
 [node name="De_agroTimer" type="Timer" parent="."]
-wait_time = 3.37
+wait_time = 10.0
 
 [node name="FloorLine" type="RayCast2D" parent="."]
 enabled = true
@@ -194,16 +194,16 @@ cast_to = Vector2( 0, 20 )
 
 [node name="Detection_Radius" type="Area2D" parent="."]
 collision_layer = 8
-collision_mask = 130
+collision_mask = 2
 
 [node name="DetectRight" type="CollisionPolygon2D" parent="Detection_Radius"]
 position = Vector2( 0, -9 )
-polygon = PoolVector2Array( 1, -1, 876, -471, 1002, 5, 898, 437 )
+polygon = PoolVector2Array( 1, -1, 876, -227, 1002, 5, 898, 216 )
 
 [node name="DetectLeft" type="CollisionPolygon2D" parent="Detection_Radius"]
 position = Vector2( 0, -9 )
 scale = Vector2( -1, 1 )
-polygon = PoolVector2Array( 1, -1, 876, -471, 1002, 5, 898, 437 )
+polygon = PoolVector2Array( 1, -1, 854, -224, 1002, 5, 898, 219 )
 
 [node name="DetectRadius" type="CollisionShape2D" parent="Detection_Radius"]
 position = Vector2( 0, -9 )
@@ -272,6 +272,9 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 position = Vector2( -0.5, -9 )
 shape = SubResource( 29 )
+
+[node name="random_timer" type="Timer" parent="."]
+wait_time = 2.1
 
 [connection signal="body_entered" from="Detection_Radius" to="." method="_on_Detection_Radius_body_entered"]
 [connection signal="body_exited" from="Detection_Radius" to="." method="_on_Detection_Radius_body_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://TileSet/autotile.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=2]
@@ -11,6 +11,9 @@
 [ext_resource path="res://Scenes/Objects/GreenPlant.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Start Screen/GameOver Screen/GameOverScreen.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Util/SceneTransitionRect.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Objects/Flower.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Objects/Chair.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Objects/Cactus.tscn" type="PackedScene" id=14]
 
 [node name="Demo2" type="Node"]
 
@@ -26,19 +29,30 @@ tile_data = PoolIntArray( 0, 0, 1, 1, 0, 196610, 2, 0, 196610, 3, 0, 196610, 4, 
 position = Vector2( 32, 32 )
 
 [node name="Computer" parent="World" instance=ExtResource( 4 )]
-position = Vector2( 136, 48 )
+position = Vector2( 162, 192 )
 system_name = "test0"
 
 [node name="Computer2" parent="World" instance=ExtResource( 4 )]
 position = Vector2( 136, 144 )
 system_name = "test1"
 
-[node name="Green Plant" parent="World" instance=ExtResource( 9 )]
-position = Vector2( 66, 39 )
-
 [node name="NPC" parent="World" instance=ExtResource( 8 )]
-position = Vector2( 104, 47 )
+position = Vector2( 105, 190 )
 scale = Vector2( 0.6, 0.6 )
+direction = -1
+
+[node name="Flower" parent="World" instance=ExtResource( 12 )]
+position = Vector2( 80, 103 )
+
+[node name="Chair" parent="World" instance=ExtResource( 13 )]
+position = Vector2( 104, 77 )
+
+[node name="Green Plant" parent="World" instance=ExtResource( 9 )]
+position = Vector2( 63, 39 )
+
+[node name="Cactus" parent="World" instance=ExtResource( 14 )]
+position = Vector2( 78, 131 )
+scale = Vector2( 0.36, 0.36 )
 
 [node name="UI" type="Control" parent="."]
 margin_right = 40.0

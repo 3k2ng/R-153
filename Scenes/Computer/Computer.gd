@@ -24,7 +24,6 @@ func _ready():
 	$AnimatedSprite.play("Off")
 
 func _physics_process(_delta):
-	#print(terminal.root_system)
 	if terminal.root_system != self:
 		update()
 
