@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Ternimal/Terminal.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Scenes/Objects/Lighting.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Objects/Cactus.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/Objects/Flower.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/Ternimal/FileSystem.tscn" type="PackedScene" id=15]
 
 [node name="Level 4" type="Node2D"]
 
@@ -101,25 +102,24 @@ position = Vector2( -409, 135 )
 [node name="NPCs" type="Node" parent="."]
 
 [node name="NPC" parent="NPCs" instance=ExtResource( 10 )]
-visible = false
 position = Vector2( 241, 192 )
 
 [node name="NPC2" parent="NPCs" instance=ExtResource( 10 )]
 position = Vector2( -171, 1 )
 
 [node name="NPC3" parent="NPCs" instance=ExtResource( 10 )]
-visible = false
 position = Vector2( -354, 143 )
 
 [node name="SceneTransitionRect" parent="." instance=ExtResource( 6 )]
-
-[node name="Terminal" parent="." groups=["pause_menu"] instance=ExtResource( 2 )]
-
-[node name="ResourceGen" parent="." instance=ExtResource( 5 )]
-data_path = "res://Scenes/Levels/tutorial.json"
 
 [node name="GameOverScreen" parent="." groups=["game_end_screens"] instance=ExtResource( 4 )]
 transition_rect_path = NodePath("../SceneTransitionRect")
 
 [node name="PauseMenu" parent="." groups=["pause_menu"] instance=ExtResource( 3 )]
 transition_rect_path = NodePath("../SceneTransitionRect")
+
+[node name="Terminal" parent="." groups=["game_end_screens", "pause_menu"] instance=ExtResource( 2 )]
+
+[node name="ResourceGen" parent="." instance=ExtResource( 5 )]
+
+[node name="FileSystem" parent="." instance=ExtResource( 15 )]
