@@ -76,7 +76,7 @@ position = Vector2( 361, 219 )
 position = Vector2( 127, 96 )
 
 [node name="Computer2" parent="Computers" instance=ExtResource( 6 )]
-position = Vector2( 83, 192 )
+position = Vector2( 247, 192 )
 
 [node name="Computer3" parent="Computers" instance=ExtResource( 6 )]
 position = Vector2( 512, 192 )
@@ -125,22 +125,12 @@ position = Vector2( 268, 375 )
 [node name="NPCs" type="Node" parent="."]
 
 [node name="NPC" parent="NPCs" instance=ExtResource( 7 )]
-visible = false
-position = Vector2( 189, 96 )
-
-[node name="NPC2" parent="NPCs" instance=ExtResource( 7 )]
-position = Vector2( 250, 191 )
+position = Vector2( 147, 96 )
 
 [node name="NPC3" parent="NPCs" instance=ExtResource( 7 )]
-visible = false
-position = Vector2( 551, 191 )
-
-[node name="NPC4" parent="NPCs" instance=ExtResource( 7 )]
-visible = false
-position = Vector2( 554, 287 )
+position = Vector2( 542, 191 )
 
 [node name="NPC5" parent="NPCs" instance=ExtResource( 7 )]
-visible = false
 position = Vector2( 313, 384 )
 
 [node name="PauseMenu" parent="." groups=["pause_menu"] instance=ExtResource( 11 )]
