@@ -126,12 +126,21 @@ position = Vector2( 268, 375 )
 
 [node name="NPC" parent="NPCs" instance=ExtResource( 7 )]
 position = Vector2( 147, 96 )
+direction = 1
+dead = false
+state = 2
 
 [node name="NPC3" parent="NPCs" instance=ExtResource( 7 )]
 position = Vector2( 542, 191 )
+direction = 1
+dead = false
+state = 2
 
 [node name="NPC5" parent="NPCs" instance=ExtResource( 7 )]
 position = Vector2( 313, 384 )
+direction = 1
+dead = false
+state = 2
 
 [node name="PauseMenu" parent="." groups=["pause_menu"] instance=ExtResource( 11 )]
 transition_rect_path = NodePath("../SceneTransitionRect")

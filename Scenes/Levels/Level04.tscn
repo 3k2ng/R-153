@@ -103,12 +103,21 @@ position = Vector2( -409, 135 )
 
 [node name="NPC" parent="NPCs" instance=ExtResource( 10 )]
 position = Vector2( 241, 192 )
+direction = 1
+dead = false
+state = 2
 
 [node name="NPC2" parent="NPCs" instance=ExtResource( 10 )]
 position = Vector2( -171, 1 )
+direction = 1
+dead = false
+state = 2
 
 [node name="NPC3" parent="NPCs" instance=ExtResource( 10 )]
 position = Vector2( -354, 143 )
+direction = 1
+dead = false
+state = 2
 
 [node name="SceneTransitionRect" parent="." instance=ExtResource( 6 )]
 

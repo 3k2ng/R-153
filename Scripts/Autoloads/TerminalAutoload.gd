@@ -82,6 +82,8 @@ func execute_input(input_phrases):
 			command_ssh(args)
 		"SSH-LS":
 			command_sshls()
+		"LOGOUT":
+			command_logout()
 		"EXPL":
 			command_expl()
 		"WHO":
@@ -97,7 +99,7 @@ func execute_input(input_phrases):
 		prompt()
 
 func command_help(args):
-	var commands = ["HELP", "LS", "CD", "CAT", "SSH","SSH-LS", "WHO", "CLEAR", "EXIT"]
+	var commands = ["HELP", "LS", "CD", "CAT", "SSH","SSH-LS", "WHO", "CLEAR", "EXPL", "LOGOUT", "EXIT"]
 	if len(args) == 0:
 		describe_command("HELP")
 		print_console("available commands")
@@ -184,6 +186,17 @@ func command_expl():
 	var current_system = root_system if access == 2 else remote_system
 	if can_explode():
 		explode(current_system.system_name)
+		command_logout()
+	else:
+		print_console("cannot explode the system: this user is not the system owner")
+
+func command_logout():
+	if access == AccessState.ROOT:
+		clear_console()
+		exit_hacking()
+	else:
+		access = AccessState.ROOT
+		setup_system()
 
 func command_who():
 	print_console("you're currently %s" % get_user_info())

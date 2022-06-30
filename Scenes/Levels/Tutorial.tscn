@@ -35,19 +35,12 @@ color = Color( 0.109804, 0.14902, 0.219608, 1 )
 
 [node name="Player" parent="." groups=["game_end_screens", "pause_menu"] instance=ExtResource( 2 )]
 position = Vector2( 100, 175 )
-speed = null
-gravity_strength = null
-jump_strength = null
-roll_animation_speed = null
-zoom_speed = null
-min_zoom = null
-max_zoom = null
 
 [node name="NPC" parent="." instance=ExtResource( 6 )]
 position = Vector2( 370, 191 )
-direction = null
-dead = null
-state = null
+direction = 1
+dead = false
+state = 2
 
 [node name="Lights" type="Node" parent="."]
 

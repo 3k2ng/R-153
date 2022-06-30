@@ -33,13 +33,6 @@ color = Color( 0.109804, 0.14902, 0.219608, 1 )
 
 [node name="Player" parent="." groups=["pause_menu"] instance=ExtResource( 2 )]
 position = Vector2( 0, 70 )
-speed = null
-gravity_strength = null
-jump_strength = null
-roll_animation_speed = null
-zoom_speed = null
-min_zoom = null
-max_zoom = null
 
 [node name="Lights" type="Node" parent="."]
 
@@ -127,44 +120,44 @@ position = Vector2( -297, 135 )
 [node name="NPC" parent="NPCs" instance=ExtResource( 7 )]
 visible = false
 position = Vector2( -129, 74 )
-direction = null
-dead = null
-state = null
+direction = 1
+dead = false
+state = 2
 
 [node name="NPC3" parent="NPCs" instance=ExtResource( 7 )]
 visible = false
 position = Vector2( -312, 133 )
-direction = null
-dead = null
-state = null
+direction = 1
+dead = false
+state = 2
 
 [node name="NPC4" parent="NPCs" instance=ExtResource( 7 )]
 visible = false
 position = Vector2( -318, -49 )
-direction = null
-dead = null
-state = null
+direction = 1
+dead = false
+state = 2
 
 [node name="NPC5" parent="NPCs" instance=ExtResource( 7 )]
 visible = false
 position = Vector2( 156, -18 )
-direction = null
-dead = null
-state = null
+direction = 1
+dead = false
+state = 2
 
 [node name="NPC6" parent="NPCs" instance=ExtResource( 7 )]
 visible = false
 position = Vector2( -54, -51 )
-direction = null
-dead = null
-state = null
+direction = 1
+dead = false
+state = 2
 
 [node name="NPC7" parent="NPCs" instance=ExtResource( 7 )]
 visible = false
 position = Vector2( 173, 174 )
-direction = null
-dead = null
-state = null
+direction = 1
+dead = false
+state = 2
 
 [node name="Computers" type="Node" parent="."]
 

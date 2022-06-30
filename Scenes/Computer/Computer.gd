@@ -73,10 +73,8 @@ func exit_hacking():
 	update()
 
 func die(target_system):
-	if target_system == self.system_name:
+	if target_system == self.system_name and not destroyed:
 		$AnimationPlayer.play("explode")
-		if TerminalAutoload.root_system.system_name == target_system:
-			TerminalAutoload.exit_hacking()
 		yield(get_node("AnimationPlayer"), "animation_finished")
 		Sounds.computer_explode.play()				
 
