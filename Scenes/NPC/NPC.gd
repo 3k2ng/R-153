@@ -273,6 +273,8 @@ func die(exploded_system):
 		_animation()
 		# Fade out the sprite
 		$AnimationPlayer.play("die")
+		yield(get_node("AnimationPlayer"), "animation_finished")
+		$"/root/BodyCheck".check_bodies()
 
 # If a player enters the detection radius
 func _on_Detection_Radius_body_entered(body):

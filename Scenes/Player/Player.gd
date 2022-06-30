@@ -234,8 +234,8 @@ func _update_animation():
 
 func _update_sounds():
 	if jumped:
-		if not audio_player.playing:
-			audio_player.play()
+#		if not audio_player.playing:
+		Sounds.player_jump.play()
 #	if sticked:
 #		audio_player.play()
 			

@@ -7,9 +7,6 @@ onready var _animation_player = $AnimationPlayer
 onready var _display = $Display
 onready var _body_check = $"/root/BodyCheck"
 
-onready var _hover_over = $Sounds/hover_over
-onready var _next_screen = $Sounds/next_screen
-
 var _shown := false
 
 func _ready() -> void:
@@ -27,8 +24,8 @@ func show() -> void:
 	
 
 func _on_Exit_hovered() -> void:
-	_hover_over.play()
+	Sounds.ui_hover_over.play()
 	
 func _on_Exit_pressed() -> void:
-	_next_screen.play()
+	Sounds.ui_next_screen.play()
 	_transition_rect.transition_to("res://Scenes/Start Screen/Level Select Screen/LevelSelectScreen.tscn")

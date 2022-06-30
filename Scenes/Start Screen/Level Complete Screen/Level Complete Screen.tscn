@@ -1,10 +1,8 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/Start Screen/Level Complete Screen/Level Complete Screen.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Start Screen/FFF Forward.TTF" type="DynamicFontData" id=2]
 [ext_resource path="res://Scenes/Start Screen/font.tres" type="DynamicFont" id=3]
-[ext_resource path="res://Audio/UI/hover_over.wav" type="AudioStream" id=4]
-[ext_resource path="res://Audio/UI/level_select.wav" type="AudioStream" id=5]
 
 [sub_resource type="Animation" id=9]
 resource_name = "fade"
@@ -93,14 +91,6 @@ margin_right = 480.0
 margin_bottom = 241.0
 group = SubResource( 12 )
 text = "Exit to Level Select"
-
-[node name="Sounds" type="Node" parent="."]
-
-[node name="hover_over" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource( 4 )
-
-[node name="next_screen" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource( 5 )
 
 [connection signal="mouse_entered" from="Display/Exit" to="." method="_on_Exit_hovered"]
 [connection signal="pressed" from="Display/Exit" to="." method="_on_Exit_pressed"]

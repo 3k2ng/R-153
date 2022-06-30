@@ -10,11 +10,6 @@ onready var _animation_player := $AnimationPlayer
 onready var _button := $Button
 onready var _transition_rect := get_node(transition_rect_path)
 
-onready var _next_screen = $Sounds/next_screen
-onready var _level_select = $Sounds/level_select
-onready var _hover_over = $Sounds/hover_over
-onready var _error = $Sounds/error
-
 
 func _ready() -> void:
 	_button.text = text
@@ -40,15 +35,15 @@ func _get_locked() -> bool:
 func _on_Button_mouse_entered() -> void:
 	if not locked:
 		_animation_player.play("bubble")
-		_hover_over.play()
+		Sounds.ui_hover_over.play()
 
 func _on_Button_pressed() -> void:
 	_transition_rect.transition_to(next_scene_path)
-	_level_select.play()
+	Sounds.ui_level_select.play()
 
 func _on_Button_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and Input.is_action_just_pressed("Mouse"):
 		if locked:
 			if not _animation_player.is_playing():
 				_animation_player.play("shake")
-				_error.play()
+				Sounds.ui_error.play()

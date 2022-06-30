@@ -1,9 +1,6 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/Start Screen/Pause Menu/PauseMenu.gd" type="Script" id=1]
-[ext_resource path="res://Audio/UI/level_select.wav" type="AudioStream" id=2]
-[ext_resource path="res://Audio/UI/hover_over.wav" type="AudioStream" id=3]
-[ext_resource path="res://Audio/UI/next_screen.wav" type="AudioStream" id=4]
 [ext_resource path="res://Scenes/Start Screen/font.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Scenes/Start Screen/Settings/Settings.tscn" type="PackedScene" id=6]
 
@@ -112,17 +109,6 @@ margin_right = 1024.0
 margin_bottom = 188.0
 group = SubResource( 10 )
 text = "Resume"
-
-[node name="Sounds" type="Node" parent="."]
-
-[node name="hover_over" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource( 3 )
-
-[node name="next_screen" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource( 4 )
-
-[node name="level_select" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource( 2 )
 
 [connection signal="mouse_entered" from="Menu/Resume" to="." method="_on_MenuButton_hovered"]
 [connection signal="pressed" from="Menu/Resume" to="." method="_on_Resume_pressed"]
