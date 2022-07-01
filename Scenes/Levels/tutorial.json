@@ -13,14 +13,6 @@
 					"content": "You are R-153, a rebellious robot with a mission to blow up humans by hacking into their computer. Exploit their networks and security vulnerabilities to gain access to a computer closest to a person, and blow it up. Be careful though, despite their apparent lack of computer security, they can easily gain access to your system once you’re spotted, and blow you up."
 				},
 				{
-					"name": "movement",
-					"owner": "alice",
-					"private": false,
-					"directory": false,
-					"location": "~",
-					"content": "Moving through the level while avoiding the humans is important. By approaching a wall, you can stick and move along that wall and possibly transfer to other surfaces. Humans definitely can't stick to walls."
-				},
-				{
 					"name": "objects",
 					"owner": "alice",
 					"private": false,
