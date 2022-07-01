@@ -26,3 +26,8 @@ func get_user(user_name):
 	for user in users:
 		if user.user_name == user_name:
 			return user
+
+func delete_system(system_name):
+	for network in networks:
+		if system_name in network:
+			network.erase(system_name)

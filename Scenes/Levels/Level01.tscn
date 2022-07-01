@@ -68,17 +68,14 @@ color = Color( 1, 0.745098, 0.745098, 1 )
 [node name="Computer" parent="Computers" instance=ExtResource( 5 )]
 position = Vector2( -39, 96 )
 system_name = "momcomp"
-destroyed = null
 
 [node name="Computer2" parent="Computers" instance=ExtResource( 5 )]
 position = Vector2( 212, 96 )
 system_name = "isaacgaming"
-destroyed = null
 
 [node name="Computer3" parent="Computers" instance=ExtResource( 5 )]
 position = Vector2( 212, 192 )
 system_name = "oliverpc"
-destroyed = null
 
 [node name="Objects" type="Node" parent="."]
 

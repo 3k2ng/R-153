@@ -71,12 +71,10 @@ color = Color( 1, 0.745098, 0.745098, 1 )
 [node name="Computer" parent="Computers" instance=ExtResource( 9 )]
 position = Vector2( 337, 96 )
 system_name = "alicecomp"
-destroyed = null
 
 [node name="Computer2" parent="Computers" instance=ExtResource( 9 )]
 position = Vector2( 397, 192 )
 system_name = "bobcomp"
-destroyed = null
 
 [node name="Objects" type="Node" parent="."]
 

@@ -78,7 +78,8 @@ func die(target_system):
 	if target_system == self.system_name and not destroyed:
 		$AnimationPlayer.play("explode")
 		yield(get_node("AnimationPlayer"), "animation_finished")
-		Sounds.computer_explode.play()				
+		Sounds.computer_explode.play()
+		NetworkManager.delete_system(system_name)
 
 
 func _on_ExplosionRadius_body_entered(body):
