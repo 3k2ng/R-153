@@ -25,6 +25,7 @@ func _on_text_input(input_text):
 func _on_Input_text_changed(new_text: String) -> void:
 	Sounds.terminal_keyboard_button.play()
 
+# Prints output of terminal to the console
 func print_output(output_text):
 	output_text = output_text
 	if "\n" in output_text:
@@ -44,14 +45,17 @@ func print_output(output_text):
 		output_queue.pop_front()
 	output.text = PoolStringArray(output_queue).join("\n")
 
+# Clears output of the terminal on the console
 func clear_output():
 	output.text = ""
 	output_queue = []
 
+# Enters the terminal
 func enter_hacking():
 	input.grab_focus()
 	animation_player.play("enable")
 
+# Exits the terminal
 func exit_hacking():
 	input.release_focus()
 	animation_player.play("disable")
