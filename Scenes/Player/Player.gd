@@ -10,7 +10,7 @@ onready var camera = $Camera2D
 onready var audio_player = $AudioStreamPlayer2D
 onready var particle_system = $ParticleSystem
 onready var animation_player = $AnimationPlayer
-onready var terminal = $"/root/TerminalAutoload"
+onready var terminal_autoload = $"/root/TerminalAutoload"
 
 export (float) var speed = 50
 export (float) var gravity_strength = 7.5
@@ -19,6 +19,7 @@ export (float) var roll_animation_speed = 5
 export (float) var zoom_speed = 0.01
 export (float) var min_zoom = 0.1
 export (float) var max_zoom = 1.0;
+export (float) var camera_move_speed = 2.5
 
 
 var velocity = Vector2.ZERO
@@ -39,6 +40,7 @@ var _disabled_input = false
 var nearby_computer = ""
 
 var _game_over_screen
+var _terminal: LineEdit
 
 enum State {
 	FLOOR,
@@ -62,17 +64,18 @@ enum Action {
 
 func _ready() -> void:
 	sprite.speed_scale = roll_animation_speed
-	terminal.connect("hack", self, "_hack")
-	terminal.connect("exit_hacking", self, "_exit_hacking")
-	terminal.connect("explode", self, "killed")
-	terminal.connect("die", self, "explode")
+	terminal_autoload.connect("hack", self, "_hack")
+	terminal_autoload.connect("exit_hacking", self, "_exit_hacking")
+	terminal_autoload.connect("explode", self, "killed")
+	terminal_autoload.connect("die", self, "explode")
 	
 	for node in get_tree().get_nodes_in_group("game_end_screens"):
 		match node.name:
 			"GameOverScreen":
 				_game_over_screen = node
-
-
+	
+	# Why cant I use the input var in the script??? returns null
+	_terminal = get_tree().get_nodes_in_group("terminal")[0].get_child(0).get_child(2)
 
 func _physics_process(delta: float) -> void:
 	if not _disabled_input:
@@ -159,9 +162,14 @@ func _process_input() -> void:
 			camera.zoom.x = clamp(camera.zoom.x + zoom_speed, min_zoom, max_zoom)
 			camera.zoom.y = clamp(camera.zoom.y + zoom_speed, min_zoom, max_zoom)
 #			camera.position.y = -200 * camera.zoom.y
-#	else:
-#		if Input.is_action_just_pressed("Exit"):
-#			action = Action.TRANSFORM_BALL	
+	else:
+		if Input.is_action_pressed("Ctrl"):
+			_terminal.focus_mode = Control.FOCUS_NONE
+			camera.position.y += camera_move_speed * (Input.get_action_strength("Arrow_down") - Input.get_action_strength("Arrow_up"))
+			camera.position.x += camera_move_speed * (Input.get_action_strength("Arrow_right") - Input.get_action_strength("Arrow_left"))
+		if Input.is_action_just_released("Ctrl"):
+			_terminal.focus_mode = Control.FOCUS_ALL
+			_terminal.grab_focus()
 		
 
 func _process_gravity():
@@ -281,8 +289,9 @@ func _hack() -> void:
 	action = Action.TRANSFORM_ROBOT	
 
 func _exit_hacking() -> void:
-	print("exit hack")
 	action = Action.TRANSFORM_BALL
+	camera.global_position.x = global_position.x
+	camera.global_position.y = global_position.y - 35
 
 func is_hacking() -> bool:
 	return state == State.HACKING

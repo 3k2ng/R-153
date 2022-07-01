@@ -15,7 +15,6 @@ signal all_human_dead
 #			all_dead = true
 
 func check_bodies() -> void:
-	print("body check!")
 	if not all_dead:
 		var alive = 0
 		for npc in get_tree().get_nodes_in_group("human"):
