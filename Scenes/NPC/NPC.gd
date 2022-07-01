@@ -179,7 +179,7 @@ func _move_velocity():
 	if state == State.Chasing || alert == Alert.Caution:
 		velocity.x = direction * 70
 	elif state == State.Patrolling:
-		velocity.x = direction * 30
+		velocity.x = direction * 20
 	# If the NPC is in a stationary state
 	if state == State.Idle || state == State.Computing || state == State.Dead:
 		velocity.x = 0
