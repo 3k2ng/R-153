@@ -23,7 +23,9 @@ var remote_system: FileSystem
 var current_user: User
 var current_directory: String
 
+# Receive input changes from a Terminal object
 func parse_input(input_text):
+	# If the access state is receiving password
 	if access == AccessState.PASSWORD:
 		if current_user.user_password == input_text:
 			access = AccessState.USER
@@ -33,6 +35,7 @@ func parse_input(input_text):
 			setup_system()
 			print_console("cannot connect to system: system not available")
 			remote_system = null
+	# If the access state is not NONE which can be ROOT or USER
 	elif access != AccessState.NONE:
 		print_console("> %s" % input_text)
 		var phrases = Array(input_text.split(" "))
@@ -40,15 +43,19 @@ func parse_input(input_text):
 			phrases.erase("")
 		execute_input(phrases)
 
+# Emit a signal to put an output_text to the console
 func print_console(output_text):
 	emit_signal("print_console", output_text)
 
+# Emit a signal to clear the console
 func clear_console():
 	emit_signal("clear_console")
 
+# Emit a signal to explode target system
 func explode(target_system):
 	emit_signal("explode", target_system)
 
+# Convert a readable directory to a file system usable one
 func transform_directory(original_dir):
 	if original_dir[-1] == "~":
 		return "~"
@@ -61,6 +68,7 @@ func transform_directory(original_dir):
 			ret.append(stuff)
 	return PoolStringArray(ret).join("/")
 
+# Divert input_phrase into command-related functions
 func execute_input(input_phrases):
 	if len(input_phrases) == 0:
 		print_console("")
@@ -205,6 +213,7 @@ func command_logout():
 func command_who():
 	print_console("you're currently %s" % get_user_info())
 
+# Initiate the root_system
 func hack_system(system_name):
 	var target_system = NetworkManager.get_system(system_name)
 	if target_system:
@@ -215,21 +224,25 @@ func hack_system(system_name):
 		return true
 	return false
 
+# Reset terminal when accessing new system
 func setup_system():
 	clear_console()
 	current_directory = "~"
 	prompt()
 
+# Get current user and system info
 func get_user_info():
 	if access == AccessState.ROOT:
 		return "root@%s" % root_system.system_name
 	return "%s@%s" % [current_user.user_name, remote_system.system_name]
 
+# Exit hacking
 func exit_hacking():
 	emit_signal("exit_hacking")
 	yield(get_tree().create_timer(1.0), "timeout")
 	remote_system = null
 
+# Check if current permission allow reading current file
 func file_accessible(target_file):
 	if access == AccessState.ROOT:
 		return true
@@ -239,6 +252,7 @@ func file_accessible(target_file):
 		return true
 	return false
 
+# Check if the current user has permission for exploding the system
 func can_explode():
 	if access == AccessState.ROOT:
 		return true
@@ -246,6 +260,7 @@ func can_explode():
 		return true
 	return false
 
+# This function will print the description for every command
 func describe_command(command):
 	match command:
 		"HELP":
@@ -272,5 +287,6 @@ func describe_command(command):
 		"EXIT":
 			print_console("EXIT: turn off terminal")
 
+# Promt the current user and directory
 func prompt():
 	print_console("%s [%s]" % [get_user_info(), current_directory])
