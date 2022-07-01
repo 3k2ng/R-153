@@ -26,7 +26,7 @@
 					"private": false,
 					"directory": false,
 					"location": "~",
-					"content": "The humans are very... fidgety. Use Q and E or the scroll wheel to zoom the camera in or out so you can time when you should blow up the computer. Additionally, while using the computer, hold the 'CRTL' button and use the arrow keys to move the camera."
+					"content": "The humans are very... fidgety. Use the scroll wheel to zoom the camera in or out so you can time when you should blow up the computer. Additionally, while using the computer, hold the 'CRTL' button and use the arrow keys to move the camera."
 				},
 				{
 					"name": "commands",
@@ -42,7 +42,7 @@
 					"private": false,
 					"directory": false,
 					"location": "~",
-					"content": "When using a system, the format for a system will always be name@system_name.\nEach directory or file has the following information: [Owner, file_type, permissions]. Only the owner of a file can access the file when the permission is set to private.\nLikewise, only the owner of a system may blow it up."
+					"content": "When using a system, the format for a system will always be name@system_name.\nEach directory or file has the following information: [Owner, file_type, permissions]. Only the owner of a file can access the file when the permission is set to private.\nLikewise, only the owner of a system may blow it up.\nTo make things easier, all usernames and passwords are lowercase."
 				},
 				{
 					"name": "objective",
