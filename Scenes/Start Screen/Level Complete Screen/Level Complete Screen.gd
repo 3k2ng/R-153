@@ -34,7 +34,7 @@ func unlock_next_level() -> void:
 	var levels_status: PoolIntArray
 	for status in content:
 		levels_status.append(int(status))
-	levels_status[1] = 1
+	levels_status[level + 1] = 1
 	levels_save_file.close()
 
 	var save_file := File.new()
