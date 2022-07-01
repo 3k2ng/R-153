@@ -150,6 +150,14 @@ margin_bottom = 42.0
 custom_fonts/font = ExtResource( 17 )
 text = "TO BEGIN HACKING"
 
+[node name="Label2" type="Label" parent="hack"]
+margin_left = -12.0928
+margin_top = 48.3699
+margin_right = 577.907
+margin_bottom = 90.3699
+custom_fonts/font = ExtResource( 17 )
+text = "& TYPE HELP FOR COMMANDS"
+
 [node name="hack2" type="Label" parent="."]
 margin_left = 51.0001
 margin_top = 143.0

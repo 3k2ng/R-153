@@ -13,6 +13,30 @@
 					"content": "You are R-153, a rebellious robot with a mission to blow up humans by hacking into their computer. Exploit their networks and security vulnerabilities to gain access to a computer closest to a person, and blow it up. Be careful though, despite their apparent lack of computer security, they can easily gain access to your system once you’re spotted, and blow you up."
 				},
 				{
+					"name": "movement",
+					"owner": "alice",
+					"private": false,
+					"directory": false,
+					"location": "~",
+					"content": "Moving through the level while avoiding the humans is important. By approaching a wall, you can stick and move along that wall and possibly transfer to other surfaces. Humans definitely can't stick to walls."
+				},
+				{
+					"name": "objects",
+					"owner": "alice",
+					"private": false,
+					"directory": false,
+					"location": "~",
+					"content": "Make use of potted plants and other objects around the stage to hide from the human's gazes. Careful though, if you get to close, they might see right through it!"
+				},
+				{
+					"name": "camera",
+					"owner": "alice",
+					"private": false,
+					"directory": false,
+					"location": "~",
+					"content": "The humans are very... fidgety. Use Q and E or the scroll wheel to zoom the camera in or out so you can time when you should blow up the computer. Additionally, while using the computer, hold the 'CRTL' button and use the arrow keys to move the camera."
+				},
+				{
 					"name": "commands",
 					"owner": "alice",
 					"private": false,
@@ -21,12 +45,20 @@
 					"content": "To traverse through the file system you can use these commands the HELP command to list all the available commands. Use HELP with a specific command to get more info about that command."
 				},
 				{
+					"name": "tips",
+					"owner": "alice",
+					"private": false,
+					"directory": false,
+					"location": "~",
+					"content": "When using a system, the format for a system will always be name@system_name.\nEach directory or file has the following information: [Owner, file_type, permissions]. Only the owner of a file can access the file when the permission is set to private.\nLikewise, only the owner of a system may blow it up."
+				},
+				{
 					"name": "objective",
 					"owner": "alice",
 					"private": false,
 					"directory": false,
 					"location": "~",
-					"content": "We need to try to hack into the other computer somehow using the ssh command and blow up the human close to it. But to explode a computer we need to hack into the user using their username and password and use the EXPL command to blow it up. Let’s see if this computer has some clues hidden around. Begin by accessing my user account with the ssh command. My password can be found in one of the files here, don’t worry, I didn’t make figuring out the first password too difficult!"
+					"content": "We need to try to hack into the other computer somehow using the ssh command and blow up the human close to it. But to explode a computer we need to hack into the user using their username and password and use the 'expl' command to blow it up. Let’s see if this computer has some clues hidden around. Begin by accessing my user account with the ssh command. My password can be found in one of the files here, don’t worry, I didn’t make figuring out the first password too difficult!"
 				},
 				{
 					"name": "data",

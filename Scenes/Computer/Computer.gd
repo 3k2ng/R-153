@@ -31,7 +31,10 @@ func _physics_process(_delta):
 func _on_Computer_body_entered(body):
 	if body.is_in_group("player"):
 		player_access = true
-		$Hack.set_visible(true)
+		if destroyed == false:
+			$Hack.set_visible(true)
+		else:
+			$Hack.set_visible(false)
 
 func _on_Computer_body_exited(body):
 	if body.is_in_group("player"):
