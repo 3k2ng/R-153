@@ -21,7 +21,7 @@ func _on_Back_Button_pressed() -> void:
 
 func _on_Erase_Saved_Data_pressed() -> void:
 	var save_file := File.new()
-	save_file.open("res://Saves/levels.SAVE", File.WRITE)
+	save_file.open("user://levels.txt", File.WRITE)
 	save_file.store_string("1, 0, 0, 0, 0")
 	save_file.close()
 	Sounds.ui_level_select.play()

@@ -29,7 +29,7 @@ func show() -> void:
 	
 func unlock_next_level() -> void:
 	var levels_save_file := File.new()
-	levels_save_file.open("res://Saves/levels.SAVE", File.READ_WRITE)
+	levels_save_file.open("user://levels.txt", File.READ_WRITE)
 	var content := levels_save_file.get_csv_line()
 	var levels_status: PoolIntArray
 	for status in content:
@@ -38,7 +38,7 @@ func unlock_next_level() -> void:
 	levels_save_file.close()
 
 	var save_file := File.new()
-	save_file.open("res://Saves/levels.SAVE", File.WRITE)
+	save_file.open("user://levels.txt", File.WRITE)
 #	print(str(levels_status).replace("[", "").replace("]", ""))
 	save_file.store_string(str(levels_status).replace("[", "").replace("]", ""))
 	save_file.close()

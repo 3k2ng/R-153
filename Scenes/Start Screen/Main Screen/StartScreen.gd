@@ -6,6 +6,13 @@ onready var _transition_rect = $SceneTransitionRect
 
 var _focused := false
 
+func _ready() -> void:
+	var save_file = File.new()
+	if not save_file.file_exists("user://levels.txt"):
+		save_file.open("user://levels.txt", File.WRITE)
+		save_file.store_string("1, 0, 0, 0, 0")
+	save_file.close()
+
 func _input(event: InputEvent) -> void:
 	
 	if _is_UpDownLeftRight(event):

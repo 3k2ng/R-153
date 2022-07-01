@@ -16,7 +16,7 @@ func _ready() -> void:
 		
 func get_levels_locked_status() -> PoolIntArray:
 	var level_save_file := File.new()
-	level_save_file.open("res://Saves/levels.SAVE", File.READ)
+	level_save_file.open("user://levels.txt", File.READ)
 	var levels := level_save_file.get_csv_line()
 	var levels_status : PoolIntArray
 	for status in levels:
