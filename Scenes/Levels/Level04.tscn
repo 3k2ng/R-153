@@ -139,4 +139,3 @@ data_path = "res://Scenes/Levels/level04.json"
 
 [node name="Level Complete Screen" parent="." instance=ExtResource( 15 )]
 transition_rect_path = NodePath("../SceneTransitionRect")
-level = 4

@@ -162,4 +162,3 @@ transition_rect_path = NodePath("../SceneTransitionRect")
 
 [node name="Level Complete Screen" parent="." instance=ExtResource( 15 )]
 transition_rect_path = NodePath("../SceneTransitionRect")
-level = 2
