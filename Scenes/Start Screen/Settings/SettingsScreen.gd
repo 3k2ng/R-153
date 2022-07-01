@@ -16,7 +16,6 @@ func _on_Back_Button_pressed() -> void:
 	_scene_transition_rect.transition()
 #	for sound in Sounds.get_all_sounds():
 #		print(sound.name, ": ", sound.volume_db)
-	print(Settings.sfx_percent)
 	
 
 
