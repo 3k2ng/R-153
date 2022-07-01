@@ -93,7 +93,6 @@ func _random_change():
 		if $random_timer.time_left < 0.1:
 			$random_timer.stop()
 			var num = stepify(rng.randf_range(0,100), 1)
-			print(num)
 			if num >= 1 && num <= 15:
 				state = State.Idle
 				finding_computer = false

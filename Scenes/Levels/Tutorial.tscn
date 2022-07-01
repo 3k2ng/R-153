@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://TileSet/autotile.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=2]
@@ -18,10 +18,28 @@
 [ext_resource path="res://Scenes/Start Screen/Level Complete Screen/Level Complete Screen.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Start Screen/font.tres" type="DynamicFont" id=17]
 [ext_resource path="res://keyboard_key_f.png" type="Texture" id=18]
+[ext_resource path="res://WASD.png" type="Texture" id=19]
+[ext_resource path="res://Arrows.png" type="Texture" id=20]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "New Anim",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 19 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 20 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -110,9 +128,9 @@ transition_rect_path = NodePath("../SceneTransitionRect")
 transition_rect_path = NodePath("../SceneTransitionRect")
 
 [node name="hack" type="Label" parent="."]
-margin_left = 265.0
+margin_left = 280.0
 margin_top = 46.0
-margin_right = 403.0
+margin_right = 418.0
 margin_bottom = 88.0
 rect_scale = Vector2( 0.248088, 0.248088 )
 custom_fonts/font = ExtResource( 17 )
@@ -122,6 +140,7 @@ text = "PRESS "
 position = Vector2( 165.263, 16.1233 )
 scale = Vector2( 0.208352, 0.208352 )
 frames = SubResource( 1 )
+animation = "New Anim"
 
 [node name="Label" type="Label" parent="hack"]
 margin_left = 209.603
@@ -130,3 +149,38 @@ margin_right = 562.603
 margin_bottom = 42.0
 custom_fonts/font = ExtResource( 17 )
 text = "TO BEGIN HACKING"
+
+[node name="hack2" type="Label" parent="."]
+margin_left = 51.0001
+margin_top = 143.0
+margin_right = 189.0
+margin_bottom = 185.0
+rect_scale = Vector2( 0.248088, 0.248088 )
+custom_fonts/font = ExtResource( 17 )
+text = "USE"
+
+[node name="Label" type="Label" parent="hack2"]
+margin_left = 161.233
+margin_top = 4.57764e-05
+margin_right = 514.233
+margin_bottom = 42.0001
+custom_fonts/font = ExtResource( 17 )
+text = "OR"
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="hack2"]
+position = Vector2( 120.925, 20.1542 )
+scale = Vector2( 0.203875, 0.203875 )
+frames = SubResource( 2 )
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="hack2"]
+position = Vector2( 257.973, 20.1541 )
+scale = Vector2( 0.178117, 0.178117 )
+frames = SubResource( 3 )
+
+[node name="Label2" type="Label" parent="hack2"]
+margin_left = 298.281
+margin_top = 6.10352e-05
+margin_right = 477.281
+margin_bottom = 42.0001
+custom_fonts/font = ExtResource( 17 )
+text = "TO MOVE"
