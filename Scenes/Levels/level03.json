@@ -12,27 +12,43 @@
 					"location": "~"
 				},
 				{
-					"name": "'Kevin'",
+					"name": "TheBoss",
 					"owner": "angela",
 					"private": true,
 					"directory": false,
 					"location": "~/emails",
-					"content": "Dear Mrs. Nguyen,\nI’m sending you this message to express concern about your son’s, Isaac, math test result. After the duration of the 2-hour test, all I see on his paper was “zero amogus one sus”, and he failed the test. I would highly suggest letting your son meet a psychiatrist.\nBest Regards\nEllen Cooper"
+					"content": "August 10th:\nI'm sure everybody has heard something regarding this, but I'm not sure that our boss is.... really what he claims to be...."
+				},
+				{
+					"name": "TheBossPT2",
+					"owner": "angela",
+					"private": true,
+					"directory": false,
+					"location": "~/emails",
+					"content": "August 21st:\nGuys, after the last round of interviews and pictures, I'm almost sure of it now! I don't think Zuckerberg is human! The proof is in the pudding!"
 				},
 				{
 					"name": "notes",
-					"owner": "mom",
+					"owner": "angela",
 					"private": false,
 					"directory": true,
 					"location": "~"
 				},
 				{
-					"name": "password",
-					"owner": "mom",
+					"name": "Kevin'sCredentials",
+					"owner": "angela",
 					"private": true,
 					"directory": false,
 					"location": "~/notes",
-					"content": "password"
+					"content": "Kevin's password\n12345\nI can't believe this is actually his password! It's so inelegant and weak unlike a password like 'beetlover'. He's honestly just a walking security vulnerability! To make matters worse, corporate requires our usernames to just be our names! I'm going to have to log onto his computer and prove just how dangerous he is!"
+				},
+				{
+					"name": "TheBossIsCalling",
+					"owner": "angela",
+					"private": false,
+					"directory": false,
+					"location": "~/notes",
+					"content": "August 22nd:\nThe Boss is calling me into his office today... Surely it can't be about my email the other day, could it? I'll have to bring my pepperspray, though I can only hope it's effective... If you're reading this and I'm missing, let this be proof as to what's happened to me."
 				}
 			]
 		},
@@ -41,19 +57,35 @@
 			"owner": "kevin",
 			"files": [
 				{
-					"name": "games",
-					"owner": "isaac",
-					"private": true,
+					"name": "work",
+					"owner": "kevin",
+					"private": false,
 					"directory": true,
 					"location": "~"
 				},
 				{
-					"name": "homework",
-					"owner": "isaac",
+					"name": "contract",
+					"owner": "kevin",
 					"private": false,
 					"directory": false,
 					"location": "~",
-					"content": "amogus sus sus amogus sus amogus sus amogus amogus sus sus amogus amogus sus amogus sus amogus sus sus sus amogus amogus sus amogus amogus sus sus amogus sus sus amogus sus amogus sus sus amogus amogus amogus amogus sus amogus amogus sus sus sus amogus amogus sus amogus amogus sus sus sus amogus amogus amogus amogus amogus sus sus amogus sus amogus sus"
+					"content": "Haha, imagine doing work! Good thing our boss is an idiot."
+				},
+				{
+					"name": "promotion",
+					"owner": "kevin",
+					"private": true,
+					"directory": false,
+					"location": "~",
+					"content": "Work smarter, not harder. With how things are going, it's only a matter of time before I get that sweet, sweet promotion."
+				},
+				{
+					"name": "contract",
+					"owner": "kevin",
+					"private": true,
+					"directory": false,
+					"location": "~/work",
+					"content": "Haha, imagine doing work! Good thing our boss is an idiot."
 				}
 			]
 		},
@@ -62,143 +94,252 @@
 			"owner": "oscar",
 			"files": [
 				{
-					"name": "diaries",
-					"owner": "oliver",
+					"name": "emails",
+					"owner": "oscar",
 					"private": false,
 					"directory": true,
 					"location": "~"
 				},
 				{
-					"name": "Nov20th",
-					"owner": "oliver",
-					"private": false,
+					"name": "'Kevin'",
+					"owner": "oscar",
+					"private": true,
 					"directory": false,
-					"location": "~/diaries",
-					"content": "Idk why girls aren’t into me, even when they know my last name. It’s such a great last name, it literally means victory. I guess I just have to spread it around more until there’s a girl who’s into my last name."
+					"location": "~/emails",
+					"content": "July 31st:\nOscar,\nWhy do you bother to put up with sitting by that dullard Kevin?! Have you seen just how thick and slow he is? LMAO. Imagine thinking that 12345 is actually a good password! Haha anyways, you should hurry and switch computers with Zoe so that we can sit close together.\nYour good friend,\nAngela"
 				},
 				{
-					"name": "Nov23th",
-					"owner": "oliver",
+					"name": "ComputerExchanges",
+					"owner": "oscar",
+					"private": true,
+					"directory": false,
+					"location": "~/emails",
+					"content": "August 1st:\nOscar,\nWhy does Zoe have to such a jerk? Don't worry though, I think we can take advantage of a loophole! The boss usually wanders around his big office just below me, so he's often not at his desk. I'll bet that he has a master list of all the computers and passwords stored on there, so what if you were to get on there and switch some names around? If Zoe's computer has your name, then it must be yours right?\nAngela"
+				},
+				{
+					"name": "TheBoss",
+					"owner": "oscar",
+					"private": true,
+					"directory": false,
+					"location": "~/emails",
+					"content": "August 10th:\nI'm sure everybody has heard something regarding this, but I'm not sure that our boss is.... really what he claims to be...."
+				},
+				{
+					"name": "TheBossPT2'",
+					"owner": "oscar",
+					"private": true,
+					"directory": false,
+					"location": "~/emails",
+					"content": "August 21st:\nGuys, after the last round of interviews and pictures, I'm almost sure of it now! I don't think Zuckerberg is human! The proof is in the pudding!"
+				},
+				{
+					"name": "diaries",
+					"owner": "oscar",
+					"private": false,
+					"directory": true,
+					"location": "~"
+				},
+				{
+					"name": "July21st",
+					"owner": "oscar",
 					"private": false,
 					"directory": false,
 					"location": "~/diaries",
-					"content": "Urgh, Wendy avoided me again, even though she said that I has such a cool last name. The Math teacher spelled my last name wrong again, how dare him, I will get back to him later when I get my new Christmas present."
+					"content": "Angela just won't look my way. What's so good about some stupid farmer? He just plays with plants and wades around in animal excrements all day! Angela, look at me, I'm the one for you! I will dedicate everything to your name! EVERYTHING!"
+				},
+				{
+					"name": "August23rd",
+					"owner": "oscar",
+					"private": false,
+					"directory": false,
+					"location": "~/diaries",
+					"content": "Angela didn't show up to work today..."
+				},
+				{
+					"name": "August29th",
+					"owner": "oscar",
+					"private": false,
+					"directory": false,
+					"location": "~/diaries",
+					"content": "Angela still hasn't shown up to work! Apparently she still works here, so what is going on?!"
+				},
+				{
+					"name": "September1st",
+					"owner": "oscar",
+					"private": false,
+					"directory": false,
+					"location": "~/diaries",
+					"content": "Something is fishy, I need to investigate... I think Angela said the boss has a masterlist of credentials..."
 				}
 			]
 		},
 		{
 			"name": "compserver",
-			"owner": "zuckerburg",
+			"owner": "zuckerberg",
 			"files": [
 				{
 					"name": "documents",
-					"owner": "zuckerburg",
-					"private": false,
+					"owner": "zuckerberg",
+					"private": true,
 					"directory": true,
 					"location": "~"
 				},
 				{
 					"name": "EmployeeList",
-					"owner": "zuckerburg",
+					"owner": "zuckerberg",
 					"private": true,
 					"directory": false,
 					"location": "~/documents",
-					"content": "FORMAT: Employee name/username/password \nAngela/angela/beetlover\tKevin"
+					"content": "FORMAT: Employee name/username/password\nAngela/angela/beetlover\nKevin/kevin/12345\nOscar/oscar/angela\nHarold/harold/p4$$w0rd\nVolodymyr/volodymyr/farmville\nZoe/zoe/mommy69420er"
 				},
 				{
-					"name": "Nov23th",
-					"owner": "oliver",
-					"private": false,
+					"name": "TheMetaverse",
+					"owner": "zuckerberg",
+					"private": true,
 					"directory": false,
-					"location": "~/diaries",
-					"content": "Urgh, Wendy avoided me again, even though she said that I has such a cool last name. The Math teacher spelled my last name wrong again, how dare him, I will get back to him later when I get my new Christmas present."
+					"location": "~",
+					"content": "The Metaverse is everything. The Metaverse is everywhere. The Metaverse is now. The Metaverse is the future. Embrace the Metaverse, for the Metaverse is here."
 				}
 			]
 		},
 		{
-			"name": "comp1",
-			"owner": "john",
+			"name": "itguy",
+			"owner": "harold",
 			"files": [
 				{
-					"name": "documents",
-					"owner": "zuckerburg",
+					"name": "emails",
+					"owner": "harold",
 					"private": false,
 					"directory": true,
 					"location": "~"
 				},
 				{
-					"name": "EmployeeList",
-					"owner": "zuckerburg",
-					"private": true,
-					"directory": false,
-					"location": "~/documents",
-					"content": "FORMAT: Employee name/username/password \nAngela/angela/beetlover\tKevin"
-				},
-				{
-					"name": "Nov23th",
-					"owner": "oliver",
+					"name": "PasswordConduct",
+					"owner": "harold",
 					"private": false,
 					"directory": false,
-					"location": "~/diaries",
-					"content": "Urgh, Wendy avoided me again, even though she said that I has such a cool last name. The Math teacher spelled my last name wrong again, how dare him, I will get back to him later when I get my new Christmas present."
+					"location": "~/emails",
+					"content": "Harold,\nMy employee Zoe appears to have a system password that is quite inappropriate:\nbabyspanker69\nPlease take corrective actions.\n-Zuckerberg"
+				},
+				{
+					"name": "TheBoss",
+					"owner": "harold",
+					"private": true,
+					"directory": false,
+					"location": "~/emails",
+					"content": "August 10th:\nI'm sure everybody has heard something regarding this, but I'm not sure that our boss is.... really what he claims to be...."
+				},
+				{
+					"name": "TheBossPT2",
+					"owner": "harold",
+					"private": true,
+					"directory": false,
+					"location": "~/emails",
+					"content": "August 21st:\nGuys, after the last round of interviews and pictures, I'm almost sure of it now! I don't think Zuckerberg is human! The proof is in the pudding!"
 				}
 			]
 		},
 		{
-			"name": "comp2",
-			"owner": "mark",
+			"name": "farmerv",
+			"owner": "volodymyr",
 			"files": [
 				{
-					"name": "documents",
-					"owner": "zuckerburg",
+					"name": "emails",
+					"owner": "volodymyr",
 					"private": false,
 					"directory": true,
 					"location": "~"
 				},
 				{
-					"name": "EmployeeList",
-					"owner": "zuckerburg",
-					"private": true,
-					"directory": false,
-					"location": "~/documents",
-					"content": "FORMAT: Employee name/username/password \nAngela/angela/beetlover\tKevin"
-				},
-				{
-					"name": "Nov23th",
-					"owner": "oliver",
+					"name": "UseOfTime",
+					"owner": "volodymyr",
 					"private": false,
 					"directory": false,
-					"location": "~/diaries",
-					"content": "Urgh, Wendy avoided me again, even though she said that I has such a cool last name. The Math teacher spelled my last name wrong again, how dare him, I will get back to him later when I get my new Christmas present."
+					"location": "~/emails",
+					"content": "Volodymyr,\nIt's come to my attention that there has been a blatant misuse of company time in which you have been playing some kind of 'farming simulator' game on your mobile device instead of working. While we know that you are very passionate towards your hobbies, while you are on company time, we require that you do your work.\n-Zuckerberg"
+				},
+				{
+					"name": "TheBoss",
+					"owner": "volodymyr",
+					"private": true,
+					"directory": false,
+					"location": "~/emails",
+					"content": "August 10th:\nI'm sure everybody has heard something regarding this, but I'm not sure that our boss is.... really what he claims to be...."
+				},
+				{
+					"name": "TheBossPT2",
+					"owner": "volodymyr",
+					"private": true,
+					"directory": false,
+					"location": "~/emails",
+					"content": "August 21st:\nGuys, after the last round of interviews and pictures, I'm almost sure of it now! I don't think Zuckerberg is human! The proof is in the pudding!"
+				},
+				{
+					"name": "notes",
+					"owner": "volodymyr",
+					"private": false,
+					"directory": true,
+					"location": "~"
+				},
+				{
+					"name": "UnlimitedBeetWorks",
+					"owner": "volodymyr",
+					"private": false,
+					"directory": false,
+					"location": "~/notes",
+					"content": "I am the shaft of my hoe. Dirt is my body and water is my blood. I have farmed over a thousand beets. Unaware of loss, nor aware of gain. Withstood pain to farm beets, waiting for each growth. I have no regrets. This is the only path. My whole life was unlimited beets farming."
 				}
 			]
 		},
 		{
-			"name": "comp3",
+			"name": "zoethegreat",
 			"owner": "zoe",
 			"files": [
 				{
-					"name": "documents",
-					"owner": "zuckerburg",
+					"name": "emails",
+					"owner": "zoe",
 					"private": false,
 					"directory": true,
 					"location": "~"
 				},
 				{
-					"name": "EmployeeList",
-					"owner": "zuckerburg",
+					"name": "PasswordChange",
+					"owner": "zoe",
 					"private": true,
 					"directory": false,
-					"location": "~/documents",
-					"content": "FORMAT: Employee name/username/password \nAngela/angela/beetlover\tKevin"
+					"location": "~/emails",
+					"content": "Zoe,\nIt has come to my attention through the boss that your current password violates several clauses of your employee contract. Please change your password by the end of today or we will be forced to take stricter actions.\nHarold"
+				},
+				{
+					"name": "TheBoss",
+					"owner": "zoe",
+					"private": true,
+					"directory": false,
+					"location": "~/emails",
+					"content": "August 10th:\nI'm sure everybody has heard something regarding this, but I'm not sure that our boss is.... really what he claims to be...."
+				},
+				{
+					"name": "TheBossPT2",
+					"owner": "zoe",
+					"private": true,
+					"directory": false,
+					"location": "~/emails",
+					"content": "August 21st:\nGuys, after the last round of interviews and pictures, I'm almost sure of it now! I don't think Zuckerberg is human! The proof is in the pudding!"
+				},
+				{
+					"name": "notes",
+					"owner": "zoe",
+					"private": false,
+					"directory": true,
+					"location": "~"
 				},
 				{
 					"name": "Nov23th",
-					"owner": "oliver",
+					"owner": "zoe",
 					"private": false,
 					"directory": false,
-					"location": "~/diaries",
-					"content": "Urgh, Wendy avoided me again, even though she said that I has such a cool last name. The Math teacher spelled my last name wrong again, how dare him, I will get back to him later when I get my new Christmas present."
+					"location": "~/notes",
+					"content": "ARRGGHH **** WHO DO THESE GUYS THINK THEY ARE?! GODD**N ***LICKER, YOU WANT A PASSWORD CHANGE, YOU CAN HAVE ONE YOU STUPID LEETSPEAKER!"
 				}
 			]
 		}
@@ -211,27 +352,27 @@
 		},
 		{
 			"name": "kevin",
-			"password": "jerma985"
+			"password": "12345"
 		},
 		{
 			"name": "oscar",
-			"password": "Nguyen"
+			"password": "angela"
 		},
 		{
 			"name": "zuckerberg",
 			"password": "metaverse"
 		},
 		{
-			"name": "john",
-			"password": "metaverse"
+			"name": "harold",
+			"password": "p4$$w0rd"
 		},
 		{
-			"name": "mark",
-			"password": "metaverse"
+			"name": "volodymyr",
+			"password": "farmville"
 		},
 		{
 			"name": "zoe",
-			"password": "metaverse"
+			"password": "mommy69420er"
 		}
 	],
 	"networks": [
@@ -241,9 +382,9 @@
 				"thisiskevin",
 				"oscarroxster",
 				"compserver",
-				"comp1",
-				"comp2",
-				"comp3"
+				"itguy",
+				"farmerv",
+				"zoethegreat"
 
 			]
 		}

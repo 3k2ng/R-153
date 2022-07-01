@@ -93,7 +93,6 @@ func _random_change():
 		if $random_timer.time_left < 0.1:
 			$random_timer.stop()
 			var num = stepify(rng.randf_range(0,100), 1)
-			print(num)
 			if num >= 1 && num <= 15:
 				state = State.Idle
 				finding_computer = false
@@ -179,7 +178,7 @@ func _move_velocity():
 	if state == State.Chasing || alert == Alert.Caution:
 		velocity.x = direction * 70
 	elif state == State.Patrolling:
-		velocity.x = direction * 30
+		velocity.x = direction * 20
 	# If the NPC is in a stationary state
 	if state == State.Idle || state == State.Computing || state == State.Dead:
 		velocity.x = 0

@@ -31,10 +31,15 @@ func _physics_process(_delta):
 func _on_Computer_body_entered(body):
 	if body.is_in_group("player"):
 		player_access = true
+		if destroyed == false:
+			$Hack.set_visible(true)
+		else:
+			$Hack.set_visible(false)
 
 func _on_Computer_body_exited(body):
 	if body.is_in_group("player"):
 		player_access = false
+		$Hack.set_visible(false)
 
 func _input(event):
 	if event.is_action_released("Hack") and player_access and not player_hacking:
@@ -76,7 +81,8 @@ func die(target_system):
 	if target_system == self.system_name and not destroyed:
 		$AnimationPlayer.play("explode")
 		yield(get_node("AnimationPlayer"), "animation_finished")
-		Sounds.computer_explode.play()				
+		Sounds.computer_explode.play()
+		NetworkManager.delete_system(system_name)
 
 
 func _on_ExplosionRadius_body_entered(body):

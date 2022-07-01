@@ -1,0 +1,245 @@
+{
+    "systems": [
+		{
+			"name": "alexcomp",
+			"owner": "alex",
+			"files": [
+				{
+					"name": "diary",
+					"owner": "alex",
+					"private": false,
+					"directory": true,
+					"location": "~"
+				},
+				{
+					"name": "rant",
+					"owner": "alex",
+					"private": false,
+					"directory": false,
+					"location": "~/diary",
+					"content": "Why do they keep annoying and pressuring me to use blockchain? Its really annoying! Are they even aware of how inefficient they are, how there’s poor scalability, and how insecure they are? They keep pushing me to use it as if it will help me organize everything when it would do quite the opposite."
+				},
+				{
+					"name": "plan",
+					"owner": "alex",
+					"private": false,
+					"directory": false,
+					"location": "~/diary",
+					"content": "I’m going to create a virus in the form of adware to gather confidential information about other people hehehe. This virus will be a simple text message asking the user about their car warranty information. The virus will be implemented as soon as there a reply, regardless of what the reply is."
+				},
+				{
+					"name": "mistake",
+					"owner": "alex",
+					"private": false,
+					"directory": false,
+					"location": "~/diary",
+					"content": "Oh no... I accidentally sent the adware to Steve. I hope he doesn’t figure out it was me. I’m going to get out of here while I still can"
+				}
+			]
+		},
+		{
+			"name": "samcomp",
+			"owner": "sam",
+			"files": [
+				{
+					"name": "passhint",
+					"owner": "sam",
+					"private": false,
+					"directory": false,
+					"location": "~",
+					"content": "Your favourite food is cheese pizza with chicken and ___"
+				},
+				{
+					"name": "otp",
+					"owner": "sam",
+					"private": true,
+					"directory": false,
+					"location": "~",
+					"content": "I remember Jane telling me that she is going to send a message via one-time pad. I don’t know why she’s sending me a message. Maybe its super important and doesn’t want anyone else to know? She told me she’s going to send the cyphertext in ascii and I would need to translate it to binary. I think she told me the key is either all 1s or 0s but I don’t remember."
+				},
+				{
+					"name": "messages",
+					"owner": "sam",
+					"private": false,
+					"directory": false,
+					"location": "~",
+					"content": "INCOMING: 9E939A87DF968CDF8C8A8C\nFrom Jane"
+				}
+			]
+		},
+		{
+			"name": "janecomp",
+			"owner": "jane",
+			"files": [
+				{
+					"name": "passhint",
+					"owner": "jane",
+					"private": false,
+					"directory": false,
+					"location": "~",
+					"content": "Notoriously hated architecture in Calgary (debatable)"
+				},
+				{
+					"name": "otpmessage",
+					"owner": "jane",
+					"private": true,
+					"directory": false,
+					"location": "~",
+					"content": "Original: 01100001 01101100 01100101 01111000 00100000 01101001 01110011 00100000 01110011 01110101 01110011\nKey: 11111111...11111111\nCiphertext: 10011110 10010011 10011010 10000111 11011111 10010110 10001100 11011111 10001100 10001010 10001100\nCiphertexthex: 9E 93 9A 87 DF 96 8C DF 8C 8A 8C"
+				},
+				{
+					"name": "messages",
+					"owner": "jane",
+					"private": false,
+					"directory": true,
+					"location": "~"
+				},
+				{
+					"name": "1805",
+					"owner": "jane",
+					"private": false,
+					"directory": false,
+					"location": "~/messages",
+					"content": "OUTGOING: 9E939A87DF968CDF8C8A8C\nTo Steve"
+				},
+				{
+					"name": "diary",
+					"owner": "jane",
+					"private": true,
+					"directory": true,
+					"location": "~"
+				},
+				{
+					"name": "alex",
+					"owner": "jane",
+					"private": true,
+					"directory": false,
+					"location": "~/diary",
+					"content": "Alex has been acting a little weird lately. I remember him telling me about how some company wants him to implement blockchains to his work. Alex constantly reminds me of how much he hates blockchains. He told me he was going to find a way to get rid of those annoyances, whatever that means :/"
+				}
+			]
+		},
+		{
+			"name": "stevecomp",
+			"owner": "steve",
+			"files": [
+				{
+					"name": "random",
+					"owner": "steve",
+					"private": false,
+					"directory": true,
+					"location": "~"
+				},
+				{
+					"name": "file",
+					"owner": "steve",
+					"private": false,
+					"directory": false,
+					"location": "~/random",
+					"content": "746869730A69730A610A7669727573\n72657472696576650A64617461\n67656E6572617465640A696E0A6F746865720A7063"
+				},
+				{
+					"name": "notes",
+					"owner": "steve",
+					"private": false,
+					"directory": true,
+					"location": "~"
+				},
+				{
+					"name": "1804",
+					"owner": "steve",
+					"private": false,
+					"directory": false,
+					"location": "~/notes",
+					"content": "I think I’ve been scammed and I don’t know what to do. For some reason I can’t call, or send messages or receive messages anymore."
+				},
+				{
+					"name": "messages",
+					"owner": "steve",
+					"private": false,
+					"directory": true,
+					"location": "~"
+				},
+				{
+					"name": "1750",
+					"owner": "steve",
+					"private": false,
+					"directory": false,
+					"location": "~/messages",
+					"content": "INCOMING: We’ve been trying two reach you about you’re cars extended warranty. For more infromation, rply INFO\nFrom carwarante\nOUTGOING: CANCEL\nTo carwarante"
+				}
+			]
+		},
+		{
+			"name": "scamcomp",
+			"owner": "scam",
+			"files": [
+				{
+					"name": "stevedata",
+					"owner": "scam",
+					"private": false,
+					"directory": false,
+					"location": "~",
+					"content": "6E616D653A 7374657665\n646F623A 4E6F7632303032\n70737772643A 4E6F763230"
+				},
+				{
+					"name": "samdata",
+					"owner": "scam",
+					"private": false,
+					"directory": false,
+					"location": "~",
+					"content": "null"
+				},
+				{
+					"name": "janedata",
+					"owner": "scam",
+					"private": false,
+					"directory": false,
+					"location": "~",
+					"content": "null"
+				},
+				{
+					"name": "alexdata",
+					"owner": "scam",
+					"private": false,
+					"directory": false,
+					"location": "~",
+					"content": "61646D696E"
+				}
+			]
+		}
+	],
+    "users": [
+		{
+			"name": "alex",
+			"password": "ih8blockchains"
+		},
+		{
+			"name": "sam",
+			"password": "0l1ve5"
+		},
+		{
+			"name": "jane",
+			"password": "bluering"
+		},
+		{
+			"name": "steve",
+			"password": "nov20"
+		},
+		{
+			"name": "scam",
+			"password": "alex"
+		}
+	],
+	"networks": [
+		{
+			"systems": [
+				"alexcomp",
+				"samcomp",
+				"janecomp",
+				"stevecomp",
+				"scamcomp"
+			]
+		}
+	]
+}

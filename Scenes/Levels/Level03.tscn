@@ -17,6 +17,7 @@
 [ext_resource path="res://Scenes/Start Screen/Level Complete Screen/Level Complete Screen.tscn" type="PackedScene" id=15]
 
 [node name="Level 3" type="Node2D"]
+position = Vector2( 0, -1 )
 
 [node name="Background" type="Sprite" parent="."]
 scale = Vector2( 30, 30 )
@@ -71,89 +72,83 @@ color = Color( 1, 0.745098, 0.745098, 1 )
 [node name="Objects" type="Node" parent="."]
 
 [node name="Green Plant" parent="Objects" instance=ExtResource( 5 )]
-position = Vector2( 105, 71 )
+position = Vector2( 105, 70 )
 
 [node name="Green Plant2" parent="Objects" instance=ExtResource( 5 )]
-position = Vector2( 103, 167 )
+position = Vector2( 103, 166 )
 
 [node name="Green Plant3" parent="Objects" instance=ExtResource( 5 )]
-position = Vector2( -280, -57 )
+position = Vector2( -280, -58 )
 
 [node name="Green Plant4" parent="Objects" instance=ExtResource( 5 )]
-position = Vector2( -27, -57 )
+position = Vector2( -27, -58 )
 
 [node name="Green Plant5" parent="Objects" instance=ExtResource( 5 )]
-position = Vector2( -397, 136 )
+position = Vector2( -397, 134 )
 
 [node name="Green Plant6" parent="Objects" instance=ExtResource( 5 )]
-position = Vector2( 1, 167 )
+position = Vector2( 1, 166 )
 
 [node name="Flower" parent="Objects" instance=ExtResource( 11 )]
-position = Vector2( -105, 71 )
+position = Vector2( -105, 70 )
 
 [node name="Flower2" parent="Objects" instance=ExtResource( 11 )]
-position = Vector2( -146, -56 )
+position = Vector2( -146, -58 )
 
 [node name="Flower3" parent="Objects" instance=ExtResource( 11 )]
-position = Vector2( 105, -25 )
+position = Vector2( 105, -26 )
 
 [node name="Flower4" parent="Objects" instance=ExtResource( 11 )]
-position = Vector2( 194, 73 )
+position = Vector2( 194, 70 )
 
 [node name="Flower5" parent="Objects" instance=ExtResource( 11 )]
-position = Vector2( -391, -57 )
+position = Vector2( -391, -58 )
 
 [node name="Cactus" parent="Objects" instance=ExtResource( 9 )]
-position = Vector2( -202, 71 )
+position = Vector2( -202, 70 )
 
 [node name="Cactus2" parent="Objects" instance=ExtResource( 9 )]
-position = Vector2( 227, 167 )
+position = Vector2( 224, 166 )
 
 [node name="Cactus3" parent="Objects" instance=ExtResource( 9 )]
-position = Vector2( 223, -25 )
+position = Vector2( 223, -26 )
 
 [node name="Cactus4" parent="Objects" instance=ExtResource( 9 )]
-position = Vector2( -297, 135 )
+position = Vector2( -297, 134 )
 
 [node name="NPCs" type="Node" parent="."]
 
 [node name="NPC" parent="NPCs" instance=ExtResource( 7 )]
-visible = false
 position = Vector2( -129, 74 )
 direction = 1
 dead = false
 state = 2
 
 [node name="NPC3" parent="NPCs" instance=ExtResource( 7 )]
-visible = false
 position = Vector2( -312, 133 )
 direction = 1
 dead = false
 state = 2
 
 [node name="NPC4" parent="NPCs" instance=ExtResource( 7 )]
-visible = false
 position = Vector2( -318, -49 )
 direction = 1
 dead = false
 state = 2
 
 [node name="NPC5" parent="NPCs" instance=ExtResource( 7 )]
-visible = false
 position = Vector2( 156, -18 )
 direction = 1
 dead = false
 state = 2
 
 [node name="NPC6" parent="NPCs" instance=ExtResource( 7 )]
-visible = false
 position = Vector2( -54, -51 )
 direction = 1
 dead = false
 state = 2
 
 [node name="NPC7" parent="NPCs" instance=ExtResource( 7 )]
-visible = false
 position = Vector2( 173, 174 )
 direction = 1
 dead = false
@@ -162,39 +157,32 @@ state = 2
 [node name="Computers" type="Node" parent="."]
 
 [node name="Computer" parent="Computers" instance=ExtResource( 8 )]
-position = Vector2( 129, 80 )
+position = Vector2( 136, 79 )
 system_name = "angelcompy"
-destroyed = null
 
 [node name="Computer2" parent="Computers" instance=ExtResource( 8 )]
-position = Vector2( -128, 80 )
-system_name = "comp1"
-destroyed = null
+position = Vector2( -134, 79 )
+system_name = "zoethegreat"
 
 [node name="Computer3" parent="Computers" instance=ExtResource( 8 )]
-position = Vector2( 126, 176 )
+position = Vector2( 154, 175 )
 system_name = "compserver"
-destroyed = null
 
 [node name="Computer4" parent="Computers" instance=ExtResource( 8 )]
-position = Vector2( 131, -16 )
+position = Vector2( 131, -17 )
 system_name = "thisiskevin"
-destroyed = null
 
 [node name="Computer5" parent="Computers" instance=ExtResource( 8 )]
-position = Vector2( -54, -48 )
+position = Vector2( -54, -49 )
 system_name = "oscarroxster"
-destroyed = null
 
 [node name="Computer6" parent="Computers" instance=ExtResource( 8 )]
-position = Vector2( -318, -48 )
-system_name = "comp2"
-destroyed = null
+position = Vector2( -318, -49 )
+system_name = "farmerv"
 
 [node name="Computer7" parent="Computers" instance=ExtResource( 8 )]
-position = Vector2( -313, 144 )
-system_name = "comp3"
-destroyed = null
+position = Vector2( -324, 143 )
+system_name = "itguy"
 
 [node name="PauseMenu" parent="." groups=["pause_menu"] instance=ExtResource( 6 )]
 transition_rect_path = NodePath("../SceneTransitionRect")
