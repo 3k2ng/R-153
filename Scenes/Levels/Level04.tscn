@@ -64,7 +64,7 @@ system_name = "samcomp"
 
 [node name="Computer2" parent="Computers" instance=ExtResource( 9 )]
 position = Vector2( 224, 96 )
-system_name = "scammer"
+system_name = "scamcomp"
 
 [node name="Computer3" parent="Computers" instance=ExtResource( 9 )]
 position = Vector2( 217, 192 )
@@ -135,6 +135,7 @@ transition_rect_path = NodePath("../SceneTransitionRect")
 [node name="Terminal" parent="." groups=["game_end_screens", "pause_menu"] instance=ExtResource( 2 )]
 
 [node name="ResourceGen" parent="." instance=ExtResource( 5 )]
+data_path = "res://Scenes/Levels/level04.json"
 
 [node name="Level Complete Screen" parent="." instance=ExtResource( 15 )]
 transition_rect_path = NodePath("../SceneTransitionRect")
