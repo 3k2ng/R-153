@@ -51,3 +51,5 @@ func _process(_delta):
 	NetworkManager.users = users
 	queue_free()
 
+	BodyCheck.reset()
+
