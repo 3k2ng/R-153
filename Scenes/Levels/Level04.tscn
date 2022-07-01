@@ -60,18 +60,23 @@ color = Color( 1, 0.745098, 0.745098, 1 )
 
 [node name="Computer" parent="Computers" instance=ExtResource( 9 )]
 position = Vector2( -127, 96 )
+system_name = "samcomp"
 
 [node name="Computer2" parent="Computers" instance=ExtResource( 9 )]
 position = Vector2( 224, 96 )
+system_name = "scammer"
 
 [node name="Computer3" parent="Computers" instance=ExtResource( 9 )]
 position = Vector2( 217, 192 )
+system_name = "alexcomp"
 
 [node name="Computer4" parent="Computers" instance=ExtResource( 9 )]
 position = Vector2( -203, 0 )
+system_name = "janecomp"
 
 [node name="Computer5" parent="Computers" instance=ExtResource( 9 )]
 position = Vector2( -324, 144 )
+system_name = "stevecomp"
 
 [node name="Objects" type="Node" parent="."]
 
