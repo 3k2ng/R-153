@@ -155,7 +155,7 @@ transition_rect_path = NodePath("../SceneTransitionRect")
 [node name="Terminal" parent="." groups=["pause_menu"] instance=ExtResource( 14 )]
 
 [node name="ResourceGen" parent="." instance=ExtResource( 12 )]
-data_path = "res://Scenes/Levels/tutorial.json"
+data_path = "res://Scenes/Levels/level02.json"
 
 [node name="GameOverScreen" parent="." groups=["game_end_screens"] instance=ExtResource( 13 )]
 transition_rect_path = NodePath("../SceneTransitionRect")
