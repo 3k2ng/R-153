@@ -36,7 +36,7 @@ func unlock_next_level() -> void:
 		levels_status.append(int(status))
 	levels_status[1] = 1
 	levels_save_file.close()
-	
+
 	var save_file := File.new()
 	save_file.open("res://Saves/levels.SAVE", File.WRITE)
 #	print(str(levels_status).replace("[", "").replace("]", ""))

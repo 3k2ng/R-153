@@ -9,7 +9,6 @@ func _ready() -> void:
 	var levels = _row1.get_children()
 	levels.append_array(_row2.get_children())
 	
-	print(levels_locked_status)
 	var i = 0
 	for level in levels:
 		level.locked = not bool(levels_locked_status[i])

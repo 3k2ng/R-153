@@ -65,8 +65,25 @@ enabled_focus_mode = 0
 text = "< back"
 flat = true
 
+[node name="Reset Level Progress" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -217.0
+margin_top = 39.0
+margin_right = 217.0
+margin_bottom = 112.0
+focus_mode = 0
+theme = SubResource( 4 )
+enabled_focus_mode = 0
+text = "Reset Level Progress"
+flat = true
+
 [node name="SceneTransitionRect" parent="." instance=ExtResource( 8 )]
 next_scene_path = "res://Scenes/Start Screen/Main Screen/StartScreen.tscn"
 
 [connection signal="mouse_entered" from="Back Button" to="." method="_on_Back_Button_hovered"]
 [connection signal="pressed" from="Back Button" to="." method="_on_Back_Button_pressed"]
+[connection signal="mouse_entered" from="Reset Level Progress" to="." method="_on_Back_Button_hovered"]
+[connection signal="pressed" from="Reset Level Progress" to="." method="_on_Erase_Saved_Data_pressed"]
