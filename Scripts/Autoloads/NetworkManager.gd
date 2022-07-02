@@ -12,6 +12,12 @@ func list_ssh(system_name):
 					systems.append(other_system)
 	return systems
 
+func has_system(system_name):
+	for system in get_tree().get_nodes_in_group("file_system"):
+		if system.system_name == system_name:
+			return true
+	return false
+
 func get_system(system_name):
 	for system in get_tree().get_nodes_in_group("file_system"):
 		if system.system_name == system_name:
@@ -27,7 +33,16 @@ func get_user(user_name):
 		if user.user_name == user_name:
 			return user
 
+func has_user(user_name):
+	for user in users:
+		if user.user_name == user_name:
+			return true
+	return false
+
 func delete_system(system_name):
 	for network in networks:
 		if system_name in network:
 			network.erase(system_name)
+	for system in get_tree().get_nodes_in_group("file_system"):
+		if system.system_name == system_name:
+			system.queue_free()

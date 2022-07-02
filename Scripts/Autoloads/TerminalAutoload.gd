@@ -171,14 +171,14 @@ func command_ssh(args):
 			return
 		current_user = NetworkManager.get_user(addresses[0])
 		remote_system = NetworkManager.get_system(addresses[1])
-		if remote_system and current_user:
+		if NetworkManager.has_system(addresses[0]) and NetworkManager.has_system(addresses[1]):
 			if current_user.user_password != "":
 				access = AccessState.PASSWORD
 				print_console("please enter password for %s" % current_user.user_name)
 			else:
 				access = AccessState.USER
 				setup_system()
-		elif current_user:
+		elif NetworkManager.has_system(addresses[0]):
 			print_console("cannot connect to system: system not available")
 		else:
 			print_console("cannot connect to system: user not available")
